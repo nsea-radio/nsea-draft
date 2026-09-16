@@ -181,6 +181,27 @@
   }
   .leaflet-popup-content b { color: var(--amber); }
 
+  /* Map legend */
+  .map-legend {
+    display: flex; flex-wrap: wrap; gap: 10px 22px;
+    margin-top: 16px; padding: 16px 18px;
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+  }
+  .map-legend .item { display: flex; align-items: center; gap: 9px; font-size: 0.9rem; }
+  .map-legend .swatch {
+    width: 26px; height: 14px; border-radius: 3px; flex: none;
+    position: relative;
+  }
+  .map-legend .swatch .pin {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 9px; height: 9px; border-radius: 50%;
+    border: 2px solid #0d1b2a;
+  }
+  .map-legend .label { color: var(--text); font-weight: 600; }
+  .map-legend .sub { color: var(--muted); font-weight: 400; }
+  .map-legend .divider { width: 1px; background: var(--border); align-self: stretch; }
+  .legend-hint { color: var(--muted); font-size: 0.82rem; margin-top: 10px; font-style: italic; }
+
   /* Net priorities */
   .priority { border-left: 4px solid var(--amber); padding-left: 18px; margin-top: 22px; }
   .priority h4 {
@@ -336,6 +357,15 @@
       </div>
     </div>
     <div id="rptr-map"></div>
+    <div class="map-legend">
+      <div class="item"><span class="swatch" style="background: rgba(245,166,35,0.16); border: 1.5px dashed #f5a623;"><span class="pin" style="background: #f5a623;"></span></span><span><span class="label">.675 Heritage</span> <span class="sub">&middot; ~35 mi</span></span></div>
+      <div class="item"><span class="swatch" style="background: rgba(46,196,214,0.16); border: 1.5px dashed #2ec4d6;"><span class="pin" style="background: #2ec4d6;"></span></span><span><span class="label">.650 System</span> <span class="sub">&middot; ~35 mi</span></span></div>
+      <div class="item"><span class="swatch" style="background: rgba(87,201,138,0.16); border: 1.5px dashed #57c98a;"><span class="pin" style="background: #57c98a;"></span></span><span><span class="label">.700 System</span> <span class="sub">&middot; ~15 mi</span></span></div>
+      <div class="item"><span class="swatch" style="background: rgba(185,142,232,0.16); border: 1.5px dashed #b98ee8;"><span class="pin" style="background: #b98ee8;"></span></span><span><span class="label">.725 Evanston</span> <span class="sub">&middot; cooperating, ~20 mi</span></span></div>
+      <div class="divider"></div>
+      <div class="item"><span class="swatch" style="background: none; border: none;"><span class="pin" style="background: #e8eef4; border-color: #0d1b2a; border-radius: 2px;"></span></span><span><span class="label">Meeting location</span></span></div>
+    </div>
+    <p class="legend-hint">Solid dot = approximate repeater site &middot; dashed ring = approximate coverage area &middot; square = meeting location. Click any marker for details.</p>
     <p class="map-note">Repeater positions shown are approximate service areas — exact site locations are not published. Contact <a href="mailto:membership@nsea.com">membership@nsea.com</a> for access and coverage details.</p>
   </div>
 </section>
@@ -542,27 +572,35 @@
     maxZoom: 16, pane: 'shadowPane'
   }).addTo(map);
 
-  const amber = '#f5a623';
   const MI = 1609.34;
   const circles = [];
-  const mkRepeater = (lat, lng, label, radiusMi) => {
+
+  // Per-system colors so overlapping coverage rings stay readable.
+  // Rings are dashed + low-opacity; site dots are solid with a dark outline.
+  const mkRepeater = (lat, lng, label, radiusMi, color) => {
     circles.push(L.circle([lat, lng], {
-      radius: radiusMi * MI, color: amber, weight: 1.5,
-      fillColor: amber, fillOpacity: 0.07
+      radius: radiusMi * MI,
+      color: color, weight: 2, dashArray: '6 5',
+      fillColor: color, fillOpacity: 0.07
     }).addTo(map));
     L.circleMarker([lat, lng], {
-      radius: 7, color: amber, weight: 2, fillColor: amber, fillOpacity: 0.9
+      radius: 7, color: '#0d1b2a', weight: 2.5,
+      fillColor: color, fillOpacity: 1
     }).addTo(map).bindPopup(label);
   };
 
-  mkRepeater(42.0384, -87.8485, '<b>Heritage .675 \u00b7 Primary</b><br>RX 462.675 / TX 467.675 MHz \u00b7 PL 141.3<br>~35 mi range', 35);
-  mkRepeater(42.1056, -87.8137, '<b>.650 System</b><br>RX 462.650 / TX 467.650 MHz<br>~35 mi range', 35);
-  mkRepeater(42.0669, -87.6908, '<b>.700 System</b><br>RX 462.700 / TX 467.700 MHz<br>~15 mi range', 15);
-  mkRepeater(42.0502, -87.6856, '<b>Evanston .725 \u00b7 Cooperating</b><br>RX 462.725 / TX 467.725 MHz<br>~20 mi range', 20);
+  mkRepeater(42.0384, -87.8485, '<b>Heritage .675 \u00b7 Primary</b><br>RX 462.675 / TX 467.675 MHz \u00b7 PL 141.3<br>~35 mi range', 35, '#f5a623');
+  mkRepeater(42.1056, -87.8137, '<b>.650 System</b><br>RX 462.650 / TX 467.650 MHz<br>~35 mi range', 35, '#2ec4d6');
+  mkRepeater(42.0669, -87.6908, '<b>.700 System</b><br>RX 462.700 / TX 467.700 MHz<br>~15 mi range', 15, '#57c98a');
+  mkRepeater(42.0502, -87.6856, '<b>Evanston .725 \u00b7 Cooperating</b><br>RX 462.725 / TX 467.725 MHz<br>~20 mi range', 20, '#b98ee8');
 
-  // Meeting location (public address)
-  L.circleMarker([42.1385, -87.7992], {
-    radius: 7, color: '#e8eef4', weight: 2, fillColor: '#e8eef4', fillOpacity: 0.9
+  // Meeting location (public address) \u2014 square marker, no coverage ring
+  L.marker([42.1385, -87.7992], {
+    icon: L.divIcon({
+      className: '',
+      html: '<div style="width:13px;height:13px;background:#e8eef4;border:2.5px solid #0d1b2a;border-radius:3px;box-shadow:0 0 0 1px rgba(232,238,244,0.5);"></div>',
+      iconSize: [13, 13], iconAnchor: [6.5, 6.5]
+    })
   }).addTo(map).bindPopup('<b>Bi-Monthly Meetings</b><br>Northbrook Fire Dept. Station #11<br>740 Dundee Road, Northbrook, IL');
 
   map.fitBounds(L.featureGroup(circles).getBounds(), { padding: [16, 16] });
