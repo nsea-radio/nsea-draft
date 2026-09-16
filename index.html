@@ -217,6 +217,24 @@
     font-size: 1.1rem; margin-bottom: 8px;
   }
   footer p { margin-top: 4px; }
+
+  /* Forms */
+  form.app-form { margin-top: 32px; max-width: 640px; }
+  .form-row { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 18px; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field.full { grid-column: 1 / -1; }
+  .field label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .field label .req { color: var(--amber); }
+  .field input, .field select, .field textarea {
+    background: var(--navy-2); border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px 14px; color: var(--text); font-family: 'Barlow', sans-serif; font-size: 0.98rem;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--amber); }
+  .field textarea { resize: vertical; min-height: 110px; }
+  .form-note { color: var(--muted); font-size: 0.85rem; margin-top: 14px; }
+  .form-divider { display: flex; align-items: center; gap: 14px; margin: 30px 0; color: var(--muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; max-width: 640px; }
+  .form-divider::before, .form-divider::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+  .hp-field { position: absolute; left: -9999px; top: -9999px; opacity: 0; height: 0; width: 0; }
 </style>
 </head>
 <body>
@@ -387,9 +405,58 @@
   <div class="container">
     <div class="section-label">Get Involved</div>
     <h2>Membership &amp; Repeater Access</h2>
-    <p class="lead">GMRS licensees: to request permission to use the NSEA and cooperating repeaters, or to apply for NSEA membership, download and complete the Information Request Form and send it to <a href="mailto:membership@nsea.com">Membership@NSEA.com</a>.</p>
+    <p class="lead">GMRS licensees: request permission to use the NSEA and cooperating repeaters, or apply for NSEA membership, using the form below. It goes straight to <b>membership@nsea.com</b> — no email client required.</p>
+
+    <form class="app-form" action="https://formsubmit.co/membership@nsea.com" method="POST">
+      <input type="hidden" name="_subject" value="NSEA Membership / Repeater Access Request">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://nsea-radio.github.io/nsea-draft/thanks.html">
+      <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off">
+
+      <div class="form-row">
+        <div class="field">
+          <label for="m-name">Full Name <span class="req">*</span></label>
+          <input id="m-name" type="text" name="Name" required>
+        </div>
+        <div class="field">
+          <label for="m-callsign">GMRS/Amateur Callsign</label>
+          <input id="m-callsign" type="text" name="Callsign">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="m-email">Email <span class="req">*</span></label>
+          <input id="m-email" type="email" name="Email" required>
+        </div>
+        <div class="field">
+          <label for="m-phone">Phone</label>
+          <input id="m-phone" type="tel" name="Phone">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field full">
+          <label for="m-interest">Requesting <span class="req">*</span></label>
+          <select id="m-interest" name="Requesting" required>
+            <option value="">Select one…</option>
+            <option>NSEA Membership</option>
+            <option>Repeater access permission (.675 / .650 / .700)</option>
+            <option>Repeater access permission (.725 Evanston)</option>
+            <option>Membership + repeater access</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field full">
+          <label for="m-message">Message</label>
+          <textarea id="m-message" name="Message" placeholder="Tell us about your GMRS license, equipment, and how you'd like to participate."></textarea>
+        </div>
+      </div>
+      <button class="btn btn-primary" type="submit">Submit Application</button>
+    </form>
+
+    <div class="form-divider">or</div>
     <div class="hero-ctas" style="justify-content: flex-start;">
-      <a class="btn btn-primary" href="http://www.nsea.com/260530%20NSEA%20Application.pdf">Download Application (PDF)</a>
+      <a class="btn btn-ghost" href="http://www.nsea.com/260530%20NSEA%20Application.pdf">Download Paper Application (PDF)</a>
       <a class="btn btn-ghost" href="mailto:membership@nsea.com">Email membership@nsea.com</a>
     </div>
   </div>
@@ -399,11 +466,41 @@
   <div class="container">
     <div class="section-label">Reach Us</div>
     <h2>Contact</h2>
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>General</h3>
-        <p><a href="mailto:membership@nsea.com">membership@nsea.com</a></p>
+    <p class="lead">General questions, feedback, or anything not repeater-specific — use the form below to reach <b>membership@nsea.com</b> directly.</p>
+
+    <form class="app-form" action="https://formsubmit.co/membership@nsea.com" method="POST">
+      <input type="hidden" name="_subject" value="NSEA Website Contact Form">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://nsea-radio.github.io/nsea-draft/thanks.html">
+      <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off">
+
+      <div class="form-row">
+        <div class="field">
+          <label for="c-name">Name <span class="req">*</span></label>
+          <input id="c-name" type="text" name="Name" required>
+        </div>
+        <div class="field">
+          <label for="c-email">Email <span class="req">*</span></label>
+          <input id="c-email" type="email" name="Email" required>
+        </div>
       </div>
+      <div class="form-row">
+        <div class="field full">
+          <label for="c-subject">Subject</label>
+          <input id="c-subject" type="text" name="Subject">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field full">
+          <label for="c-message">Message <span class="req">*</span></label>
+          <textarea id="c-message" name="Message" required></textarea>
+        </div>
+      </div>
+      <button class="btn btn-primary" type="submit">Send Message</button>
+    </form>
+
+    <p class="form-note">For repeater-specific technical questions, reach the system owners directly:</p>
+    <div class="grid grid-2" style="margin-top: 16px;">
       <div class="card">
         <h3>.650 / .675 / .700 Repeaters</h3>
         <p>Marc, Unit #522<br><a href="mailto:marcdrazin@gmail.com">marcdrazin@gmail.com</a></p>
