@@ -9,10 +9,27 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('nsea-theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  })();
+</script>
 <style>
-  :root {
+  :root, html[data-theme="dark"] {
     --navy: #0d1b2a; --amber: #f5a623; --text: #e8eef4; --muted: #9db2c4;
     --card: #16304a; --border: rgba(157, 178, 196, 0.18);
+    --btn-fg: #0d1b2a; --btn-hover: #ffb63a;
+  }
+  html[data-theme="light"] {
+    --navy: #f4f7fa; --amber: #a65f00; --text: #0f2133; --muted: #4c6379;
+    --card: #ffffff; --border: rgba(15, 33, 51, 0.14);
+    --btn-fg: #ffffff; --btn-hover: #8a4f00;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -34,10 +51,10 @@
   p { color: var(--muted); font-size: 1.05rem; line-height: 1.6; }
   .btn {
     display: inline-block; margin-top: 28px; padding: 12px 26px;
-    background: var(--amber); color: var(--navy); font-weight: 700;
+    background: var(--amber); color: var(--btn-fg); font-weight: 700;
     border-radius: 8px; letter-spacing: 0.02em;
   }
-  .btn:hover { text-decoration: none; background: #ffb63a; }
+  .btn:hover { text-decoration: none; background: var(--btn-hover); }
 </style>
 </head>
 <body>
