@@ -194,8 +194,8 @@
   }
   .map-legend .swatch .pin {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    width: 9px; height: 9px; border-radius: 50%;
-    border: 2px solid #0d1b2a;
+    width: 10px; height: 10px; border-radius: 50%;
+    border: 2px solid #ffffff;
   }
   .map-legend .label { color: var(--text); font-weight: 600; }
   .map-legend .sub { color: var(--muted); font-weight: 400; }
@@ -363,7 +363,7 @@
       <div class="item"><span class="swatch" style="background: rgba(87,201,138,0.16); border: 1.5px dashed #57c98a;"><span class="pin" style="background: #57c98a;"></span></span><span><span class="label">.700 System</span> <span class="sub">&middot; ~15 mi</span></span></div>
       <div class="item"><span class="swatch" style="background: rgba(185,142,232,0.16); border: 1.5px dashed #b98ee8;"><span class="pin" style="background: #b98ee8;"></span></span><span><span class="label">.725 Evanston</span> <span class="sub">&middot; cooperating, ~20 mi</span></span></div>
       <div class="divider"></div>
-      <div class="item"><span class="swatch" style="background: none; border: none;"><span class="pin" style="background: #e8eef4; border-color: #0d1b2a; border-radius: 2px;"></span></span><span><span class="label">Meeting location</span></span></div>
+      <div class="item"><span class="swatch" style="background: none; border: none;"><span class="pin" style="background: #0d1b2a; border-color: #ffffff; border-radius: 2px;"></span></span><span><span class="label">Meeting location</span></span></div>
     </div>
     <p class="legend-hint">Solid dot = approximate repeater site &middot; dashed ring = approximate coverage area &middot; square = meeting location. Click any marker for details.</p>
     <p class="map-note">Repeater positions shown are approximate service areas — exact site locations are not published. Contact <a href="mailto:membership@nsea.com">membership@nsea.com</a> for access and coverage details.</p>
@@ -584,7 +584,7 @@
       fillColor: color, fillOpacity: 0.07
     }).addTo(map));
     L.circleMarker([lat, lng], {
-      radius: 7, color: '#0d1b2a', weight: 2.5,
+      radius: 8, color: '#ffffff', weight: 2.5,
       fillColor: color, fillOpacity: 1
     }).addTo(map).bindPopup(label);
   };
@@ -598,8 +598,8 @@
   L.marker([42.1385, -87.7992], {
     icon: L.divIcon({
       className: '',
-      html: '<div style="width:13px;height:13px;background:#e8eef4;border:2.5px solid #0d1b2a;border-radius:3px;box-shadow:0 0 0 1px rgba(232,238,244,0.5);"></div>',
-      iconSize: [13, 13], iconAnchor: [6.5, 6.5]
+      html: '<div style="width:14px;height:14px;background:#0d1b2a;border:2.5px solid #ffffff;border-radius:3px;"></div>',
+      iconSize: [14, 14], iconAnchor: [7, 7]
     })
   }).addTo(map).bindPopup('<b>Bi-Monthly Meetings</b><br>Northbrook Fire Dept. Station #11<br>740 Dundee Road, Northbrook, IL');
 
