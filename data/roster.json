@@ -1,0 +1,412 @@
+{
+  "updated": "2026-09-13",
+  "count": 58,
+  "members": [
+    {
+      "unit": "501",
+      "licensee": "Ron Schinleber",
+      "callsign": "WQQJ241",
+      "location": "Northbrook",
+      "tier": "regular"
+    },
+    {
+      "unit": "508",
+      "licensee": "Stan Matuszak",
+      "callsign": "WQPM887",
+      "location": "Buffalo Grove",
+      "tier": "regular"
+    },
+    {
+      "unit": "509",
+      "licensee": "Joe Hansen",
+      "callsign": "WSBS507",
+      "location": "Des Plaines",
+      "tier": "authorized"
+    },
+    {
+      "unit": "511",
+      "licensee": "Chuck Saunders",
+      "callsign": "KAD7216",
+      "location": "Skokie",
+      "tier": "regular"
+    },
+    {
+      "unit": "514",
+      "licensee": "Moe Taibleson",
+      "callsign": "WRDL342",
+      "location": "Palatine",
+      "tier": "regular"
+    },
+    {
+      "unit": "521",
+      "licensee": "Brian Drake",
+      "callsign": "WQPL694",
+      "location": "Glenview",
+      "tier": "regular"
+    },
+    {
+      "unit": "522",
+      "licensee": "Marc Drazin",
+      "callsign": "KAE2050",
+      "location": "Skokie",
+      "tier": "regular"
+    },
+    {
+      "unit": "523",
+      "licensee": "Nick Koltse",
+      "callsign": "WQIN442",
+      "location": "Kildeer",
+      "tier": "regular"
+    },
+    {
+      "unit": "524",
+      "licensee": "Charlie Drake",
+      "callsign": "WQPL694",
+      "location": "Glenview",
+      "tier": "regular"
+    },
+    {
+      "unit": "525",
+      "licensee": "Jeff Ptacek",
+      "callsign": "WSDC207",
+      "location": "Wheeling",
+      "tier": "authorized"
+    },
+    {
+      "unit": "529",
+      "licensee": "Josh Hamlett",
+      "callsign": "WRBR465",
+      "location": "Chicago",
+      "tier": "regular"
+    },
+    {
+      "unit": "534",
+      "licensee": "Debbie Knowles",
+      "callsign": "KAE8475",
+      "location": "Kenilworth",
+      "tier": "regular"
+    },
+    {
+      "unit": "535",
+      "licensee": "Jose Isasi",
+      "callsign": "WRXH614",
+      "location": "Wilmette",
+      "tier": "authorized"
+    },
+    {
+      "unit": "540",
+      "licensee": "Matthew Latin",
+      "callsign": "WSAG773",
+      "location": "Chicago",
+      "tier": "authorized"
+    },
+    {
+      "unit": "543",
+      "licensee": "Jim Hull",
+      "callsign": "WQPN232",
+      "location": "Brookfield",
+      "tier": "authorized"
+    },
+    {
+      "unit": "545",
+      "licensee": "Bob Schelhaus",
+      "callsign": "WQYJ689",
+      "location": "Highland Park",
+      "tier": "authorized"
+    },
+    {
+      "unit": "546",
+      "licensee": "Jim Graves",
+      "callsign": "WSCZ546",
+      "location": "Skokie",
+      "tier": "authorized"
+    },
+    {
+      "unit": "547",
+      "licensee": "Gary Edelman",
+      "callsign": "WQOR681",
+      "location": "Skokie",
+      "tier": "regular"
+    },
+    {
+      "unit": "548",
+      "licensee": "Dave Graver",
+      "callsign": "WQOK523",
+      "location": "Evanston",
+      "tier": "regular"
+    },
+    {
+      "unit": "550",
+      "licensee": "T.J. Seputis",
+      "callsign": "WSCZ570",
+      "location": "Arlington Heights",
+      "tier": "authorized"
+    },
+    {
+      "unit": "551",
+      "licensee": "Bruce Underwood",
+      "callsign": "WRBN551",
+      "location": "Skokie",
+      "tier": "authorized"
+    },
+    {
+      "unit": "555",
+      "licensee": "Ryan Lux",
+      "callsign": "WQHR752",
+      "location": "Northlake",
+      "tier": "authorized"
+    },
+    {
+      "unit": "556",
+      "licensee": "Steve Warnimont",
+      "callsign": "WRTN391",
+      "location": "Elk Grove Village",
+      "tier": "authorized"
+    },
+    {
+      "unit": "563",
+      "licensee": "Joel Kogen",
+      "callsign": "KAE6944",
+      "location": "Deerfield",
+      "tier": "regular"
+    },
+    {
+      "unit": "569",
+      "licensee": "Vincenzo Rajkovich",
+      "callsign": "WQQB254",
+      "location": "Elmwood Park",
+      "tier": "regular"
+    },
+    {
+      "unit": "573",
+      "licensee": "Wayne Buttermore",
+      "callsign": "WQZY273",
+      "location": "Northbrook",
+      "tier": "regular"
+    },
+    {
+      "unit": "574",
+      "licensee": "Pat Playfel",
+      "callsign": "WSKV574",
+      "location": "Skokie",
+      "tier": "authorized"
+    },
+    {
+      "unit": "575",
+      "licensee": "Mohammad Khiyani",
+      "callsign": "WSBQ221",
+      "location": "Skokie",
+      "tier": "regular"
+    },
+    {
+      "unit": "591",
+      "licensee": "Andy Bowe",
+      "callsign": "WRHW494",
+      "location": "Evanston",
+      "tier": "authorized"
+    },
+    {
+      "unit": "592",
+      "licensee": "Bill Zimmer",
+      "callsign": "WSFS918",
+      "location": "Lake Forest",
+      "tier": "authorized"
+    },
+    {
+      "unit": "593",
+      "licensee": "James Fliris",
+      "callsign": "WRHS944",
+      "location": "Berwyn",
+      "tier": "authorized"
+    },
+    {
+      "unit": "595",
+      "licensee": "Matt Siegel",
+      "callsign": "WQDY295",
+      "location": "Evanston",
+      "tier": "authorized"
+    },
+    {
+      "unit": "597",
+      "licensee": "Steve Horvat",
+      "callsign": "WRWC373",
+      "location": "Glenview",
+      "tier": "authorized"
+    },
+    {
+      "unit": "598",
+      "licensee": "Tom Seputis",
+      "callsign": "WRYU819",
+      "location": "Arlington Heights",
+      "tier": "authorized"
+    },
+    {
+      "unit": "599",
+      "licensee": "Dino Bouras",
+      "callsign": "WQXK995",
+      "location": "Chicago",
+      "tier": "authorized"
+    },
+    {
+      "unit": "701",
+      "licensee": "Mike Creatura",
+      "callsign": "WSCA683",
+      "location": "Sugar Grove",
+      "tier": "regular"
+    },
+    {
+      "unit": "703",
+      "licensee": "Peter Eldridge",
+      "callsign": "WQHH478",
+      "location": "Lake Forest",
+      "tier": "authorized"
+    },
+    {
+      "unit": "707",
+      "licensee": "Todd Hansen",
+      "callsign": "WRVF690",
+      "location": "Chicago",
+      "tier": "authorized"
+    },
+    {
+      "unit": "708",
+      "licensee": "Richard Rose",
+      "callsign": "WRQU470",
+      "location": "Highland Park",
+      "tier": "authorized"
+    },
+    {
+      "unit": "711",
+      "licensee": "John Astreides",
+      "callsign": "WSEU750",
+      "location": "Mount Prospect",
+      "tier": "authorized"
+    },
+    {
+      "unit": "713",
+      "licensee": "Ian Witbeck",
+      "callsign": "WRXN504",
+      "location": "Northlake",
+      "tier": "authorized"
+    },
+    {
+      "unit": "720",
+      "licensee": "Dave Cashmore",
+      "callsign": "WQZW575",
+      "location": "Waukegan",
+      "tier": "authorized"
+    },
+    {
+      "unit": "734",
+      "licensee": "Mark Davidson",
+      "callsign": "WSMV734",
+      "location": "Skokie",
+      "tier": "authorized"
+    },
+    {
+      "unit": "735",
+      "licensee": "John Marafatsos",
+      "callsign": "WRUC204",
+      "location": "Round Lake Beach",
+      "tier": "authorized"
+    },
+    {
+      "unit": "736",
+      "licensee": "Tony Kelly",
+      "callsign": "WRFP779",
+      "location": "Arlington Heights",
+      "tier": "authorized"
+    },
+    {
+      "unit": "744",
+      "licensee": "Dean Morris",
+      "callsign": "WRYD994",
+      "location": "Chicago",
+      "tier": "authorized"
+    },
+    {
+      "unit": "749",
+      "licensee": "Michael Krempler",
+      "callsign": "WQOQ718",
+      "location": "Westmont",
+      "tier": "authorized"
+    },
+    {
+      "unit": "757",
+      "licensee": "Greg Schiller",
+      "callsign": "WSHT357",
+      "location": "Bartlett",
+      "tier": "authorized"
+    },
+    {
+      "unit": "759",
+      "licensee": "Yoseif Michael",
+      "callsign": "WSAB915",
+      "location": "Evanston",
+      "tier": "authorized"
+    },
+    {
+      "unit": "790",
+      "licensee": "Andy Russell",
+      "callsign": "WRCB790",
+      "location": "Lombard",
+      "tier": "authorized"
+    },
+    {
+      "unit": "792",
+      "licensee": "Tom Zurek",
+      "callsign": "WRUN907",
+      "location": "Chicago",
+      "tier": "authorized"
+    },
+    {
+      "unit": "819",
+      "licensee": "Angel Ramos",
+      "callsign": "WRNN819",
+      "location": "Chicago",
+      "tier": "authorized"
+    },
+    {
+      "unit": "825",
+      "licensee": "Chad Piatak",
+      "callsign": "WSMX825",
+      "location": "Arlington Heights",
+      "tier": "authorized"
+    },
+    {
+      "unit": "831",
+      "licensee": "Craig Lundt",
+      "callsign": "WRQU794",
+      "location": "Downers Grove",
+      "tier": "authorized"
+    },
+    {
+      "unit": "869",
+      "licensee": "Warren Pugh",
+      "callsign": "WRKE869",
+      "location": "Buffalo Grove",
+      "tier": "authorized"
+    },
+    {
+      "unit": "890",
+      "licensee": "Rob Faurot",
+      "callsign": "WRCL970",
+      "location": "Wilmette",
+      "tier": "authorized"
+    },
+    {
+      "unit": "892",
+      "licensee": "George Santiago",
+      "callsign": "WRHY204",
+      "location": "Chicago",
+      "tier": "authorized"
+    },
+    {
+      "unit": "Michigan 2150",
+      "licensee": "Craig Fair",
+      "callsign": "KAE6453",
+      "location": "Sodus, MI",
+      "tier": "affiliate"
+    }
+  ]
+}

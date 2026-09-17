@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roster &amp; Net Logs — North Shore Emergency Association</title>
+<meta name="description" content="NSEA member roster and Sunday night weekly radio net check-in logs. Unit numbers, call signs, and net participation for the GMRS .675 repeater system.">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('nsea-theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  })();
+</script>
+<style>
+  :root, html[data-theme="dark"] {
+    --navy: #0d1b2a;
+    --navy-2: #14293e;
+    --navy-3: #1b3a57;
+    --amber: #f5a623;
+    --amber-dark: #d98c0a;
+    --text: #e8eef4;
+    --muted: #9db2c4;
+    --card: #16304a;
+    --border: rgba(157, 178, 196, 0.18);
+    --nav-bg: rgba(13, 27, 42, 0.92);
+    --hero-glow: rgba(245, 166, 35, 0.14);
+    --ok: #57c98a;
+  }
+  html[data-theme="light"] {
+    --navy: #f4f7fa;
+    --navy-2: #e9eff5;
+    --navy-3: #ffffff;
+    --amber: #a65f00;
+    --amber-dark: #8a4f00;
+    --text: #0f2133;
+    --muted: #4c6379;
+    --card: #ffffff;
+    --border: rgba(15, 33, 51, 0.14);
+    --nav-bg: rgba(244, 247, 250, 0.92);
+    --hero-glow: rgba(245, 166, 35, 0.20);
+    --ok: #1d7a4c;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--navy);
+    color: var(--text);
+    line-height: 1.6;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  a { color: var(--amber); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-right { display: flex; align-items: center; gap: 18px; }
+  .theme-toggle {
+    background: var(--card); color: var(--muted);
+    border: 1px solid var(--border); border-radius: 8px;
+    width: 36px; height: 36px; flex: none;
+    display: inline-flex; align-items: center; justify-content: center;
+    cursor: pointer; padding: 0;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .theme-toggle:hover { color: var(--amber); border-color: var(--amber); }
+  .theme-toggle svg { width: 18px; height: 18px; display: block; }
+  .theme-toggle .icon-sun { display: none; }
+  html[data-theme="light"] .theme-toggle .icon-sun { display: block; }
+  html[data-theme="light"] .theme-toggle .icon-moon { display: none; }
+  .nav-brand .logo-word { fill: var(--text); }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 24px; max-width: 1100px; margin: 0 auto;
+  }
+  .nav-brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 1.35rem; letter-spacing: 0.06em;
+    color: var(--text); display: flex; align-items: center; gap: 10px;
+  }
+  .nav-brand svg { height: 34px; width: 34px; display: block; }
+  .nav-links { display: flex; gap: 26px; }
+  .nav-links a {
+    color: var(--muted); font-weight: 500; font-size: 0.95rem;
+    letter-spacing: 0.02em;
+  }
+  .nav-links a:hover { color: var(--text); text-decoration: none; }
+  .nav-links a.active { color: var(--amber); }
+  @media (max-width: 720px) { .nav-links { display: none; } }
+
+  .page-hero {
+    padding: 62px 0 38px;
+    background:
+      radial-gradient(ellipse at 70% -20%, var(--hero-glow), transparent 55%),
+      linear-gradient(180deg, var(--navy-2), var(--navy));
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+  }
+  .section-label {
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--amber); margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.9rem, 5vw, 3rem);
+    font-weight: 700; letter-spacing: 0.03em; line-height: 1.15;
+  }
+  .page-hero .sub { margin-top: 12px; font-size: 1.05rem; color: var(--muted); }
+
+  main { padding: 48px 0 20px; }
+  h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.4rem, 3.4vw, 1.9rem);
+    font-weight: 700; letter-spacing: 0.03em;
+    border-bottom: 2px solid var(--amber);
+    padding-bottom: 8px; margin-bottom: 20px;
+  }
+  h2:not(:first-of-type) { margin-top: 56px; }
+
+  .stats { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+  .stat {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 18px;
+  }
+  .stat b {
+    display: block; font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2.1rem; line-height: 1; color: var(--amber); font-weight: 700;
+  }
+  .stat span {
+    font-size: 0.76rem; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--muted);
+  }
+
+  .controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+  input[type=search], select {
+    background: var(--navy-2); color: var(--text);
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 10px 12px; font: inherit; font-size: 0.95rem; min-width: 0;
+  }
+  input[type=search] { flex: 1 1 240px; }
+  input[type=search]:focus, select:focus { outline: 2px solid var(--amber); outline-offset: 1px; }
+
+  .tablewrap {
+    overflow-x: auto; border: 1px solid var(--border);
+    border-radius: 10px; background: var(--card);
+  }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+  th, td {
+    padding: 10px 14px; text-align: left;
+    border-bottom: 1px solid var(--border); white-space: nowrap;
+  }
+  th {
+    background: var(--navy-3);
+    font-family: 'Barlow Condensed', sans-serif;
+    text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.06em;
+    cursor: pointer; user-select: none; position: sticky; top: 0;
+  }
+  th:hover { color: var(--amber); }
+  th[aria-sort=ascending] .arrow::after { content: '\25B2'; margin-left: 6px; font-size: 0.7em; }
+  th[aria-sort=descending] .arrow::after { content: '\25BC'; margin-left: 6px; font-size: 0.7em; }
+  tbody tr:last-child td { border-bottom: 0; }
+  tbody tr:hover { background: var(--navy-2); }
+  .unit { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--amber); }
+  .call { font-family: ui-monospace, Menlo, monospace; font-size: 0.9rem; }
+  .pill {
+    display: inline-block; font-size: 0.72rem; text-transform: uppercase;
+    letter-spacing: 0.06em; padding: 2px 8px; border-radius: 99px;
+    border: 1px solid var(--border); color: var(--muted);
+  }
+  .pill.regular { border-color: var(--amber); color: var(--amber); }
+  .bar {
+    position: relative; display: block; background: var(--navy-2);
+    border-radius: 99px; height: 8px; min-width: 80px;
+  }
+  .bar i { position: absolute; inset: 0 auto 0 0; background: var(--ok); border-radius: 99px; }
+
+  .net {
+    background: var(--card); border: 1px solid var(--border);
+    border-left: 3px solid var(--amber); border-radius: 10px;
+    padding: 16px 20px; margin-bottom: 14px;
+  }
+  .net h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.25rem; font-weight: 700; margin-bottom: 10px;
+  }
+  .net dl {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 8px 20px;
+  }
+  .net dt {
+    color: var(--muted); font-size: 0.74rem;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .net dd { margin-bottom: 6px; font-size: 0.95rem; }
+
+  .note {
+    background: var(--navy-2); border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px 18px; margin-top: 18px;
+    color: var(--muted); font-size: 0.9rem;
+  }
+  .empty { color: var(--muted); font-style: italic; padding: 18px 0; }
+
+  .back-link { text-align: center; padding: 40px 0 60px; }
+  .btn {
+    display: inline-block; padding: 12px 26px; border-radius: 8px;
+    font-weight: 600; font-size: 0.98rem;
+    border: 1px solid var(--border); color: var(--text);
+  }
+  .btn:hover { text-decoration: none; border-color: var(--amber); }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 44px 0; text-align: center; color: var(--muted); font-size: 0.9rem;
+  }
+  footer .brand {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--text);
+    font-size: 1.1rem; margin-bottom: 8px;
+  }
+  footer p { margin-top: 4px; }
+  @media (max-width: 560px) { th, td { padding: 8px 10px; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand"><svg viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="102" fill="none" stroke="#f5a623" stroke-width="12"/><polyline points="6,95 38,95 52,95 62,52 75,126 88,38 102,142 116,48 130,132 144,62 158,116 172,84 186,95 234,95" fill="none" stroke="#f5a623" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/><text x="120" y="186" text-anchor="middle" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-size="68" font-weight="700" letter-spacing="4" class="logo-word">NSEA</text></svg>NSEA</div>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="index.html#repeaters">Repeaters</a>
+        <a href="index.html#net">Weekly Net</a>
+        <a href="roster.html" class="active">Roster</a>
+        <a href="index.html#meetings">Meetings</a>
+        <a href="index.html#membership">Membership</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch between light and dark mode" title="Switch between light and dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="section-label">Membership</div>
+    <h1>Roster &amp; Net Logs</h1>
+    <p class="sub">NSEA Sunday Night Weekly Radio Net &middot; GMRS .675 repeater &middot; Sundays 7:00 PM Central</p>
+  </div>
+</div>
+
+<main>
+  <div class="container">
+
+    <div class="stats" id="stats"></div>
+
+    <h2>Member Roster</h2>
+    <div class="controls">
+      <input type="search" id="q" placeholder="Search unit, name, call sign, or city&hellip;" aria-label="Search roster">
+      <select id="tier" aria-label="Filter by membership tier">
+        <option value="">All tiers</option>
+        <option value="regular">Regular Members</option>
+        <option value="authorized">Authorized Users</option>
+        <option value="affiliate">Affiliates</option>
+      </select>
+    </div>
+    <div class="tablewrap">
+      <table id="roster">
+        <thead><tr>
+          <th data-k="unit" scope="col">Unit<span class="arrow"></span></th>
+          <th data-k="licensee" scope="col">Licensee<span class="arrow"></span></th>
+          <th data-k="callsign" scope="col">Call Sign<span class="arrow"></span></th>
+          <th data-k="location" scope="col">Location<span class="arrow"></span></th>
+          <th data-k="tier" scope="col">Tier<span class="arrow"></span></th>
+          <th data-k="nets_attended" scope="col">Net Activity<span class="arrow"></span></th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="empty" id="norows" hidden>No members match that search.</p>
+
+    <h2>Recent Nets</h2>
+    <div id="nets"></div>
+
+    <div class="note">
+      Unit numbers are how NSEA identifies stations on the air &mdash; check in with your
+      unit number or call sign. Unit <strong>500</strong> calls for any NSEA unit to answer;
+      unit <strong>1000</strong> calls for any station on the system.
+      Call signs are public record in the FCC ULS database.
+      <span id="updated"></span>
+    </div>
+
+  </div>
+</main>
+
+<div class="back-link">
+  <a class="btn" href="index.html">&larr; Back to NSEA Home</a>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="brand">North Shore Emergency Association</div>
+    <p>Public Service Through GMRS Two-Way Radio · Founded 1966</p>
+    <p>NSEA is a not-for-profit, IRS-recognized tax-exempt public charity.</p>
+    <p>© 2015–2026 North Shore Emergency Association</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    const root = document.documentElement;
+    const btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('nsea-theme', next); } catch (e) {}
+    });
+  })();
+</script>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+let members = [], nets = [], sortKey = 'unit', sortDir = 1;
+
+// Units are mostly numeric, but some are free text ("Michigan 2150"), so compare
+// numerically only when both sides are clean integers.
+function cmp(a, b, k) {
+  const x = a[k] ?? '', y = b[k] ?? '';
+  if (k === 'nets_attended') return (x || 0) - (y || 0);
+  const nx = parseInt(x, 10), ny = parseInt(y, 10);
+  if (!isNaN(nx) && !isNaN(ny) && String(nx) === String(x).trim() && String(ny) === String(y).trim()) {
+    return nx - ny;
+  }
+  return String(x).localeCompare(String(y), undefined, { numeric: true });
+}
+
+function renderRoster() {
+  const q = $('#q').value.trim().toLowerCase();
+  const tier = $('#tier').value;
+  const rows = members
+    .filter(m => !tier || m.tier === tier)
+    .filter(m => !q || [m.unit, m.licensee, m.callsign, m.location].join(' ').toLowerCase().includes(q))
+    .sort((a, b) => cmp(a, b, sortKey) * sortDir);
+
+  const maxNets = Math.max(1, ...members.map(m => m.nets_attended || 0));
+  $('#roster tbody').innerHTML = rows.map(m => `<tr>
+    <td class="unit">${esc(m.unit)}</td>
+    <td>${esc(m.licensee)}</td>
+    <td class="call">${esc(m.callsign)}</td>
+    <td>${esc(m.location)}</td>
+    <td><span class="pill ${m.tier === 'regular' ? 'regular' : ''}">${esc(m.tier)}</span></td>
+    <td><span class="bar" title="${m.nets_attended || 0} of ${maxNets} nets"><i style="width:${
+      Math.round(100 * (m.nets_attended || 0) / maxNets)}%"></i></span></td>
+  </tr>`).join('');
+
+  $('#norows').hidden = rows.length > 0;
+  document.querySelectorAll('#roster th').forEach(th => {
+    if (th.dataset.k === sortKey) th.setAttribute('aria-sort', sortDir === 1 ? 'ascending' : 'descending');
+    else th.removeAttribute('aria-sort');
+  });
+}
+
+function renderNets() {
+  $('#nets').innerHTML = nets.map(n => {
+    const kv = (label, val) => val ? `<dt>${label}</dt><dd>${val}</dd>` : '';
+    const person = (p) => p ? `${esc(p.licensee)} <span class="unit">${esc(p.unit)}</span>` : '';
+    const types = Object.entries(n.radio_types || {}).map(([k, v]) => `${esc(k)} ${v}`).join(' · ');
+    const vis = (n.visitors || []).map(v =>
+      `${esc(v.name)} <span class="call">${esc(v.callsign)}</span>${v.location ? ' — ' + esc(v.location) : ''}`
+    ).join('<br>');
+    const d = new Date(n.date + 'T00:00:00');
+    return `<div class="net">
+      <h3>${d.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</h3>
+      <dl>
+        ${kv('Check-ins', `<strong>${n.check_ins}</strong>${n.late ? ` <span class="pill">${n.late} late</span>` : ''}`)}
+        ${kv('Net Control', person(n.net_control))}
+        ${kv('Scribe', person(n.scribe))}
+        ${kv('Traffic passed', n.traffic || '0')}
+        ${kv('Equipment', types)}
+        ${kv('First-time &amp; visitors', vis)}
+      </dl>
+    </div>`;
+  }).join('') || '<p class="empty">No net logs published yet.</p>';
+}
+
+function renderStats(totalNets) {
+  const last = nets[0];
+  const avg = nets.length ? Math.round(nets.reduce((s, n) => s + n.check_ins, 0) / nets.length) : 0;
+  $('#stats').innerHTML = [
+    [members.length, 'Listed members'],
+    [last ? last.check_ins : '—', 'Last net check-ins'],
+    [avg || '—', 'Average check-ins'],
+    [totalNets || nets.length, 'Nets logged'],
+  ].map(([v, l]) => `<div class="stat"><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join('');
+}
+
+Promise.all(['data/roster.json', 'data/nets.json', 'data/attendance.json']
+  .map(u => fetch(u).then(r => { if (!r.ok) throw new Error(u); return r.json(); })))
+  .then(([roster, netdata, att]) => {
+    const counts = new Map((att.units || []).map(u => [u.unit, u.nets_attended]));
+    members = (roster.members || []).map(m => ({ ...m, nets_attended: counts.get(m.unit) || 0 }));
+    nets = netdata.nets || [];
+    renderStats(att.total_nets);
+    renderRoster();
+    renderNets();
+    if (roster.updated) $('#updated').textContent = ` Last net logged ${roster.updated}.`;
+  })
+  .catch(err => {
+    $('#stats').innerHTML = '<p class="empty">Roster data could not be loaded.</p>';
+    console.error(err);
+  });
+
+$('#q').addEventListener('input', renderRoster);
+$('#tier').addEventListener('change', renderRoster);
+document.querySelectorAll('#roster th').forEach(th => th.addEventListener('click', () => {
+  const k = th.dataset.k;
+  sortDir = (k === sortKey) ? -sortDir : 1;
+  sortKey = k;
+  renderRoster();
+}));
+</script>
+
+</body>
+</html>

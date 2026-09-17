@@ -1,0 +1,3 @@
+# Roster source data — exported from the Google Sheet, never committed.
+# These carry the private notes column and opted-out members.
+tools/*.csv
