@@ -109,20 +109,22 @@
   .hero-logo { width: 148px; height: 148px; margin: 0 auto 26px; display: block; filter: drop-shadow(0 8px 30px var(--logo-shadow)); }
   .hero-logo .logo-disc { fill: var(--logo-bg); }
   .hero-logo .logo-word, .nav-brand .logo-word { fill: var(--text); }
-  /* Seismograph trace draws itself, holds, then sweeps clear — like a live pen. */
-  .hero-logo .logo-trace {
-    stroke-dasharray: 768;
+  /* Oscilloscope: trace persists like phosphor; a hot beam sweeps along it. */
+  .hero-logo .logo-trace { opacity: 0.45; }
+  .hero-logo .logo-beam {
+    stroke: #ffdf9e;
+    stroke-dasharray: 64 704;   /* 64px beam, gap pads to path length 768 */
     stroke-dashoffset: 768;
-    animation: seismo-draw 7s linear infinite;
+    animation: scope-sweep 2.8s linear infinite;
+    filter: drop-shadow(0 0 5px rgba(245, 166, 35, 0.9));
   }
-  @keyframes seismo-draw {
-    0%   { stroke-dashoffset: 768; }  /* empty */
-    45%  { stroke-dashoffset: 0; }    /* fully drawn */
-    72%  { stroke-dashoffset: 0; }    /* hold */
-    100% { stroke-dashoffset: -768; } /* erase left-to-right */
+  @keyframes scope-sweep {
+    from { stroke-dashoffset: 768; }
+    to   { stroke-dashoffset: 0; }   /* pattern length = path length: seamless wrap */
   }
   @media (prefers-reduced-motion: reduce) {
-    .hero-logo .logo-trace { animation: none; stroke-dashoffset: 0; }
+    .hero-logo .logo-trace { opacity: 1; }
+    .hero-logo .logo-beam { display: none; }
   }
   .nav-links { display: flex; gap: 26px; }
   .nav-links a {
@@ -360,7 +362,7 @@
 
 <header class="hero">
   <div class="container">
-    <svg class="hero-logo" viewBox="0 0 240 240" role="img" aria-label="NSEA emblem"><circle class="logo-disc" cx="120" cy="120" r="102" stroke="#f5a623" stroke-width="9"/><polyline class="logo-trace" points="6,95 38,95 52,95 62,52 75,126 88,38 102,142 116,48 130,132 144,62 158,116 172,84 186,95 234,95" fill="none" stroke="#f5a623" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><text x="120" y="182" text-anchor="middle" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-size="62" font-weight="700" letter-spacing="5" class="logo-word">NSEA</text></svg>
+    <svg class="hero-logo" viewBox="0 0 240 240" role="img" aria-label="NSEA emblem"><circle class="logo-disc" cx="120" cy="120" r="102" stroke="#f5a623" stroke-width="9"/><polyline class="logo-trace" points="6,95 38,95 52,95 62,52 75,126 88,38 102,142 116,48 130,132 144,62 158,116 172,84 186,95 234,95" fill="none" stroke="#f5a623" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><polyline class="logo-beam" points="6,95 38,95 52,95 62,52 75,126 88,38 102,142 116,48 130,132 144,62 158,116 172,84 186,95 234,95" fill="none" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><text x="120" y="182" text-anchor="middle" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-size="62" font-weight="700" letter-spacing="5" class="logo-word">NSEA</text></svg>
     <h1>North Shore<br>Emergency Association</h1>
     <p class="founded">Founded 1966</p>
     <p class="tagline">Public service through <strong>GMRS two-way radio</strong> — serving Northern Illinois and the greater metro Chicago area for nearly 60 years.</p>
