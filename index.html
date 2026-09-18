@@ -29,6 +29,7 @@
     --navy-3: #1b3a57;
     --amber: #f5a623;
     --amber-dark: #d98c0a;
+    --green: #57c98a;
     --text: #e8eef4;
     --muted: #9db2c4;
     --card: #16304a;
@@ -46,6 +47,7 @@
     --navy-3: #ffffff;
     --amber: #a65f00;
     --amber-dark: #8a4f00;
+    --green: #1e7a4a;
     --text: #0f2133;
     --muted: #4c6379;
     --card: #ffffff;
@@ -143,6 +145,11 @@
     color: var(--muted); max-width: 640px; margin-left: auto; margin-right: auto;
   }
   .hero .tagline strong { color: var(--amber); font-weight: 600; }
+  .hero .founded {
+    margin-top: 10px; font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.1rem, 2.4vw, 1.5rem); font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--amber);
+  }
   .hero-ctas { margin-top: 36px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
   .btn {
     display: inline-block; padding: 13px 28px; border-radius: 8px;
@@ -208,6 +215,7 @@
     background: var(--amber); padding: 3px 10px; border-radius: 4px;
   }
   .card .tag.coop { background: transparent; color: var(--muted); border: 1px solid var(--border); }
+  .card .tag.nsea { background: var(--green); color: var(--navy); }
 
   /* Repeater spec cards */
   .rptr-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
@@ -339,6 +347,7 @@
   <div class="container">
     <svg class="hero-logo" viewBox="0 0 240 240" role="img" aria-label="NSEA emblem"><circle class="logo-disc" cx="120" cy="120" r="102" stroke="#f5a623" stroke-width="9"/><polyline points="6,95 38,95 52,95 62,52 75,126 88,38 102,142 116,48 130,132 144,62 158,116 172,84 186,95 234,95" fill="none" stroke="#f5a623" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><text x="120" y="182" text-anchor="middle" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-size="62" font-weight="700" letter-spacing="5" class="logo-word">NSEA</text></svg>
     <h1>North Shore<br>Emergency Association</h1>
+    <p class="founded">Founded 1966</p>
     <p class="tagline">Public service through <strong>GMRS two-way radio</strong> — serving Northern Illinois and the greater metro Chicago area for nearly 60 years.</p>
     <div class="hero-ctas">
       <a class="btn btn-primary" href="#membership">Become a Member</a>
@@ -373,37 +382,37 @@
     <p class="lead">NSEA operates a network of GMRS repeaters covering the North Shore and greater Chicago metro area. Licensed GMRS operators may request permission to use the NSEA and cooperating repeaters. All systems use the standard GMRS +5 MHz repeater offset.</p>
     <div class="grid grid-2">
       <div class="card">
-        <div class="rptr-head"><h3>Heritage .675</h3><span class="tag">Primary · NSEA</span></div>
+        <div class="rptr-head"><h3>NSEA Park Ridge 675 Repeater</h3><span class="tag nsea">NSEA</span></div>
         <div class="freq">462.675</div>
         <div class="specs">
           <div class="row"><span class="k">RX (repeater output)</span><span class="v">462.675 MHz</span></div>
           <div class="row"><span class="k">TX (your input)</span><span class="v">467.675 MHz</span></div>
-          <div class="row"><span class="k">Tone (PL)</span><span class="v">141.3 Hz</span></div>
-          <div class="row"><span class="k">Location</span><span class="v">North Shore · Chicago metro</span></div>
+          <div class="row"><span class="k">Tone (PL)</span><span class="v soft">contact NSEA for access</span></div>
+          <div class="row"><span class="k">Location</span><span class="v">Park Ridge</span></div>
         </div>
-        <p>Main NSEA system — home of the weekly net and emergency traffic.</p>
+        <p>Home of the weekly net — serving the North Shore and surrounding communities.</p>
       </div>
       <div class="card">
-        <div class="rptr-head"><h3>.650 System</h3><span class="tag">NSEA</span></div>
+        <div class="rptr-head"><h3>NSEA Northbrook 650 Repeater</h3><span class="tag nsea">NSEA</span></div>
         <div class="freq">462.650</div>
         <div class="specs">
           <div class="row"><span class="k">RX (repeater output)</span><span class="v">462.650 MHz</span></div>
           <div class="row"><span class="k">TX (your input)</span><span class="v">467.650 MHz</span></div>
           <div class="row"><span class="k">Tone (PL)</span><span class="v soft">contact NSEA for access</span></div>
-          <div class="row"><span class="k">Location</span><span class="v">North Shore area</span></div>
+          <div class="row"><span class="k">Location</span><span class="v">Northbrook</span></div>
         </div>
         <p>Serving the North Shore and surrounding communities.</p>
       </div>
       <div class="card">
-        <div class="rptr-head"><h3>.700 System</h3><span class="tag">NSEA</span></div>
+        <div class="rptr-head"><h3>NSEA Evanston 700 Repeater</h3><span class="tag nsea">NSEA</span></div>
         <div class="freq">462.700</div>
         <div class="specs">
           <div class="row"><span class="k">RX (repeater output)</span><span class="v">462.700 MHz</span></div>
           <div class="row"><span class="k">TX (your input)</span><span class="v">467.700 MHz</span></div>
           <div class="row"><span class="k">Tone (PL)</span><span class="v soft">contact NSEA for access</span></div>
-          <div class="row"><span class="k">Location</span><span class="v">Greater Chicago metro</span></div>
+          <div class="row"><span class="k">Location</span><span class="v">Evanston</span></div>
         </div>
-        <p>Extending coverage across the greater metro area.</p>
+        <p>Special-event system supporting NSEA operations at the Evanston Fourth of July Parade and other local events.</p>
       </div>
       <div class="card">
         <div class="rptr-head"><h3>Evanston .725</h3><span class="tag coop">Cooperating</span></div>
@@ -419,9 +428,9 @@
     </div>
     <div id="rptr-map"></div>
     <div class="map-legend">
-      <div class="item"><span class="swatch" style="background: rgba(245,166,35,0.16); border: 1.5px dashed #f5a623;"><span class="pin" style="background: #f5a623;"></span></span><span><span class="label">.675 Heritage</span> <span class="sub">&middot; ~35 mi</span></span></div>
-      <div class="item"><span class="swatch" style="background: rgba(46,196,214,0.16); border: 1.5px dashed #2ec4d6;"><span class="pin" style="background: #2ec4d6;"></span></span><span><span class="label">.650 System</span> <span class="sub">&middot; ~35 mi</span></span></div>
-      <div class="item"><span class="swatch" style="background: rgba(87,201,138,0.16); border: 1.5px dashed #57c98a;"><span class="pin" style="background: #57c98a;"></span></span><span><span class="label">.700 System</span> <span class="sub">&middot; ~15 mi</span></span></div>
+      <div class="item"><span class="swatch" style="background: rgba(245,166,35,0.16); border: 1.5px dashed #f5a623;"><span class="pin" style="background: #f5a623;"></span></span><span><span class="label">NSEA Park Ridge 675</span> <span class="sub">&middot; ~35 mi</span></span></div>
+      <div class="item"><span class="swatch" style="background: rgba(46,196,214,0.16); border: 1.5px dashed #2ec4d6;"><span class="pin" style="background: #2ec4d6;"></span></span><span><span class="label">NSEA Northbrook 650</span> <span class="sub">&middot; ~35 mi</span></span></div>
+      <div class="item"><span class="swatch" style="background: rgba(87,201,138,0.16); border: 1.5px dashed #57c98a;"><span class="pin" style="background: #57c98a;"></span></span><span><span class="label">NSEA Evanston 700</span> <span class="sub">&middot; ~15 mi</span></span></div>
       <div class="item"><span class="swatch" style="background: rgba(185,142,232,0.16); border: 1.5px dashed #b98ee8;"><span class="pin" style="background: #b98ee8;"></span></span><span><span class="label">.725 Evanston</span> <span class="sub">&middot; cooperating, ~20 mi</span></span></div>
       <div class="divider"></div>
       <div class="item"><span class="swatch" style="background: none; border: none;"><span class="pin" style="background: var(--marker-dark); border-color: var(--marker-stroke); border-radius: 2px;"></span></span><span><span class="label">Meeting location</span></span></div>
@@ -667,9 +676,9 @@
     }).addTo(map).bindPopup(label));
   };
 
-  mkRepeater(42.0384, -87.8485, '<b>Heritage .675 \u00b7 Primary</b><br>RX 462.675 / TX 467.675 MHz \u00b7 PL 141.3<br>~35 mi range', 35, '#f5a623');
-  mkRepeater(42.1056, -87.8137, '<b>.650 System</b><br>RX 462.650 / TX 467.650 MHz<br>~35 mi range', 35, '#2ec4d6');
-  mkRepeater(42.0669, -87.6908, '<b>.700 System</b><br>RX 462.700 / TX 467.700 MHz<br>~15 mi range', 15, '#57c98a');
+  mkRepeater(42.0384, -87.8485, '<b>NSEA Park Ridge 675 Repeater</b><br>RX 462.675 / TX 467.675 MHz<br>~35 mi range', 35, '#f5a623');
+  mkRepeater(42.1056, -87.8137, '<b>NSEA Northbrook 650 Repeater</b><br>RX 462.650 / TX 467.650 MHz<br>~35 mi range', 35, '#2ec4d6');
+  mkRepeater(42.0669, -87.6908, '<b>NSEA Evanston 700 Repeater</b><br>RX 462.700 / TX 467.700 MHz<br>~15 mi range', 15, '#57c98a');
   mkRepeater(42.0502, -87.6856, '<b>Evanston .725 \u00b7 Cooperating</b><br>RX 462.725 / TX 467.725 MHz<br>~20 mi range', 20, '#b98ee8');
 
   // Meeting location (public address) \u2014 square marker, no coverage ring
