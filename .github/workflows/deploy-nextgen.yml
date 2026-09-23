@@ -1,0 +1,49 @@
+# Mirrors this repo to the nsea.com web host so https://nsea.com/nextgen
+# always matches main. Requires two repository secrets (Settings > Secrets
+# and variables > Actions): FTP_USERNAME and FTP_PASSWORD. Until they are
+# set, the deploy step skips cleanly instead of failing.
+name: Deploy to nsea.com/nextgen
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ftp-nextgen
+  cancel-in-progress: false
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check FTP credentials are configured
+        id: creds
+        env:
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          if [ -n "$FTP_USERNAME" ] && [ -n "$FTP_PASSWORD" ]; then
+            echo "have=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "have=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::FTP_USERNAME / FTP_PASSWORD secrets not set; skipping deploy."
+          fi
+
+      - name: Sync site to /nextgen/
+        if: steps.creds.outputs.have == 'true'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ftp.ord1-1.websitesettings.com
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          local-dir: ./
+          server-dir: /nextgen/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/__pycache__/**
+            .github/**
