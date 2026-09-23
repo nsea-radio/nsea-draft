@@ -100,14 +100,21 @@ members do not belong anywhere in this repo.
 
 ## Updating after a net
 
-1. In the sheet, append the night's check-ins to the flat log tab
-2. File ▸ Download ▸ Comma-separated values, into `tools/net_log.csv`
-3. `python3 tools/build.py`
-4. Commit `data/nets.json` + `data/attendance.json`
+1. In the sheet, append the night's check-ins to the flat log tab.
+2. That's it — `.github/workflows/sync-netlog.yml` fetches the sheet's
+   published CSV every Monday morning (or on manual dispatch), runs this
+   build, and commits `data/nets.json` + `data/attendance.json` only when the
+   build validates. A bad row fails the run and the site keeps the last good
+   log. The workflow then chains the FTP deploy so nsea.com/nextgen updates
+   too.
 
-Once the tabs are published to the web (File ▸ Share ▸ Publish to web ▸ CSV),
-steps 2–4 can run unattended in a GitHub Action — the published-CSV endpoint needs
-no OAuth, no service account, and no API enablement.
+One-time setup: publish the flat log tab (File ▸ Share ▸ Publish to web ▸
+CSV — no OAuth or service account needed) and put its URL in the repo
+variable `NET_LOG_CSV_URL`. Until that variable exists the workflow skips
+cleanly.
+
+Manual fallback (works anytime): download the tab as CSV into
+`tools/net_log.csv`, run `python3 tools/build.py`, commit the two JSONs.
 
 ## Outstanding
 

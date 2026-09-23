@@ -1,0 +1,96 @@
+# Pulls the net log from the Google Sheet's published-CSV endpoint, rebuilds
+# data/nets.json + data/attendance.json, and publishes only if the build
+# validates. Bad sheet data fails the run and the site keeps showing the last
+# good log.
+#
+# Setup (one time):
+#   1. In the sheet: the flat log tab (one row per check-in, real net_date
+#      column) -> File > Share > Publish to web > that tab > CSV.
+#   2. Repo Settings > Secrets and variables > Actions > Variables:
+#      add NET_LOG_CSV_URL = the published CSV URL.
+# Until the variable exists, runs skip cleanly instead of failing.
+name: Sync net log from Google Sheet
+
+on:
+  schedule:
+    # Monday 14:00 UTC = 8-9am Chicago, comfortably after the Sunday night net.
+    - cron: '0 14 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: netlog-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check sheet URL is configured
+        id: cfg
+        env:
+          URL: ${{ vars.NET_LOG_CSV_URL }}
+        run: |
+          if [ -n "$URL" ]; then
+            echo "have=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "have=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::NET_LOG_CSV_URL repository variable not set; skipping sync."
+          fi
+
+      - name: Fetch published net-log CSV
+        if: steps.cfg.outputs.have == 'true'
+        env:
+          URL: ${{ vars.NET_LOG_CSV_URL }}
+        run: |
+          curl -fsSL --retry 3 --retry-delay 10 -o tools/net_log.csv "$URL"
+          wc -l tools/net_log.csv
+
+      - name: Validate columns
+        if: steps.cfg.outputs.have == 'true'
+        run: |
+          python3 - <<'EOF'
+          import csv, sys
+          need = {"net_date", "unit", "checkin", "radio_type", "role",
+                  "traffic", "visitor_callsign", "visitor_name", "visitor_location"}
+          with open("tools/net_log.csv", newline="", encoding="utf-8-sig") as fh:
+              header = {h.strip() for h in next(csv.reader(fh), [])}
+          missing = need - header
+          if missing:
+              sys.exit(f"net_log.csv missing columns {sorted(missing)} - wrong tab or URL?")
+          print("header OK")
+          EOF
+
+      - name: Build nets.json + attendance.json
+        if: steps.cfg.outputs.have == 'true'
+        run: python3 tools/build.py
+
+      - name: Commit if changed
+        if: steps.cfg.outputs.have == 'true'
+        id: commit
+        run: |
+          if git diff --quiet -- data/nets.json data/attendance.json; then
+            echo "Nothing new to publish."
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/nets.json data/attendance.json
+            git commit -m "Net log sync $(date -u +%Y-%m-%d)"
+            git push
+            echo "pushed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # A push made with GITHUB_TOKEN does not fire `on: push` workflows, so
+      # chain the FTP deploy explicitly (workflow_dispatch is exempt from that
+      # rule). GH Pages rebuilds on the push via the Pages service itself.
+      - name: Trigger nextgen FTP deploy
+        if: steps.commit.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy-nextgen.yml --ref main -R "$GITHUB_REPOSITORY"
