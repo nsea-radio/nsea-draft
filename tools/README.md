@@ -1,11 +1,18 @@
 # Roster &amp; net log pipeline
 
-`roster.html` renders from three generated JSON files in `data/`. Those are built
-from two CSVs by `tools/build.py`. The CSVs come out of the Google Sheet.
+`roster.html` renders two kinds of data with two different owners:
 
 ```
-Google Sheet  ──File ▸ Download ▸ CSV──▶  tools/*.csv  ──build.py──▶  data/*.json  ──▶  roster.html
+Members edit on GitHub ──▶  data/roster.csv  ─────────────────────▶  roster.html
+Google Sheet ──CSV export──▶ tools/net_log.csv ──build.py──▶ data/*.json ──▶ roster.html
 ```
+
+- **`data/roster.csv`** — the public roster, committed, edited directly in the
+  GitHub web editor by members. See `EDITING.md` at the repo root. The page
+  parses it in the browser; no build step.
+- **`tools/net_log.csv`** — the net log, still exported from the Google Sheet
+  and never committed. `build.py` turns it into `data/nets.json` +
+  `data/attendance.json`.
 
 ## Why the source sheet had to change shape
 
@@ -31,16 +38,16 @@ The Master List tab is protected, which is the right instinct — but it is name
 signs are not unique here: units 521 and 524 (Brian and Charlie Drake) share
 `WQPL694` on one family license.
 
-### `tools/roster.csv` — one row per unit, forever
+### `data/roster.csv` — one row per unit, forever
 
 ```
-unit,licensee,callsign,location,tier,status,publish_public,notes
+unit,licensee,callsign,location,tier
 ```
 
 - `tier` — `regular` / `authorized` / `affiliate`, replacing the section-header rows
-- `status` — `active` / `inactive` / `deceased`
-- `publish_public` — per-member opt-in; withheld rows never reach `data/`
-- `notes` — private, never published
+- Everything in this file is public by definition. A member who opted out of
+  the public listing has no row; there is no notes/status column. Keep private
+  information out of it.
 
 ### `tools/net_log.csv` — one row per check-in, forever
 
@@ -61,36 +68,38 @@ net_date,unit,checkin,radio_type,role,traffic,visitor_callsign,visitor_name,visi
 python3 tools/build.py
 ```
 
-Writes `data/roster.json`, `data/nets.json`, `data/attendance.json`.
+Reads `data/roster.csv` (for names) + `tools/net_log.csv`; writes
+`data/nets.json` and `data/attendance.json`.
 
-The build **fails** on a duplicate unit, or on a net-log row citing a unit that
-isn't in the roster:
+The build **fails** on a duplicate unit in the roster:
 
 ```
-ERROR: roster.csv: duplicate unit 501
-ERROR: net_log.csv references units absent from roster.csv: ['999']
+ERROR: data/roster.csv: duplicate unit 501
 ```
 
-That is the typo protection the spreadsheet has never had.
+A net-log unit missing from the public roster is only a note, not an error —
+that's how opted-out members' check-ins still count toward totals without
+being listed by name.
 
 `attendance.json` is the payoff — per-unit net counts in a single pass, the query
 the old tab-per-week layout made impossible.
 
 ## Privacy model
 
-`tools/*.csv` is **gitignored on purpose.** The CSVs hold the private `notes`
-column and the rows of members who opted out; this repo is public, so anything
-committed under `data/` is world-readable no matter what the page chooses to
-render. Redaction happens in `build.py`, before anything is written.
+`tools/*.csv` is **gitignored on purpose** — the net-log export can reference
+members who opted out of the public roster. This repo is public, so anything
+committed is world-readable no matter what the page chooses to render.
 
-Keep the CSVs locally, or in a private repo. The sheet remains the source of truth.
+The rule is now structural instead of a build-time filter: **`data/roster.csv`
+contains only what may be published.** Opt-out = no row. Private notes about
+members do not belong anywhere in this repo.
 
 ## Updating after a net
 
 1. In the sheet, append the night's check-ins to the flat log tab
 2. File ▸ Download ▸ Comma-separated values, into `tools/net_log.csv`
 3. `python3 tools/build.py`
-4. Commit `data/*.json`
+4. Commit `data/nets.json` + `data/attendance.json`
 
 Once the tabs are published to the web (File ▸ Share ▸ Publish to web ▸ CSV),
 steps 2–4 can run unattended in a GitHub Action — the published-CSV endpoint needs

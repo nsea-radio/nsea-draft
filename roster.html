@@ -413,16 +413,56 @@ function renderStats(totalNets) {
   ].map(([v, l]) => `<div class="stat"><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join('');
 }
 
-Promise.all(['data/roster.json', 'data/nets.json', 'data/attendance.json']
-  .map(u => fetch(u).then(r => { if (!r.ok) throw new Error(u); return r.json(); })))
-  .then(([roster, netdata, att]) => {
+// The roster lives in data/roster.csv so members can edit it straight from
+// GitHub's web editor (see EDITING.md). Quote-aware CSV parser; a malformed
+// row is skipped rather than taking the whole page down.
+function parseRosterCsv(text) {
+  const rows = [];
+  let row = [], field = '', inQuotes = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (inQuotes) {
+      if (c === '"') {
+        if (text[i + 1] === '"') { field += '"'; i++; } else inQuotes = false;
+      } else field += c;
+    } else if (c === '"') inQuotes = true;
+    else if (c === ',') { row.push(field); field = ''; }
+    else if (c === '\n' || c === '\r') {
+      if (c === '\r' && text[i + 1] === '\n') i++;
+      row.push(field); field = '';
+      if (row.some(f => f.trim())) rows.push(row);
+      row = [];
+    } else field += c;
+  }
+  row.push(field);
+  if (row.some(f => f.trim())) rows.push(row);
+
+  const header = (rows.shift() || []).map(h => h.trim().toLowerCase());
+  const col = Object.fromEntries(header.map((h, i) => [h, i]));
+  return rows
+    .map(r => ({
+      unit: (r[col.unit] ?? '').trim(),
+      licensee: (r[col.licensee] ?? '').trim(),
+      callsign: (r[col.callsign] ?? '').trim().toUpperCase(),
+      location: (r[col.location] ?? '').trim(),
+      tier: (r[col.tier] ?? '').trim().toLowerCase(),
+    }))
+    .filter(m => m.unit && m.licensee);
+}
+
+Promise.all([
+  fetch('data/roster.csv').then(r => { if (!r.ok) throw new Error('roster.csv'); return r.text(); }),
+  ...['data/nets.json', 'data/attendance.json']
+    .map(u => fetch(u).then(r => { if (!r.ok) throw new Error(u); return r.json(); })),
+])
+  .then(([rosterCsv, netdata, att]) => {
     const counts = new Map((att.units || []).map(u => [u.unit, u.nets_attended]));
-    members = (roster.members || []).map(m => ({ ...m, nets_attended: counts.get(m.unit) || 0 }));
+    members = parseRosterCsv(rosterCsv).map(m => ({ ...m, nets_attended: counts.get(m.unit) || 0 }));
     nets = netdata.nets || [];
     renderStats(att.total_nets);
     renderRoster();
     renderNets();
-    if (roster.updated) $('#updated').textContent = ` Last net logged ${roster.updated}.`;
+    if (nets.length) $('#updated').textContent = ` Last net logged ${nets[0].date}.`;
   })
   .catch(err => {
     $('#stats').innerHTML = '<p class="empty">Roster data could not be loaded.</p>';

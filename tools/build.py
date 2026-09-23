@@ -1,24 +1,25 @@
 #!/usr/bin/env python3
 """
-Build published JSON for the NSEA site from the two source CSVs.
+Build published net-log JSON for the NSEA site.
 
-    tools/roster.csv   -> data/roster.json     (public fields only)
-    tools/net_log.csv  -> data/nets.json       (per-net summaries)
-                       -> data/attendance.json (per-unit rollup)
+    data/roster.csv    (committed, member-edited)  -> names/units for joins
+    tools/net_log.csv  (sheet export, NOT committed) -> data/nets.json
+                                                     -> data/attendance.json
 
 Usage, from the repo root:
 
     python3 tools/build.py
 
-Source CSVs are exports of the Google Sheet tabs and are deliberately NOT
-committed (see .gitignore) -- they carry the private notes column and the rows
-of members who opted out of public listing. Export them from the sheet with
-File > Download > Comma-separated values, then run this.
+The roster itself is no longer built here: data/roster.csv is the committed
+source of truth, edited directly on GitHub by members (see EDITING.md), and
+roster.html renders it as-is. Everything in that file is public by
+definition -- a member who does not want to be listed simply has no row, and
+there is no notes column. Keep private information out of it.
 
-PRIVACY: only roster rows with publish_public=yes AND status=active reach
-roster.json, and the notes column is never published. Filtering happens here,
-before anything is written -- not in the browser, because this repo is public
-and every file in data/ is world-readable regardless of what the page renders.
+tools/net_log.csv is still the Google Sheet export and stays uncommitted
+(see .gitignore): it can reference units that opted out of the public roster.
+Those check-ins still count toward per-net totals, but only units present in
+data/roster.csv get a named attendance row.
 """
 
 import csv
@@ -58,8 +59,8 @@ def fail(msg):
     sys.exit(1)
 
 
-def build_roster(rows):
-    """Public roster. Returns (published_records, unit_index_of_all_rows)."""
+def load_roster(rows):
+    """data/roster.csv sanity check. Returns (records, unit_index)."""
     index, seen, problems = {}, set(), []
 
     for row in rows:
@@ -73,26 +74,9 @@ def build_roster(rows):
         index[unit] = row
 
     if problems:
-        fail("roster.csv: " + "; ".join(problems))
+        fail("data/roster.csv: " + "; ".join(problems))
 
-    published = [
-        {
-            "unit": r["unit"],
-            "licensee": r["licensee"],
-            "callsign": r["callsign"].upper(),
-            "location": r["location"],
-            "tier": r["tier"],
-        }
-        for r in rows
-        if r["publish_public"] == "yes" and r["status"] == "active"
-    ]
-
-    def sort_key(r):
-        # Numeric units first in numeric order, free-text units last.
-        return (0, int(r["unit"]), "") if r["unit"].isdigit() else (1, 0, r["unit"])
-
-    published.sort(key=sort_key)
-    return published, index
+    return rows, index
 
 
 def build_nets(rows, roster_index):
@@ -103,6 +87,8 @@ def build_nets(rows, roster_index):
             fail("net_log.csv: row with empty net_date")
         nets[row["net_date"]].append(row)
 
+    # Units missing from the public roster are fine (opted out / not yet
+    # added): their check-ins count, they just render without a name.
     unknown = {
         r["unit"]
         for rs in nets.values()
@@ -110,7 +96,7 @@ def build_nets(rows, roster_index):
         if r["unit"] and r["unit"] not in roster_index
     }
     if unknown:
-        fail(f"net_log.csv references units absent from roster.csv: {sorted(unknown)}")
+        print(f"note: units not in data/roster.csv: {sorted(unknown)}")
 
     out = []
     for date in sorted(nets, reverse=True):
@@ -184,28 +170,21 @@ def build_attendance(rows, roster_index, published):
 
 
 def main():
-    roster_rows = read_csv(SRC / "roster.csv")
+    roster_rows = read_csv(OUT / "roster.csv")
     log_rows = read_csv(SRC / "net_log.csv")
 
-    published, index = build_roster(roster_rows)
+    published, index = load_roster(roster_rows)
     nets = build_nets(log_rows, index)
     attendance = build_attendance(log_rows, index, published)
 
     OUT.mkdir(parents=True, exist_ok=True)
     artifacts = {
-        "roster.json": {
-            "updated": max(n["date"] for n in nets) if nets else None,
-            "count": len(published),
-            "members": published,
-        },
         "nets.json": {"count": len(nets), "nets": nets},
         "attendance.json": attendance,
     }
     for name, payload in artifacts.items():
         (OUT / name).write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
 
-    withheld = len(roster_rows) - len(published)
-    print(f"roster.json     {len(published)} published, {withheld} withheld")
     print(f"nets.json       {len(nets)} nets")
     print(f"attendance.json {attendance['total_nets']} nets rolled up")
 
