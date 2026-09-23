@@ -439,6 +439,9 @@ function parseRosterCsv(text) {
 
   const header = (rows.shift() || []).map(h => h.trim().toLowerCase());
   const col = Object.fromEntries(header.map((h, i) => [h, i]));
+  // show: anything except an explicit "no"-ish value keeps the row visible,
+  // so a forgotten/blank cell never silently hides a member.
+  const hidden = new Set(['no', 'n', 'false', 'hidden', '0']);
   return rows
     .map(r => ({
       unit: (r[col.unit] ?? '').trim(),
@@ -446,8 +449,9 @@ function parseRosterCsv(text) {
       callsign: (r[col.callsign] ?? '').trim().toUpperCase(),
       location: (r[col.location] ?? '').trim(),
       tier: (r[col.tier] ?? '').trim().toLowerCase(),
+      show: !hidden.has((r[col.show] ?? '').trim().toLowerCase()),
     }))
-    .filter(m => m.unit && m.licensee);
+    .filter(m => m.unit && m.licensee && m.show);
 }
 
 Promise.all([

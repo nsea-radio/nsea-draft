@@ -22,16 +22,16 @@ updates itself about a minute later. You never need to touch the website's HTML.
 
 ## The format
 
-One line per member, five values separated by commas, in this order:
+One line per member, six values separated by commas, in this order:
 
 ```
-unit,licensee,callsign,location,tier
+unit,licensee,callsign,location,tier,show
 ```
 
 For example:
 
 ```
-547,Gary Edelman,WQOR681,Skokie,regular
+547,Gary Edelman,WQOR681,Skokie,regular,yes
 ```
 
 - **unit** — the NSEA unit number (e.g. `547`)
@@ -39,6 +39,8 @@ For example:
 - **callsign** — the GMRS call sign (e.g. `WQOR681`)
 - **location** — town
 - **tier** — exactly one of: `regular`, `authorized`, or `affiliate`
+- **show** — `yes` to appear on the website, `no` to keep the row but hide it
+  from the page (if you leave it blank, the member is shown)
 
 Rules of thumb:
 
@@ -54,15 +56,19 @@ Rules of thumb:
 ## Common tasks
 
 - **Add a member:** add a new line anywhere below the header.
+- **Hide a member from the website:** change their `show` value to `no` — the
+  row stays in the file for record-keeping, but they disappear from the page
+  and the attendance list.
 - **Remove a member:** delete their whole line.
 - **Fix a typo:** edit the value in place.
 
 ## Privacy — read this before adding anyone
 
-**Everything in this file is public on the internet.** Only list members who
-have agreed to appear on the public roster. If someone doesn't want to be
-listed, they simply have no line here — their weekly net check-ins still count
-toward the totals on the page.
+**Everything in this file is public on the internet** — including rows marked
+`show,no`, because the file itself can be read by anyone even though the
+website doesn't display those rows. `no` is for "don't display"; if someone
+doesn't want their name in the file at all, delete their line entirely —
+their weekly net check-ins still count toward the totals on the page.
 
 Never put phone numbers, email addresses, street addresses, or private notes
 in this file.

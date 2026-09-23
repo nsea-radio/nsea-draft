@@ -59,11 +59,20 @@ def fail(msg):
     sys.exit(1)
 
 
+# Values of the `show` column that hide a row from everything published
+# (roster table, attendance rollup, net-control/scribe name joins). Anything
+# else -- including a blank cell -- keeps the row visible, so a forgotten
+# value never silently hides a member.
+HIDDEN = {"no", "n", "false", "hidden", "0"}
+
+
 def load_roster(rows):
-    """data/roster.csv sanity check. Returns (records, unit_index)."""
+    """data/roster.csv sanity check. Returns (shown_records, unit_index)."""
     index, seen, problems = {}, set(), []
 
-    for row in rows:
+    shown = [r for r in rows if r.get("show", "").lower() not in HIDDEN]
+
+    for row in shown:
         unit = row["unit"]
         if not unit:
             problems.append("row with empty unit")
@@ -76,7 +85,7 @@ def load_roster(rows):
     if problems:
         fail("data/roster.csv: " + "; ".join(problems))
 
-    return rows, index
+    return shown, index
 
 
 def build_nets(rows, roster_index):

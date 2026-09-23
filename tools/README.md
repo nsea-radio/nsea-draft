@@ -41,13 +41,17 @@ signs are not unique here: units 521 and 524 (Brian and Charlie Drake) share
 ### `data/roster.csv` — one row per unit, forever
 
 ```
-unit,licensee,callsign,location,tier
+unit,licensee,callsign,location,tier,show
 ```
 
 - `tier` — `regular` / `authorized` / `affiliate`, replacing the section-header rows
-- Everything in this file is public by definition. A member who opted out of
-  the public listing has no row; there is no notes/status column. Keep private
-  information out of it.
+- `show` — `no` (also `n`/`false`/`hidden`/`0`) hides the row from everything
+  published: roster table, attendance rollup, and net-control/scribe name
+  joins. Anything else, including blank, shows it — a forgotten cell never
+  silently hides a member. Hidden check-ins still count toward per-net totals.
+- Everything in this file is public by definition — `show,no` hides a row from
+  the *page*, not from the repo. A member who wants no public record has no
+  row; there is no notes column. Keep private information out of it.
 
 ### `tools/net_log.csv` — one row per check-in, forever
 
