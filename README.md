@@ -11,4 +11,4 @@ five-minute, no-code edit of one file.
 - Content sourced from the existing nsea.com (repeaters, weekly net, meetings, membership, contacts)
 - Deployed for review via GitHub Pages
 
-Built by Cypri Group.
+Built by Eric Muehlstein | KC9MHE/WRXC682 | (312)203-0222 | kc9mhe@gmail.com
