@@ -1,9 +1,606 @@
 {
-  "count": 1,
+  "count": 98,
   "nets": [
     {
-      "date": "2026-09-21",
-      "check_ins": 3,
+      "date": "2026-09-20",
+      "check_ins": 27,
+      "late": 0,
+      "traffic": 1,
+      "net_control": {
+        "unit": "701",
+        "licensee": "Mike Creatura",
+        "callsign": "WSCA683"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [],
+      "radio_types": {
+        "Base": 12,
+        "Mobile": 2,
+        "Portable": 13
+      }
+    },
+    {
+      "date": "2026-09-13",
+      "check_ins": 28,
+      "late": 5,
+      "traffic": 2,
+      "net_control": {
+        "unit": "563",
+        "licensee": "Joel Kogen",
+        "callsign": "KAE6944"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [
+        {
+          "callsign": "WSNU453",
+          "name": "Volodymyr Los",
+          "location": "Schaumburg, Il"
+        }
+      ],
+      "radio_types": {
+        "Base": 13,
+        "Mobile": 1,
+        "Portable": 12
+      }
+    },
+    {
+      "date": "2026-09-06",
+      "check_ins": 30,
+      "late": 4,
+      "traffic": 0,
+      "net_control": {
+        "unit": "593",
+        "licensee": "James Fliris",
+        "callsign": "WRHS944"
+      },
+      "scribe": {
+        "unit": "701",
+        "licensee": "Mike Creatura",
+        "callsign": "WSCA683"
+      },
+      "visitors": [
+        {
+          "callsign": "WRHY204",
+          "name": "George Santiago",
+          "location": "Maywood"
+        }
+      ],
+      "radio_types": {
+        "Base": 11,
+        "Mobile": 3,
+        "Portable": 15
+      }
+    },
+    {
+      "date": "2026-08-30",
+      "check_ins": 35,
+      "late": 8,
+      "traffic": 0,
+      "net_control": {
+        "unit": "575",
+        "licensee": "Mohammad Khiyani",
+        "callsign": "WSBQ221"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [
+        {
+          "callsign": "KAE6453",
+          "name": "Craig Fair",
+          "location": "Sodus, MI"
+        }
+      ],
+      "radio_types": {
+        "Base": 15,
+        "Portable": 13
+      }
+    },
+    {
+      "date": "2026-08-23",
+      "check_ins": 33,
+      "late": 0,
+      "traffic": 1,
+      "net_control": {
+        "unit": "701",
+        "licensee": "Mike Creatura",
+        "callsign": "WSCA683"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [],
+      "radio_types": {
+        "Base": 14,
+        "Portable": 18
+      }
+    },
+    {
+      "date": "2026-08-16",
+      "check_ins": 23,
+      "late": 1,
+      "traffic": 1,
+      "net_control": {
+        "unit": "563",
+        "licensee": "Joel Kogen",
+        "callsign": "KAE6944"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [],
+      "radio_types": {
+        "Base": 14,
+        "Mobile": 1,
+        "Portable": 6
+      }
+    },
+    {
+      "date": "2026-08-09",
+      "check_ins": 28,
+      "late": 3,
+      "traffic": 2,
+      "net_control": {
+        "unit": "593",
+        "licensee": "James Fliris",
+        "callsign": "WRHS944"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [
+        {
+          "callsign": "KAE6453",
+          "name": "Craig Fair",
+          "location": "Sodus, MI"
+        }
+      ],
+      "radio_types": {
+        "Base": 16,
+        "Portable": 9
+      }
+    },
+    {
+      "date": "2026-08-02",
+      "check_ins": 28,
+      "late": 4,
+      "traffic": 2,
+      "net_control": {
+        "unit": "701",
+        "licensee": "Mike Creatura",
+        "callsign": "WSCA683"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [],
+      "radio_types": {
+        "Base": 14,
+        "Mobile": 1,
+        "Portable": 8
+      }
+    },
+    {
+      "date": "2026-07-26",
+      "check_ins": 30,
+      "late": 2,
+      "traffic": 1,
+      "net_control": {
+        "unit": "701",
+        "licensee": "Mike Creatura",
+        "callsign": "WSCA683"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [],
+      "radio_types": {
+        "Base": 12,
+        "Mobile": 1,
+        "Portable": 15
+      }
+    },
+    {
+      "date": "2026-07-19",
+      "check_ins": 26,
+      "late": 1,
+      "traffic": 0,
+      "net_control": {
+        "unit": "563",
+        "licensee": "Joel Kogen",
+        "callsign": "KAE6944"
+      },
+      "scribe": {
+        "unit": "701",
+        "licensee": "Mike Creatura",
+        "callsign": "WSCA683"
+      },
+      "visitors": [],
+      "radio_types": {
+        "Base": 13,
+        "Portable": 12
+      }
+    },
+    {
+      "date": "2026-07-12",
+      "check_ins": 39,
+      "late": 8,
+      "traffic": 1,
+      "net_control": {
+        "unit": "563",
+        "licensee": "Joel Kogen",
+        "callsign": "KAE6944"
+      },
+      "scribe": {
+        "unit": "701",
+        "licensee": "Mike Creatura",
+        "callsign": "WSCA683"
+      },
+      "visitors": [
+        {
+          "callsign": "KAE6453",
+          "name": "Craig Fair",
+          "location": "Sodus, MI"
+        }
+      ],
+      "radio_types": {
+        "Base": 12,
+        "Mobile": 2,
+        "Portable": 20
+      }
+    },
+    {
+      "date": "2026-07-05",
+      "check_ins": 29,
+      "late": 2,
+      "traffic": 2,
+      "net_control": {
+        "unit": "593",
+        "licensee": "James Fliris",
+        "callsign": "WRHS944"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [],
+      "radio_types": {
+        "Base": 15,
+        "Mobile": 1,
+        "Portable": 12
+      }
+    },
+    {
+      "date": "2026-06-28",
+      "check_ins": 30,
+      "late": 2,
+      "traffic": 1,
+      "net_control": {
+        "unit": "563",
+        "licensee": "Joel Kogen",
+        "callsign": "KAE6944"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [],
+      "radio_types": {
+        "Base": 12,
+        "Mobile": 1,
+        "Portable": 15
+      }
+    },
+    {
+      "date": "2026-06-21",
+      "check_ins": 28,
+      "late": 6,
+      "traffic": 2,
+      "net_control": {
+        "unit": "701",
+        "licensee": "Mike Creatura",
+        "callsign": "WSCA683"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [],
+      "radio_types": {
+        "Base": 13,
+        "Mobile": 1,
+        "Portable": 13
+      }
+    },
+    {
+      "date": "2026-06-14",
+      "check_ins": 33,
+      "late": 6,
+      "traffic": 0,
+      "net_control": {
+        "unit": "563",
+        "licensee": "Joel Kogen",
+        "callsign": "KAE6944"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [],
+      "radio_types": {
+        "Base": 17,
+        "Portable": 15
+      }
+    },
+    {
+      "date": "2026-06-07",
+      "check_ins": 22,
+      "late": 3,
+      "traffic": 1,
+      "net_control": {
+        "unit": "593",
+        "licensee": "James Fliris",
+        "callsign": "WRHS944"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [
+        {
+          "callsign": "KAE6453",
+          "name": "Craig Fair",
+          "location": "Sodus, MI"
+        }
+      ],
+      "radio_types": {
+        "Base": 7,
+        "Mobile": 1,
+        "Portable": 13
+      }
+    },
+    {
+      "date": "2026-05-31",
+      "check_ins": 33,
+      "late": 3,
+      "traffic": 1,
+      "net_control": {
+        "unit": "575",
+        "licensee": "Mohammad Khiyani",
+        "callsign": "WSBQ221"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [
+        {
+          "callsign": "KAE6453",
+          "name": "Craig Fair",
+          "location": "Sodus, MI"
+        }
+      ],
+      "radio_types": {
+        "Base": 15,
+        "Portable": 14
+      }
+    },
+    {
+      "date": "2026-05-24",
+      "check_ins": 25,
+      "late": 1,
+      "traffic": 0,
+      "net_control": {
+        "unit": "593",
+        "licensee": "James Fliris",
+        "callsign": "WRHS944"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [],
+      "radio_types": {
+        "Base": 14,
+        "Portable": 10
+      }
+    },
+    {
+      "date": "2026-05-17",
+      "check_ins": 39,
+      "late": 4,
+      "traffic": 0,
+      "net_control": {
+        "unit": "563",
+        "licensee": "Joel Kogen",
+        "callsign": "KAE6944"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [],
+      "radio_types": {
+        "Base": 17,
+        "Mobile": 1,
+        "Portable": 18
+      }
+    },
+    {
+      "date": "2026-05-10",
+      "check_ins": 27,
+      "late": 3,
+      "traffic": 0,
+      "net_control": {
+        "unit": "563",
+        "licensee": "Joel Kogen",
+        "callsign": "KAE6944"
+      },
+      "scribe": {
+        "unit": "701",
+        "licensee": "Mike Creatura",
+        "callsign": "WSCA683"
+      },
+      "visitors": [],
+      "radio_types": {
+        "Base": 10,
+        "Mobile": 2,
+        "Portable": 13
+      }
+    },
+    {
+      "date": "2026-05-03",
+      "check_ins": 34,
+      "late": 2,
+      "traffic": 1,
+      "net_control": {
+        "unit": "593",
+        "licensee": "James Fliris",
+        "callsign": "WRHS944"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [
+        {
+          "callsign": "WSKV574",
+          "name": "Pat Flayfel",
+          "location": "Skokie"
+        }
+      ],
+      "radio_types": {
+        "Base": 14,
+        "Mobile": 3,
+        "Portable": 16
+      }
+    },
+    {
+      "date": "2026-04-26",
+      "check_ins": 31,
+      "late": 2,
+      "traffic": 2,
+      "net_control": {
+        "unit": "575",
+        "licensee": "Mohammad Khiyani",
+        "callsign": "WSBQ221"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [
+        {
+          "callsign": "WRXN504",
+          "name": "Ian Witbeck",
+          "location": "Northlake"
+        },
+        {
+          "callsign": "WSKV574",
+          "name": "Pat Flayfel",
+          "location": "Skokie"
+        }
+      ],
+      "radio_types": {
+        "Base": 14,
+        "Mobile": 1,
+        "Portable": 14
+      }
+    },
+    {
+      "date": "2026-04-19",
+      "check_ins": 31,
+      "late": 4,
+      "traffic": 0,
+      "net_control": {
+        "unit": "563",
+        "licensee": "Joel Kogen",
+        "callsign": "KAE6944"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [
+        {
+          "callsign": "WRXN504",
+          "name": "Ian Witbeck",
+          "location": "Northlake"
+        }
+      ],
+      "radio_types": {
+        "Base": 12,
+        "Mobile": 1,
+        "Portable": 17
+      }
+    },
+    {
+      "date": "2026-04-12",
+      "check_ins": 30,
+      "late": 0,
+      "traffic": 0,
+      "net_control": {
+        "unit": "593",
+        "licensee": "James Fliris",
+        "callsign": "WRHS944"
+      },
+      "scribe": {
+        "unit": "701",
+        "licensee": "Mike Creatura",
+        "callsign": "WSCA683"
+      },
+      "visitors": [
+        {
+          "callsign": "WRXN504",
+          "name": "Ian Witbeck",
+          "location": "Northlake"
+        },
+        {
+          "callsign": "WSKV574",
+          "name": "Pat Flayfel",
+          "location": "Skokie"
+        }
+      ],
+      "radio_types": {
+        "Base": 14,
+        "Mobile": 1,
+        "Portable": 12
+      }
+    },
+    {
+      "date": "2026-04-05",
+      "check_ins": 31,
       "late": 1,
       "traffic": 1,
       "net_control": {
@@ -18,15 +615,2585 @@
       },
       "visitors": [
         {
-          "callsign": "WRXX123",
-          "name": "Sam",
+          "callsign": "WSKV574",
+          "name": "Pat Flayfel",
           "location": "Skokie"
         }
       ],
       "radio_types": {
-        "Base": 1,
+        "Base": 16,
+        "Portable": 13
+      }
+    },
+    {
+      "date": "2026-03-29",
+      "check_ins": 30,
+      "late": 1,
+      "traffic": 1,
+      "net_control": {
+        "unit": "575",
+        "licensee": "Mohammad Khiyani",
+        "callsign": "WSBQ221"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [
+        {
+          "callsign": "WRXN504",
+          "name": "Ian Witbeck",
+          "location": "Northlake"
+        },
+        {
+          "callsign": "WSKV574",
+          "name": "Pat Flayfel",
+          "location": "Skokie"
+        }
+      ],
+      "radio_types": {
+        "Base": 15,
+        "Mobile": 2,
+        "Portable": 13
+      }
+    },
+    {
+      "date": "2026-03-22",
+      "check_ins": 30,
+      "late": 0,
+      "traffic": 1,
+      "net_control": {
+        "unit": "563",
+        "licensee": "Joel Kogen",
+        "callsign": "KAE6944"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [
+        {
+          "callsign": "WSKV574",
+          "name": "Pat Flayfel",
+          "location": "Skokie"
+        }
+      ],
+      "radio_types": {
+        "Base": 17,
+        "Portable": 12
+      }
+    },
+    {
+      "date": "2026-03-15",
+      "check_ins": 33,
+      "late": 3,
+      "traffic": 1,
+      "net_control": {
+        "unit": "593",
+        "licensee": "James Fliris",
+        "callsign": "WRHS944"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [
+        {
+          "callsign": "WSKV574",
+          "name": "Pat Flayfel",
+          "location": "Skokie"
+        }
+      ],
+      "radio_types": {
+        "Base": 15,
+        "Portable": 15
+      }
+    },
+    {
+      "date": "2026-03-08",
+      "check_ins": 31,
+      "late": 3,
+      "traffic": 2,
+      "net_control": {
+        "unit": "563",
+        "licensee": "Joel Kogen",
+        "callsign": "KAE6944"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [
+        {
+          "callsign": "WSKV574",
+          "name": "Pat Flayfel",
+          "location": "Skokie"
+        }
+      ],
+      "radio_types": {
+        "Base": 16,
         "Mobile": 1,
+        "Portable": 11
+      }
+    },
+    {
+      "date": "2026-03-01",
+      "check_ins": 34,
+      "late": 3,
+      "traffic": 2,
+      "net_control": {
+        "unit": "593",
+        "licensee": "James Fliris",
+        "callsign": "WRHS944"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [
+        {
+          "callsign": "WSKV574",
+          "name": "Pat Flayfel",
+          "location": "Skokie"
+        }
+      ],
+      "radio_types": {
+        "Base": 14,
+        "Mobile": 1,
+        "Portable": 15
+      }
+    },
+    {
+      "date": "2026-02-22",
+      "check_ins": 33,
+      "late": 6,
+      "traffic": 1,
+      "net_control": {
+        "unit": "563",
+        "licensee": "Joel Kogen",
+        "callsign": "KAE6944"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [
+        {
+          "callsign": "WSDC207",
+          "name": "Jeff Ptacek",
+          "location": "Wheeling"
+        },
+        {
+          "callsign": "WSKV574",
+          "name": "Pat Flayfel",
+          "location": "Skokie"
+        },
+        {
+          "callsign": "WSAW284",
+          "name": "Sam Florio",
+          "location": "Chicago"
+        }
+      ],
+      "radio_types": {
+        "Base": 15,
+        "Portable": 17
+      }
+    },
+    {
+      "date": "2026-02-15",
+      "check_ins": 32,
+      "late": 0,
+      "traffic": 0,
+      "net_control": {
+        "unit": "575",
+        "licensee": "Mohammad Khiyani",
+        "callsign": "WSBQ221"
+      },
+      "scribe": {
+        "unit": "563",
+        "licensee": "Joel Kogen",
+        "callsign": "KAE6944"
+      },
+      "visitors": [
+        {
+          "callsign": "KAE6453",
+          "name": "Craig Fair",
+          "location": "Sodus, MI"
+        },
+        {
+          "callsign": "WRXN504",
+          "name": "Ian Witbeck",
+          "location": "Northlake"
+        },
+        {
+          "callsign": "WSDC207",
+          "name": "Jeff Ptacek",
+          "location": "Wheeling"
+        },
+        {
+          "callsign": "WSKV574",
+          "name": "Pat Flayfel",
+          "location": "Skokie"
+        }
+      ],
+      "radio_types": {
+        "Base": 11,
+        "Control Station": 4,
+        "Mobile": 2,
+        "Portable": 13
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "check_ins": 26,
+      "late": 0,
+      "traffic": 0,
+      "net_control": {
+        "unit": "593",
+        "licensee": "James Fliris",
+        "callsign": "WRHS944"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [
+        {
+          "callsign": "WSKV574",
+          "name": "Pat Flayfel",
+          "location": "Skokie"
+        }
+      ],
+      "radio_types": {
+        "Base": 14,
+        "Mobile": 1,
+        "Portable": 10
+      }
+    },
+    {
+      "date": "2026-02-01",
+      "check_ins": 31,
+      "late": 1,
+      "traffic": 1,
+      "net_control": {
+        "unit": "563",
+        "licensee": "Joel Kogen",
+        "callsign": "KAE6944"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [
+        {
+          "callsign": "WSKV574",
+          "name": "Pat Flayfel",
+          "location": "Skokie"
+        }
+      ],
+      "radio_types": {
+        "Base": 19,
+        "Portable": 11
+      }
+    },
+    {
+      "date": "2026-01-25",
+      "check_ins": 30,
+      "late": 0,
+      "traffic": 0,
+      "net_control": {
+        "unit": "563",
+        "licensee": "Joel Kogen",
+        "callsign": "KAE6944"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [
+        {
+          "callsign": "WSDC207",
+          "name": "Jeff Ptacek",
+          "location": "Wheeling"
+        }
+      ],
+      "radio_types": {
+        "Base": 18,
+        "Portable": 11
+      }
+    },
+    {
+      "date": "2026-01-18",
+      "check_ins": 30,
+      "late": 0,
+      "traffic": 0,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [],
+      "radio_types": {
+        "Base": 19,
+        "Portable": 9
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "check_ins": 30,
+      "late": 2,
+      "traffic": 1,
+      "net_control": {
+        "unit": "575",
+        "licensee": "Mohammad Khiyani",
+        "callsign": "WSBQ221"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [
+        {
+          "callsign": "WSEU750",
+          "name": "John Astreides",
+          "location": "Mount Prospect"
+        },
+        {
+          "callsign": "WRVF690",
+          "name": "Todd Hansen",
+          "location": "Chicago"
+        }
+      ],
+      "radio_types": {
+        "Base": 14,
+        "Mobile": 1,
+        "Portable": 13
+      }
+    },
+    {
+      "date": "2026-01-04",
+      "check_ins": 35,
+      "late": 6,
+      "traffic": 0,
+      "net_control": {
+        "unit": "563",
+        "licensee": "Joel Kogen",
+        "callsign": "KAE6944"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [
+        {
+          "callsign": "WQTP964",
+          "name": "Kurt Sheffer",
+          "location": "Evanston"
+        },
+        {
+          "callsign": "WRBN551",
+          "name": "Bruce Underwood",
+          "location": "Skokie"
+        },
+        {
+          "callsign": "WRQU794",
+          "name": "Craig Lundt",
+          "location": "Downers Grove"
+        },
+        {
+          "callsign": "WRTN391",
+          "name": "Steve Warnimont",
+          "location": "Elk Grove Village"
+        },
+        {
+          "callsign": "WSCZ546",
+          "name": "Jim Graves",
+          "location": "Skokie"
+        },
+        {
+          "callsign": "WSCZ570",
+          "name": "T.J. Seputis",
+          "location": "Arlington Heights"
+        },
+        {
+          "callsign": "WSDC207",
+          "name": "Jeff Ptacek",
+          "location": "Wheeling"
+        },
+        {
+          "callsign": "WSFS918",
+          "name": "Bill Zimmer",
+          "location": "Lincolnshire"
+        }
+      ],
+      "radio_types": {
+        "Base": 19,
+        "Mobile": 2,
+        "Portable": 13
+      }
+    },
+    {
+      "date": "2025-12-28",
+      "check_ins": 26,
+      "late": 2,
+      "traffic": 1,
+      "net_control": {
+        "unit": "593",
+        "licensee": "James Fliris",
+        "callsign": "WRHS944"
+      },
+      "scribe": {
+        "unit": "563",
+        "licensee": "Joel Kogen",
+        "callsign": "KAE6944"
+      },
+      "visitors": [
+        {
+          "callsign": "WRXN504",
+          "name": "Ian Witbeck",
+          "location": "Northlake"
+        },
+        {
+          "callsign": "WSCZ570",
+          "name": "T.J. Seputis",
+          "location": "Arlington Heights"
+        },
+        {
+          "callsign": "WSFS918",
+          "name": "Bill Zimmer",
+          "location": "Lincolnshire"
+        }
+      ],
+      "radio_types": {
+        "Base": 13,
+        "Control Station": 1,
+        "Mobile": 1,
+        "Portable": 8
+      }
+    },
+    {
+      "date": "2025-12-21",
+      "check_ins": 28,
+      "late": 4,
+      "traffic": 2,
+      "net_control": {
+        "unit": "575",
+        "licensee": "Mohammad Khiyani",
+        "callsign": "WSBQ221"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [
+        {
+          "callsign": "KAE6453",
+          "name": "Craig Fair",
+          "location": "Sodus, MI"
+        },
+        {
+          "callsign": "WRBN551",
+          "name": "Bruce Underwood",
+          "location": "Skokie"
+        },
+        {
+          "callsign": "WRQU794",
+          "name": "Craig Lundt",
+          "location": "Downers Grove"
+        },
+        {
+          "callsign": "WRTN391",
+          "name": "Steve Warnimont",
+          "location": "Elk Grove Village"
+        },
+        {
+          "callsign": "WSCZ546",
+          "name": "Jim Graves",
+          "location": "Skokie"
+        },
+        {
+          "callsign": "WSCZ570",
+          "name": "T.J. Seputis",
+          "location": "Arlington Heights"
+        },
+        {
+          "callsign": "WSDC207",
+          "name": "Jeff Ptacek",
+          "location": "Wheeling"
+        },
+        {
+          "callsign": "WSFS918",
+          "name": "Bill Zimmer",
+          "location": "Lincolnshire"
+        }
+      ],
+      "radio_types": {
+        "Base": 16,
+        "Portable": 9
+      }
+    },
+    {
+      "date": "2025-12-14",
+      "check_ins": 30,
+      "late": 0,
+      "traffic": 1,
+      "net_control": {
+        "unit": "563",
+        "licensee": "Joel Kogen",
+        "callsign": "KAE6944"
+      },
+      "scribe": {
+        "unit": "573",
+        "licensee": "Wayne Buttermore",
+        "callsign": "WQZY273"
+      },
+      "visitors": [
+        {
+          "callsign": "WRBN551",
+          "name": "Bruce Underwood",
+          "location": "Skokie"
+        },
+        {
+          "callsign": "WRTN391",
+          "name": "Steve Warnimont",
+          "location": "Elk Grove Village"
+        },
+        {
+          "callsign": "WRVF690",
+          "name": "Todd Hansen",
+          "location": "Chicago"
+        },
+        {
+          "callsign": "WSDC207",
+          "name": "Jeff Ptacek",
+          "location": "Wheeling"
+        },
+        {
+          "callsign": "WSFS918",
+          "name": "Bill Zimmer",
+          "location": "Lincolnshire"
+        }
+      ],
+      "radio_types": {
+        "Base": 17,
+        "Portable": 10
+      }
+    },
+    {
+      "date": "2025-12-07",
+      "check_ins": 20,
+      "late": 3,
+      "traffic": 0,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WSCZ546",
+          "name": "Jim Graves - Skokie",
+          "location": "Skokie"
+        },
+        {
+          "callsign": "WSDC207",
+          "name": "Jeff Ptacek",
+          "location": "Wheeling"
+        }
+      ],
+      "radio_types": {
+        "Base": 8,
+        "Mobile": 1,
+        "Portable": 8
+      }
+    },
+    {
+      "date": "2022-09-04",
+      "check_ins": 24,
+      "late": 4,
+      "traffic": 0,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus \u2013 Highland Pk",
+          "location": "HP"
+        },
+        {
+          "callsign": "WRBR465",
+          "name": "Elizabeth Hamlett - Cgo",
+          "location": "Chicago"
+        },
+        {
+          "callsign": "WRTN391",
+          "name": "Steve Warnimont - Elk Grove Vil",
+          "location": "EGV"
+        }
+      ],
+      "radio_types": {
+        "Base": 10,
+        "Control Station": 1,
+        "Mobile": 4,
+        "Portable": 3
+      }
+    },
+    {
+      "date": "2022-08-28",
+      "check_ins": 35,
+      "late": 4,
+      "traffic": 0,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus \u2013 Highland Pk",
+          "location": "HP"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WRBR465",
+          "name": "Elizabeth Hamlett - Cgo",
+          "location": "Chicago"
+        },
+        {
+          "callsign": "WRTN391",
+          "name": "Steve Warnimont - Elk Grove Vil",
+          "location": "Elk Grove V"
+        }
+      ],
+      "radio_types": {
+        "Base": 13,
+        "Control Station": 3,
+        "Mobile": 1,
+        "Portable": 2
+      }
+    },
+    {
+      "date": "2022-08-21",
+      "check_ins": 36,
+      "late": 1,
+      "traffic": 0,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus \u2013 Highland Pk",
+          "location": "Highland Park"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull - Lyons Twp (Brookfield)",
+          "location": "Brookfield"
+        },
+        {
+          "callsign": "WRTN391",
+          "name": "Steve Warnimont - Elk Grove Vil",
+          "location": "EGV"
+        }
+      ],
+      "radio_types": {
+        "Base": 14,
+        "Mobile": 3,
+        "Portable": 10
+      }
+    },
+    {
+      "date": "2022-08-14",
+      "check_ins": 24,
+      "late": 0,
+      "traffic": 1,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull - Lyons Twp (Brookfield)",
+          "location": "Brookfield"
+        }
+      ],
+      "radio_types": {
+        "Base": 12,
+        "Mobile": 1,
+        "Portable": 8
+      }
+    },
+    {
+      "date": "2022-08-07",
+      "check_ins": 28,
+      "late": 1,
+      "traffic": 0,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        }
+      ],
+      "radio_types": {
+        "Base": 11,
+        "Portable": 5
+      }
+    },
+    {
+      "date": "2022-07-31",
+      "check_ins": 34,
+      "late": 4,
+      "traffic": 0,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        },
+        {
+          "callsign": "WRTN391",
+          "name": "Steve Warnimont",
+          "location": "Elk Grove Vil"
+        }
+      ],
+      "radio_types": {
+        "Base": 9,
+        "Mobile": 2,
+        "Portable": 7
+      }
+    },
+    {
+      "date": "2022-07-24",
+      "check_ins": 30,
+      "late": 1,
+      "traffic": 1,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus \u2013 Highland Pk",
+          "location": "HP"
+        }
+      ],
+      "radio_types": {
+        "Base": 9,
+        "Mobile": 1,
+        "Portable": 8
+      }
+    },
+    {
+      "date": "2022-07-17",
+      "check_ins": 37,
+      "late": 1,
+      "traffic": 0,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus \u2013 Highland Pk",
+          "location": "HP"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull - Lyons Twp (Brookfield)",
+          "location": "BROOKFIELD"
+        },
+        {
+          "callsign": "WRTN391",
+          "name": "Steve Warnimont - Elk Grove Vil",
+          "location": "ELK GROVE"
+        }
+      ],
+      "radio_types": {
+        "Base": 11,
+        "Mobile": 2,
+        "Portable": 6
+      }
+    },
+    {
+      "date": "2022-07-10",
+      "check_ins": 24,
+      "late": 1,
+      "traffic": 2,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        }
+      ],
+      "radio_types": {
+        "Control Station": 8,
+        "Mobile": 2,
+        "Portable": 4
+      }
+    },
+    {
+      "date": "2022-07-03",
+      "check_ins": 25,
+      "late": 5,
+      "traffic": 1,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "KAE6453",
+          "name": "Craig - Sodus, Mich",
+          "location": "St, Joe"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull - Lyons Twp (Brookfield)",
+          "location": "S Brookfield"
+        },
+        {
+          "callsign": "WQXK747",
+          "name": "Dave Pefeiffer -Mchgn City, IN",
+          "location": "Mich City"
+        }
+      ],
+      "radio_types": {
+        "Base": 8,
+        "Control Station": 1,
+        "Mobile": 2,
+        "Portable": 2
+      }
+    },
+    {
+      "date": "2022-06-26",
+      "check_ins": 31,
+      "late": 2,
+      "traffic": 1,
+      "net_control": null,
+      "scribe": {
+        "unit": "563",
+        "licensee": "Joel Kogen",
+        "callsign": "KAE6944"
+      },
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus \u2013 Highland Pk",
+          "location": "Highland Park"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig - Sodus, Mich",
+          "location": "Sotus MI"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull - Lyons Twp (Brookfield)",
+          "location": "S Brookfield"
+        }
+      ],
+      "radio_types": {
+        "Base": 18,
+        "Mobile": 3,
+        "Portable": 2
+      }
+    },
+    {
+      "date": "2022-06-19",
+      "check_ins": 33,
+      "late": 2,
+      "traffic": 1,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus \u2013 Highland Pk",
+          "location": "Hp"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull - Lyons Twp (Brookfield)",
+          "location": "South Brookfield"
+        }
+      ],
+      "radio_types": {
+        "Base": 14,
+        "Control Station": 1,
+        "Mobile": 2,
         "Portable": 1
+      }
+    },
+    {
+      "date": "2022-06-12",
+      "check_ins": 35,
+      "late": 3,
+      "traffic": 0,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull - Lyons Twp (Brookfield)",
+          "location": "brookfield"
+        },
+        {
+          "callsign": "WRBR465",
+          "name": "Elizabeth Hamlett - Cgo",
+          "location": "chicago"
+        }
+      ],
+      "radio_types": {
+        "Base": 17,
+        "Mobile": 5,
+        "Portable": 3
+      }
+    },
+    {
+      "date": "2022-05-29",
+      "check_ins": 30,
+      "late": 1,
+      "traffic": 0,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus \u2013 Highland Pk",
+          "location": "highland park"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull - Lyons Twp (Brookfield)",
+          "location": "Brookfield"
+        }
+      ],
+      "radio_types": {
+        "Base": 14,
+        "Mobile": 6,
+        "Portable": 2
+      }
+    },
+    {
+      "date": "2022-05-22",
+      "check_ins": 36,
+      "late": 6,
+      "traffic": 3,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus \u2013 Highland Pk",
+          "location": "Highland Park"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig - Sodus, Mich",
+          "location": "Sotus MI"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull - Lyons Twp (Brookfield)",
+          "location": "S Brookfield"
+        },
+        {
+          "callsign": "WRBR465",
+          "name": "Elizabeth Hamlett - Cgo",
+          "location": "Chicago"
+        },
+        {
+          "callsign": "WRPD719",
+          "name": "Scott Petricek - Chicago",
+          "location": "chicago"
+        },
+        {
+          "callsign": "WQXM247",
+          "name": "Carl Hartman - Lincolnshire",
+          "location": "lincolnshire"
+        },
+        {
+          "callsign": "WRQX589",
+          "name": "Steve Handler - Buffalo Grove",
+          "location": "BG"
+        },
+        {
+          "callsign": "WRQV958",
+          "name": "Calvin Kutemeir - Elk Grove",
+          "location": "Elk Grove"
+        }
+      ],
+      "radio_types": {
+        "Base": 16,
+        "Mobile": 2,
+        "Portable": 11
+      }
+    },
+    {
+      "date": "2022-05-15",
+      "check_ins": 36,
+      "late": 0,
+      "traffic": 1,
+      "net_control": {
+        "unit": "501",
+        "licensee": "Ron Schinleber",
+        "callsign": "WQQJ241"
+      },
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus \u2013 Highland Pk",
+          "location": "Highland Park"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig - Sodus, Mich",
+          "location": "Sodus Michigan"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        }
+      ],
+      "radio_types": {
+        "Base": 15,
+        "Control Station": 2,
+        "Mobile": 2,
+        "Portable": 7
+      }
+    },
+    {
+      "date": "2022-05-08",
+      "check_ins": 33,
+      "late": 3,
+      "traffic": 2,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus \u2013 Highland Pk",
+          "location": "highlnd pk"
+        },
+        {
+          "callsign": "WRBR465",
+          "name": "Elizabeth Hamlett - Cgo",
+          "location": "chicago"
+        },
+        {
+          "callsign": "WRHV457",
+          "name": "Raphael Thompson \u2013 Cal City",
+          "location": "cal city"
+        },
+        {
+          "callsign": "WQXM247",
+          "name": "Carl Hartman - Lincolnshire",
+          "location": "wilmette"
+        }
+      ],
+      "radio_types": {
+        "Base": 12,
+        "Mobile": 5,
+        "Portable": 3
+      }
+    },
+    {
+      "date": "2022-05-01",
+      "check_ins": 37,
+      "late": 2,
+      "traffic": 0,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus \u2013 Highland Pk",
+          "location": "highland Park"
+        },
+        {
+          "callsign": "WRBR465",
+          "name": "Elizabeth Hamlett",
+          "location": "Cgo"
+        },
+        {
+          "callsign": "WRPD719",
+          "name": "Scott Petricek",
+          "location": "Chicago"
+        },
+        {
+          "callsign": "WQXM247",
+          "name": "Carl Hartman",
+          "location": "Lincolnshire"
+        }
+      ],
+      "radio_types": {
+        "Base": 15,
+        "Control Station": 1,
+        "Mobile": 2,
+        "Portable": 5
+      }
+    },
+    {
+      "date": "2022-04-24",
+      "check_ins": 35,
+      "late": 7,
+      "traffic": 0,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus \u2013 Highland Pk",
+          "location": "highland park"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WRPT304",
+          "name": "Hale, Beau -Chicago",
+          "location": "north side of Chicago"
+        },
+        {
+          "callsign": "WRPD719",
+          "name": "Scott Petricek - Chicago",
+          "location": "edgewater"
+        },
+        {
+          "callsign": "WRPT304",
+          "name": "Beau Hale - Chicago",
+          "location": "chicago"
+        },
+        {
+          "callsign": "WRNY247",
+          "name": "Al Salazar - Schaumburg",
+          "location": "Schaumburg"
+        }
+      ],
+      "radio_types": {
+        "Base": 16,
+        "Portable": 9
+      }
+    },
+    {
+      "date": "2022-03-27",
+      "check_ins": 36,
+      "late": 6,
+      "traffic": 2,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        },
+        {
+          "callsign": "WRBR465",
+          "name": "Elizabeth Hamlett",
+          "location": "Cgo"
+        },
+        {
+          "callsign": "WRPD719",
+          "name": "Scott Petricek",
+          "location": "Chicago"
+        },
+        {
+          "callsign": "WRPT304",
+          "name": "Hale, Beau -Chicago",
+          "location": ""
+        }
+      ],
+      "radio_types": {
+        "Base": 15,
+        "Mobile": 3,
+        "Portable": 3
+      }
+    },
+    {
+      "date": "2022-03-20",
+      "check_ins": 39,
+      "late": 0,
+      "traffic": 3,
+      "net_control": {
+        "unit": "548",
+        "licensee": "Dave Graver",
+        "callsign": "WQOK523"
+      },
+      "scribe": {
+        "unit": "501",
+        "licensee": "Ron Schinleber",
+        "callsign": "WQQJ241"
+      },
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        },
+        {
+          "callsign": "WRNN819",
+          "name": "Angel Ramos",
+          "location": "Puerto Rico"
+        },
+        {
+          "callsign": "WROE881",
+          "name": "Ray Shanklin",
+          "location": "Chicago"
+        },
+        {
+          "callsign": "WRPD719",
+          "name": "Scott Petricek",
+          "location": "Chicago"
+        }
+      ],
+      "radio_types": {
+        "Base": 15,
+        "Control Station": 1,
+        "Portable": 11
+      }
+    },
+    {
+      "date": "2022-03-13",
+      "check_ins": 37,
+      "late": 4,
+      "traffic": 1,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        },
+        {
+          "callsign": "WRBR465",
+          "name": "Elizabeth Hamlett",
+          "location": "Cgo"
+        },
+        {
+          "callsign": "WRHV457",
+          "name": "Raphael Thompson",
+          "location": "Cal City"
+        },
+        {
+          "callsign": "WRNN819",
+          "name": "Angel Ramos",
+          "location": "Puerto Rico"
+        },
+        {
+          "callsign": "WRPD719",
+          "name": "Scott Petricek",
+          "location": "Chicago"
+        }
+      ],
+      "radio_types": {
+        "Base": 12
+      }
+    },
+    {
+      "date": "2022-03-06",
+      "check_ins": 36,
+      "late": 5,
+      "traffic": 3,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        },
+        {
+          "callsign": "WRBR465",
+          "name": "Elizabeth Hamlett",
+          "location": "Cgo"
+        },
+        {
+          "callsign": "WRNN819",
+          "name": "Angel Ramos",
+          "location": "Puerto Rico"
+        },
+        {
+          "callsign": "WROE881",
+          "name": "Ray Shanklin",
+          "location": "Chicago"
+        },
+        {
+          "callsign": "WRPF825",
+          "name": "Peter Caron",
+          "location": "Villa Park"
+        },
+        {
+          "callsign": "WRPD719",
+          "name": "Scott Petricek",
+          "location": "Chicago"
+        }
+      ],
+      "radio_types": {
+        "Base": 16,
+        "Mobile": 1
+      }
+    },
+    {
+      "date": "2022-02-27",
+      "check_ins": 35,
+      "late": 4,
+      "traffic": 4,
+      "net_control": {
+        "unit": "548",
+        "licensee": "Dave Graver",
+        "callsign": "WQOK523"
+      },
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        },
+        {
+          "callsign": "WRNN819",
+          "name": "Angel Ramos",
+          "location": "Puerto Rico"
+        },
+        {
+          "callsign": "WROZ540",
+          "name": "Tim Manwell",
+          "location": "Elk Grove Village"
+        }
+      ],
+      "radio_types": {
+        "Base": 11,
+        "Control Station": 1,
+        "Mobile": 2
+      }
+    },
+    {
+      "date": "2022-02-20",
+      "check_ins": 35,
+      "late": 4,
+      "traffic": 1,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        }
+      ],
+      "radio_types": {
+        "Base": 3,
+        "Mobile": 1
+      }
+    },
+    {
+      "date": "2022-02-13",
+      "check_ins": 32,
+      "late": 4,
+      "traffic": 2,
+      "net_control": {
+        "unit": "552",
+        "licensee": "",
+        "callsign": ""
+      },
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "WRHY204",
+          "name": "George Santiago",
+          "location": "Maywood"
+        },
+        {
+          "callsign": "WRNN819",
+          "name": "Angel Ramos",
+          "location": "Puerto Rico"
+        }
+      ],
+      "radio_types": {
+        "Base": 9,
+        "Mobile": 1,
+        "Portable": 3
+      }
+    },
+    {
+      "date": "2022-02-06",
+      "check_ins": 36,
+      "late": 4,
+      "traffic": 3,
+      "net_control": {
+        "unit": "563",
+        "licensee": "Joel Kogen",
+        "callsign": "KAE6944"
+      },
+      "scribe": {
+        "unit": "521",
+        "licensee": "Brian Drake",
+        "callsign": "WQPL694"
+      },
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        },
+        {
+          "callsign": "WRBR465",
+          "name": "Elizabeth Hamlett",
+          "location": "Cgo"
+        },
+        {
+          "callsign": "WRHV457",
+          "name": "Raphael Thompson",
+          "location": "Cal City"
+        }
+      ],
+      "radio_types": {}
+    },
+    {
+      "date": "2022-01-30",
+      "check_ins": 37,
+      "late": 4,
+      "traffic": 2,
+      "net_control": null,
+      "scribe": {
+        "unit": "521",
+        "licensee": "Brian Drake",
+        "callsign": "WQPL694"
+      },
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "KAF4865",
+          "name": "Cort C",
+          "location": "Midway"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        },
+        {
+          "callsign": "WRBR465",
+          "name": "Elizabeth Hamlett",
+          "location": "Cgo"
+        },
+        {
+          "callsign": "WRNN819",
+          "name": "Angel Ramos",
+          "location": "Puerto Rico"
+        }
+      ],
+      "radio_types": {
+        "Base": 17,
+        "Mobile": 1,
+        "Portable": 9
+      }
+    },
+    {
+      "date": "2022-01-23",
+      "check_ins": 35,
+      "late": 2,
+      "traffic": 2,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WRBR465",
+          "name": "Elizabeth Hamlett",
+          "location": "Cgo"
+        },
+        {
+          "callsign": "WRNN819",
+          "name": "Angel Ramos",
+          "location": "Puerto Rico"
+        }
+      ],
+      "radio_types": {
+        "Base": 22,
+        "Mobile": 1,
+        "Portable": 3
+      }
+    },
+    {
+      "date": "2022-01-16",
+      "check_ins": 37,
+      "late": 1,
+      "traffic": 1,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        },
+        {
+          "callsign": "WRBR465",
+          "name": "Elizabeth Hamlett",
+          "location": "Cgo"
+        },
+        {
+          "callsign": "WRNN819",
+          "name": "Angel Ramos",
+          "location": "Puerto Rico"
+        }
+      ],
+      "radio_types": {
+        "Base": 16,
+        "Control Station": 1
+      }
+    },
+    {
+      "date": "2022-01-09",
+      "check_ins": 31,
+      "late": 3,
+      "traffic": 1,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        },
+        {
+          "callsign": "WRBR465",
+          "name": "Elizabeth Hamlett",
+          "location": "Cgo"
+        }
+      ],
+      "radio_types": {
+        "Base": 13,
+        "Mobile": 1
+      }
+    },
+    {
+      "date": "2022-01-02",
+      "check_ins": 38,
+      "late": 2,
+      "traffic": 1,
+      "net_control": {
+        "unit": "501",
+        "licensee": "Ron Schinleber",
+        "callsign": "WQQJ241"
+      },
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        },
+        {
+          "callsign": "WRBR465",
+          "name": "Elizabeth Hamlett",
+          "location": "Cgo"
+        },
+        {
+          "callsign": "WRNN819",
+          "name": "Angel Ramos",
+          "location": "Puerto Rico"
+        }
+      ],
+      "radio_types": {
+        "Base": 3,
+        "Control Station": 1
+      }
+    },
+    {
+      "date": "2021-12-26",
+      "check_ins": 36,
+      "late": 1,
+      "traffic": 0,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WRNN819",
+          "name": "Angel Ramos",
+          "location": "Puerto Rico"
+        }
+      ],
+      "radio_types": {
+        "Base": 15,
+        "Control Station": 2,
+        "Mobile": 2,
+        "Portable": 9
+      }
+    },
+    {
+      "date": "2021-12-19",
+      "check_ins": 37,
+      "late": 4,
+      "traffic": 3,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "WRMJ461",
+          "name": "Peter Zupinski",
+          "location": "Mt. Prospect"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        },
+        {
+          "callsign": "WRBR465",
+          "name": "Elizabeth Hamlett",
+          "location": "Cgo"
+        }
+      ],
+      "radio_types": {
+        "Base": 15,
+        "Control Station": 2,
+        "Portable": 10
+      }
+    },
+    {
+      "date": "2021-12-12",
+      "check_ins": 39,
+      "late": 4,
+      "traffic": 0,
+      "net_control": {
+        "unit": "504",
+        "licensee": "",
+        "callsign": ""
+      },
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        },
+        {
+          "callsign": "WRBR465",
+          "name": "Elizabeth Hamlett",
+          "location": "Cgo"
+        },
+        {
+          "callsign": "WRHV457",
+          "name": "Raphael Thompson",
+          "location": "Cal City"
+        },
+        {
+          "callsign": "WRKE869",
+          "name": "Warren Pugh",
+          "location": "Buffalo Grove"
+        },
+        {
+          "callsign": "WRNN819",
+          "name": "Chicago",
+          "location": ""
+        }
+      ],
+      "radio_types": {
+        "Base": 19,
+        "Mobile": 3,
+        "Portable": 11
+      }
+    },
+    {
+      "date": "2021-12-05",
+      "check_ins": 37,
+      "late": 4,
+      "traffic": 1,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        },
+        {
+          "callsign": "WRHV457",
+          "name": "Raphael Thompson",
+          "location": "Cal City"
+        }
+      ],
+      "radio_types": {
+        "Base": 18,
+        "Control Station": 1,
+        "Mobile": 1,
+        "Portable": 4
+      }
+    },
+    {
+      "date": "2021-11-28",
+      "check_ins": 30,
+      "late": 0,
+      "traffic": 1,
+      "net_control": {
+        "unit": "501",
+        "licensee": "Ron Schinleber",
+        "callsign": "WQQJ241"
+      },
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        },
+        {
+          "callsign": "WRBR465",
+          "name": "Elizabeth Hamlett",
+          "location": "Cgo"
+        },
+        {
+          "callsign": "WRHV457",
+          "name": "Raphael Thompson",
+          "location": "Cal City"
+        }
+      ],
+      "radio_types": {
+        "Base": 13,
+        "Mobile": 3,
+        "Portable": 3
+      }
+    },
+    {
+      "date": "2021-11-21",
+      "check_ins": 33,
+      "late": 3,
+      "traffic": 1,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "WRBR465",
+          "name": "Elizabeth Hamlett",
+          "location": "Cgo"
+        }
+      ],
+      "radio_types": {
+        "Base": 14,
+        "Control Station": 2,
+        "Mobile": 1,
+        "Portable": 8
+      }
+    },
+    {
+      "date": "2021-11-14",
+      "check_ins": 29,
+      "late": 2,
+      "traffic": 0,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        }
+      ],
+      "radio_types": {}
+    },
+    {
+      "date": "2021-11-07",
+      "check_ins": 40,
+      "late": 4,
+      "traffic": 1,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        },
+        {
+          "callsign": "WRHV457",
+          "name": "Raphael Thompson",
+          "location": "Cal City"
+        },
+        {
+          "callsign": "WRKE869",
+          "name": "Warren Pugh",
+          "location": "Buffalo Grove"
+        }
+      ],
+      "radio_types": {
+        "Base": 15,
+        "Control Station": 3,
+        "Mobile": 4,
+        "Portable": 11
+      }
+    },
+    {
+      "date": "2021-10-31",
+      "check_ins": 32,
+      "late": 0,
+      "traffic": 2,
+      "net_control": {
+        "unit": "501",
+        "licensee": "Ron Schinleber",
+        "callsign": "WQQJ241"
+      },
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        }
+      ],
+      "radio_types": {
+        "Base": 15,
+        "Mobile": 3,
+        "Portable": 7
+      }
+    },
+    {
+      "date": "2021-10-24",
+      "check_ins": 34,
+      "late": 0,
+      "traffic": 2,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WRHS944",
+          "name": "James Fliris",
+          "location": "Berwyn"
+        },
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        }
+      ],
+      "radio_types": {
+        "Base": 16,
+        "Control Station": 2,
+        "Portable": 8
+      }
+    },
+    {
+      "date": "2021-10-17",
+      "check_ins": 31,
+      "late": 2,
+      "traffic": 1,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WRHS944",
+          "name": "James Fliris",
+          "location": "Berwyn"
+        },
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        }
+      ],
+      "radio_types": {
+        "Base": 17,
+        "Control Station": 1,
+        "Portable": 6
+      }
+    },
+    {
+      "date": "2021-10-10",
+      "check_ins": 31,
+      "late": 2,
+      "traffic": 1,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        },
+        {
+          "callsign": "WRKE869",
+          "name": "Warren Pugh",
+          "location": "Buffalo Grove"
+        }
+      ],
+      "radio_types": {
+        "Base": 14,
+        "Control Station": 2,
+        "Mobile": 1,
+        "Portable": 12
+      }
+    },
+    {
+      "date": "2021-10-03",
+      "check_ins": 31,
+      "late": 1,
+      "traffic": 1,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WRHS944",
+          "name": "James Fliris",
+          "location": "Berwyn"
+        },
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        },
+        {
+          "callsign": "WRBR465",
+          "name": "Elizabeth Hamlett",
+          "location": "Cgo"
+        }
+      ],
+      "radio_types": {
+        "Base": 16,
+        "Control Station": 2,
+        "Mobile": 2,
+        "Portable": 6
+      }
+    },
+    {
+      "date": "2021-09-26",
+      "check_ins": 35,
+      "late": 9,
+      "traffic": 0,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WRHS944",
+          "name": "James Fliris",
+          "location": "Berwyn"
+        },
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        }
+      ],
+      "radio_types": {
+        "Base": 1
+      }
+    },
+    {
+      "date": "2021-09-19",
+      "check_ins": 38,
+      "late": 0,
+      "traffic": 1,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        },
+        {
+          "callsign": "WRFP779",
+          "name": "Tony Kelly",
+          "location": "Arl. Hits."
+        },
+        {
+          "callsign": "WRFM840",
+          "name": "Glendale, WI",
+          "location": ""
+        }
+      ],
+      "radio_types": {
+        "Base": 20,
+        "Mobile": 2,
+        "Portable": 12
+      }
+    },
+    {
+      "date": "2021-09-12",
+      "check_ins": 28,
+      "late": 0,
+      "traffic": 0,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        },
+        {
+          "callsign": "WRFP779",
+          "name": "Tony Kelly",
+          "location": "Arl. Hits."
+        }
+      ],
+      "radio_types": {
+        "Base": 13,
+        "Mobile": 3
+      }
+    },
+    {
+      "date": "2021-09-05",
+      "check_ins": 26,
+      "late": 1,
+      "traffic": 1,
+      "net_control": {
+        "unit": "501",
+        "licensee": "Ron Schinleber",
+        "callsign": "WQQJ241"
+      },
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WRHS944",
+          "name": "James Fliris",
+          "location": "Berwyn"
+        },
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WRBR465",
+          "name": "Elizabeth Hamlett",
+          "location": "Cgo"
+        },
+        {
+          "callsign": "WRFP779",
+          "name": "Tony Kelly",
+          "location": "Arl. Hits."
+        }
+      ],
+      "radio_types": {
+        "Base": 10,
+        "Portable": 7
+      }
+    },
+    {
+      "date": "2021-08-29",
+      "check_ins": 31,
+      "late": 0,
+      "traffic": 1,
+      "net_control": {
+        "unit": "563",
+        "licensee": "Joel Kogen",
+        "callsign": "KAE6944"
+      },
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WRHS944",
+          "name": "James Fliris",
+          "location": "Berwyn"
+        },
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "KAE6453",
+          "name": "Craig",
+          "location": "Sodus, Mich"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        },
+        {
+          "callsign": "WRBR465",
+          "name": "Elizabeth Hamlett",
+          "location": "Cgo"
+        }
+      ],
+      "radio_types": {
+        "Base": 13,
+        "Control Station": 2,
+        "Mobile": 2,
+        "Portable": 9
+      }
+    },
+    {
+      "date": "2021-08-22",
+      "check_ins": 26,
+      "late": 0,
+      "traffic": 3,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        }
+      ],
+      "radio_types": {}
+    },
+    {
+      "date": "2021-08-15",
+      "check_ins": 22,
+      "late": 0,
+      "traffic": 1,
+      "net_control": {
+        "unit": "501",
+        "licensee": "Ron Schinleber",
+        "callsign": "WQQJ241"
+      },
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        },
+        {
+          "callsign": "WRMK292",
+          "name": "Jim Mays",
+          "location": "Inverness"
+        }
+      ],
+      "radio_types": {
+        "Base": 11,
+        "Control Station": 1,
+        "Mobile": 3,
+        "Portable": 5
+      }
+    },
+    {
+      "date": "2021-08-08",
+      "check_ins": 29,
+      "late": 0,
+      "traffic": 1,
+      "net_control": {
+        "unit": "563",
+        "licensee": "Joel Kogen",
+        "callsign": "KAE6944"
+      },
+      "scribe": {
+        "unit": "501",
+        "licensee": "Ron Schinleber",
+        "callsign": "WQQJ241"
+      },
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "WQPN232",
+          "name": "Jim Hull",
+          "location": "Lyons Twp (Brookfield)"
+        },
+        {
+          "callsign": "WRBR465",
+          "name": "Elizabeth Hamlett",
+          "location": "Cgo"
+        }
+      ],
+      "radio_types": {
+        "Base": 5,
+        "Control Station": 2,
+        "Mobile": 1,
+        "Portable": 8
+      }
+    },
+    {
+      "date": "2021-08-01",
+      "check_ins": 29,
+      "late": 1,
+      "traffic": 2,
+      "net_control": {
+        "unit": "501",
+        "licensee": "Ron Schinleber",
+        "callsign": "WQQJ241"
+      },
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        }
+      ],
+      "radio_types": {
+        "Base": 11,
+        "Mobile": 2,
+        "Portable": 12
+      }
+    },
+    {
+      "date": "2021-07-25",
+      "check_ins": 30,
+      "late": 2,
+      "traffic": 0,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WRHS944",
+          "name": "James Fliris",
+          "location": "Berwyn"
+        },
+        {
+          "callsign": "WQYJ689",
+          "name": "Bob Schelhaus",
+          "location": "Highland Pk"
+        },
+        {
+          "callsign": "WRMK292",
+          "name": "Jim Mays",
+          "location": "Inverness"
+        }
+      ],
+      "radio_types": {
+        "Base": 13,
+        "Control Station": 2,
+        "Mobile": 2,
+        "Portable": 6
+      }
+    },
+    {
+      "date": "2021-07-18",
+      "check_ins": 31,
+      "late": 1,
+      "traffic": 0,
+      "net_control": null,
+      "scribe": null,
+      "visitors": [
+        {
+          "callsign": "WRFP779",
+          "name": "Tony Kelly",
+          "location": "Arl. Hits."
+        },
+        {
+          "callsign": "WRKE869",
+          "name": "Warren Pugh",
+          "location": "Buffalo Grove"
+        },
+        {
+          "callsign": "WRMK292",
+          "name": "Jim Mays",
+          "location": "Inverness"
+        }
+      ],
+      "radio_types": {
+        "Base": 13,
+        "Control Station": 1,
+        "Mobile": 1,
+        "Portable": 12
       }
     }
   ]
