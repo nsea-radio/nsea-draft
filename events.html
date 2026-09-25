@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Roster &amp; Net Logs — North Shore Emergency Association</title>
-<meta name="description" content="NSEA member roster and Sunday night weekly radio net check-in logs. Unit numbers, call signs, and net participation for the GMRS .675 repeater system.">
+<title>Events &amp; Calendar — North Shore Emergency Association</title>
+<meta name="description" content="NSEA events calendar — weekly GMRS radio net, membership meetings, and public-service operations in the North Shore and Chicago metro area.">
 <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -233,6 +233,28 @@
   }
   footer p { margin-top: 4px; }
   @media (max-width: 560px) { th, td { padding: 8px 10px; } }
+
+  /* --- events page --- */
+  .cal-wrap {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 14px; overflow: hidden;
+  }
+  .cal-wrap iframe {
+    display: block; width: 100%; height: 640px;
+    border: 0; border-radius: 8px; background: #ffffff;
+  }
+  @media (max-width: 720px) { .cal-wrap iframe { height: 560px; } }
+  .cal-views { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+  .cal-views button {
+    background: var(--navy-2); color: var(--muted);
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 8px 16px; font: inherit; font-size: 0.9rem; font-weight: 600;
+    cursor: pointer; transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .cal-views button:hover { color: var(--text); border-color: var(--amber); }
+  .cal-views button[aria-pressed="true"] { color: var(--amber); border-color: var(--amber); }
+  .sub-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+  .sub-links .btn { font-size: 0.92rem; padding: 10px 20px; }
 </style>
 </head>
 <body>
@@ -244,8 +266,8 @@
       <div class="nav-links">
         <a href="index.html#repeaters">Repeaters</a>
         <a href="index.html#net">Weekly Net</a>
-        <a href="roster.html" class="active">Roster</a>
-        <a href="events.html">Events</a>
+        <a href="roster.html">Roster</a>
+        <a href="events.html" class="active">Events</a>
         <a href="index.html#meetings">Meetings</a>
         <a href="index.html#membership">Membership</a>
         <a href="index.html#contact">Contact</a>
@@ -260,58 +282,45 @@
 
 <div class="page-hero">
   <div class="container">
-    <div class="section-label">Membership</div>
-    <h1>Roster &amp; Net Logs</h1>
-    <p class="sub">NSEA Sunday Night Weekly Radio Net &middot; GMRS .675 repeater &middot; Sundays 7:00 PM Central</p>
+    <div class="section-label">Calendar</div>
+    <h1>Events</h1>
+    <p class="sub">Nets, meetings, and public-service operations &middot; all times Central</p>
   </div>
 </div>
 
 <main>
   <div class="container">
 
-    <div class="stats" id="stats"></div>
+    <h2>NSEA Events Calendar</h2>
 
-    <h2>Member Roster</h2>
-    <div class="controls">
-      <input type="search" id="q" placeholder="Search unit, name, call sign, or city&hellip;" aria-label="Search roster">
-      <select id="tier" aria-label="Filter by membership tier">
-        <option value="">All tiers</option>
-        <option value="regular">Regular Members</option>
-        <option value="authorized">Authorized Users</option>
-        <option value="affiliate">Affiliates</option>
-      </select>
+    <div class="cal-views" role="group" aria-label="Calendar view">
+      <button type="button" data-mode="AGENDA" aria-pressed="true">Agenda</button>
+      <button type="button" data-mode="MONTH" aria-pressed="false">Month</button>
     </div>
-    <div class="tablewrap">
-      <table id="roster">
-        <thead><tr>
-          <th data-k="unit" scope="col">Unit<span class="arrow"></span></th>
-          <th data-k="licensee" scope="col">Licensee<span class="arrow"></span></th>
-          <th data-k="callsign" scope="col">Call Sign<span class="arrow"></span></th>
-          <th data-k="location" scope="col">Location<span class="arrow"></span></th>
-          <th data-k="tier" scope="col">Tier<span class="arrow"></span></th>
-          <th data-k="nets_attended" scope="col">Net Activity<span class="arrow"></span></th>
-        </tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-    <p class="empty" id="norows" hidden>No members match that search.</p>
 
-    <h2>Recent Nets</h2>
-    <div id="nets"></div>
+    <div class="cal-wrap">
+      <iframe id="cal-frame"
+        src="https://calendar.google.com/calendar/embed?src=c_33ee8198280b1cdc65074149ed133da958511fb17cc1591637f3e01b612c52b8%40group.calendar.google.com&amp;ctz=America%2FChicago&amp;mode=AGENDA&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;wkst=1"
+        title="NSEA Events calendar" loading="lazy"></iframe>
+    </div>
+
+    <div class="sub-links">
+      <a class="btn" href="https://calendar.google.com/calendar/u/0/r?cid=c_33ee8198280b1cdc65074149ed133da958511fb17cc1591637f3e01b612c52b8%40group.calendar.google.com" target="_blank" rel="noopener noreferrer">Add to Google Calendar</a>
+      <a class="btn" href="https://calendar.google.com/calendar/ical/c_33ee8198280b1cdc65074149ed133da958511fb17cc1591637f3e01b612c52b8%40group.calendar.google.com/public/basic.ics">iCal feed (Apple / Outlook)</a>
+    </div>
 
     <div class="note">
-      Unit numbers are how NSEA identifies stations on the air &mdash; check in with your
-      unit number or call sign. Unit <strong>500</strong> calls for any NSEA unit to answer;
-      unit <strong>1000</strong> calls for any station on the system.
-      Call signs are public record in the FCC ULS database.
-      <span id="updated"></span>
+      The weekly net runs every Sunday at 7:00 PM Central on the GMRS .675 repeater
+      &mdash; see <a href="index.html#net">Weekly Net</a> for operating details.
+      Meeting and event dates are maintained by NSEA officers; to have something added,
+      email <a href="mailto:membership@nsea.com">membership@nsea.com</a>.
     </div>
 
   </div>
 </main>
 
 <div class="back-link">
-  <a class="btn" href="index.html">&larr; Back to NSEA Home</a>
+  <a class="btn" href="index.html">&larr; Back to Home</a>
 </div>
 
 <footer>
@@ -337,151 +346,18 @@
 </script>
 
 <script>
-const $ = (s) => document.querySelector(s);
-const esc = (s) => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-
-let members = [], nets = [], sortKey = 'unit', sortDir = 1;
-
-// Units are mostly numeric, but some are free text ("Michigan 2150"), so compare
-// numerically only when both sides are clean integers.
-function cmp(a, b, k) {
-  const x = a[k] ?? '', y = b[k] ?? '';
-  if (k === 'nets_attended') return (x || 0) - (y || 0);
-  const nx = parseInt(x, 10), ny = parseInt(y, 10);
-  if (!isNaN(nx) && !isNaN(ny) && String(nx) === String(x).trim() && String(ny) === String(y).trim()) {
-    return nx - ny;
-  }
-  return String(x).localeCompare(String(y), undefined, { numeric: true });
-}
-
-function renderRoster() {
-  const q = $('#q').value.trim().toLowerCase();
-  const tier = $('#tier').value;
-  const rows = members
-    .filter(m => !tier || m.tier === tier)
-    .filter(m => !q || [m.unit, m.licensee, m.callsign, m.location].join(' ').toLowerCase().includes(q))
-    .sort((a, b) => cmp(a, b, sortKey) * sortDir);
-
-  const maxNets = Math.max(1, ...members.map(m => m.nets_attended || 0));
-  $('#roster tbody').innerHTML = rows.map(m => `<tr>
-    <td class="unit">${esc(m.unit)}</td>
-    <td>${esc(m.licensee)}</td>
-    <td class="call">${esc(m.callsign)}</td>
-    <td>${esc(m.location)}</td>
-    <td><span class="pill ${m.tier === 'regular' ? 'regular' : ''}">${esc(m.tier)}</span></td>
-    <td><span class="bar" title="${m.nets_attended || 0} of ${maxNets} nets"><i style="width:${
-      Math.round(100 * (m.nets_attended || 0) / maxNets)}%"></i></span></td>
-  </tr>`).join('');
-
-  $('#norows').hidden = rows.length > 0;
-  document.querySelectorAll('#roster th').forEach(th => {
-    if (th.dataset.k === sortKey) th.setAttribute('aria-sort', sortDir === 1 ? 'ascending' : 'descending');
-    else th.removeAttribute('aria-sort');
-  });
-}
-
-function renderNets() {
-  $('#nets').innerHTML = nets.map(n => {
-    const kv = (label, val) => val ? `<dt>${label}</dt><dd>${val}</dd>` : '';
-    const person = (p) => p ? `${esc(p.licensee)} <span class="unit">${esc(p.unit)}</span>` : '';
-    const types = Object.entries(n.radio_types || {}).map(([k, v]) => `${esc(k)} ${v}`).join(' · ');
-    const vis = (n.visitors || []).map(v =>
-      `${esc(v.name)} <span class="call">${esc(v.callsign)}</span>${v.location ? ' — ' + esc(v.location) : ''}`
-    ).join('<br>');
-    const d = new Date(n.date + 'T00:00:00');
-    return `<div class="net">
-      <h3>${d.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</h3>
-      <dl>
-        ${kv('Check-ins', `<strong>${n.check_ins}</strong>${n.late ? ` <span class="pill">${n.late} late</span>` : ''}`)}
-        ${kv('Net Control', person(n.net_control))}
-        ${kv('Scribe', person(n.scribe))}
-        ${kv('Traffic passed', n.traffic || '0')}
-        ${kv('Equipment', types)}
-        ${kv('First-time &amp; visitors', vis)}
-      </dl>
-    </div>`;
-  }).join('') || '<p class="empty">No net logs published yet.</p>';
-}
-
-function renderStats(totalNets) {
-  const last = nets[0];
-  const avg = nets.length ? Math.round(nets.reduce((s, n) => s + n.check_ins, 0) / nets.length) : 0;
-  $('#stats').innerHTML = [
-    [members.length, 'Listed members'],
-    [last ? last.check_ins : '—', 'Last net check-ins'],
-    [avg || '—', 'Average check-ins'],
-    [totalNets || nets.length, 'Nets logged'],
-  ].map(([v, l]) => `<div class="stat"><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join('');
-}
-
-// The roster lives in data/roster.csv so members can edit it straight from
-// GitHub's web editor (see EDITING.md). Quote-aware CSV parser; a malformed
-// row is skipped rather than taking the whole page down.
-function parseRosterCsv(text) {
-  const rows = [];
-  let row = [], field = '', inQuotes = false;
-  for (let i = 0; i < text.length; i++) {
-    const c = text[i];
-    if (inQuotes) {
-      if (c === '"') {
-        if (text[i + 1] === '"') { field += '"'; i++; } else inQuotes = false;
-      } else field += c;
-    } else if (c === '"') inQuotes = true;
-    else if (c === ',') { row.push(field); field = ''; }
-    else if (c === '\n' || c === '\r') {
-      if (c === '\r' && text[i + 1] === '\n') i++;
-      row.push(field); field = '';
-      if (row.some(f => f.trim())) rows.push(row);
-      row = [];
-    } else field += c;
-  }
-  row.push(field);
-  if (row.some(f => f.trim())) rows.push(row);
-
-  const header = (rows.shift() || []).map(h => h.trim().toLowerCase());
-  const col = Object.fromEntries(header.map((h, i) => [h, i]));
-  // show: anything except an explicit "no"-ish value keeps the row visible,
-  // so a forgotten/blank cell never silently hides a member.
-  const hidden = new Set(['no', 'n', 'false', 'hidden', '0']);
-  return rows
-    .map(r => ({
-      unit: (r[col.unit] ?? '').trim(),
-      licensee: (r[col.licensee] ?? '').trim(),
-      callsign: (r[col.callsign] ?? '').trim().toUpperCase(),
-      location: (r[col.location] ?? '').trim(),
-      tier: (r[col.tier] ?? '').trim().toLowerCase(),
-      show: !hidden.has((r[col.show] ?? '').trim().toLowerCase()),
-    }))
-    .filter(m => m.unit && m.licensee && m.show);
-}
-
-Promise.all([
-  fetch('data/roster.csv').then(r => { if (!r.ok) throw new Error('roster.csv'); return r.text(); }),
-  ...['data/nets.json', 'data/attendance.json']
-    .map(u => fetch(u).then(r => { if (!r.ok) throw new Error(u); return r.json(); })),
-])
-  .then(([rosterCsv, netdata, att]) => {
-    const counts = new Map((att.units || []).map(u => [u.unit, u.nets_attended]));
-    members = parseRosterCsv(rosterCsv).map(m => ({ ...m, nets_attended: counts.get(m.unit) || 0 }));
-    nets = netdata.nets || [];
-    renderStats(att.total_nets);
-    renderRoster();
-    renderNets();
-    if (nets.length) $('#updated').textContent = ` Last net logged ${nets[0].date}.`;
-  })
-  .catch(err => {
-    $('#stats').innerHTML = '<p class="empty">Roster data could not be loaded.</p>';
-    console.error(err);
-  });
-
-$('#q').addEventListener('input', renderRoster);
-$('#tier').addEventListener('change', renderRoster);
-document.querySelectorAll('#roster th').forEach(th => th.addEventListener('click', () => {
-  const k = th.dataset.k;
-  sortDir = (k === sortKey) ? -sortDir : 1;
-  sortKey = k;
-  renderRoster();
-}));
+  (function () {
+    const frame = document.getElementById('cal-frame');
+    const buttons = document.querySelectorAll('.cal-views button');
+    if (!frame || !buttons.length) return;
+    buttons.forEach(function (b) {
+      b.addEventListener('click', function () {
+        const mode = b.dataset.mode;
+        buttons.forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+        frame.src = frame.src.replace(/mode=[A-Z]+/, 'mode=' + mode);
+      });
+    });
+  })();
 </script>
 
 </body>
