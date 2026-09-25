@@ -2,10 +2,10 @@
   "count": 1,
   "nets": [
     {
-      "date": "2026-09-13",
-      "check_ins": 28,
-      "late": 5,
-      "traffic": 2,
+      "date": "2026-09-21",
+      "check_ins": 3,
+      "late": 1,
+      "traffic": 1,
       "net_control": {
         "unit": "563",
         "licensee": "Joel Kogen",
@@ -18,16 +18,15 @@
       },
       "visitors": [
         {
-          "callsign": "WSNU453",
-          "name": "Volodymyr Los",
-          "location": "Schaumburg, IL"
+          "callsign": "WRXX123",
+          "name": "Sam",
+          "location": "Skokie"
         }
       ],
       "radio_types": {
-        "Base": 13,
-        "Control Station": 1,
+        "Base": 1,
         "Mobile": 1,
-        "Portable": 12
+        "Portable": 1
       }
     }
   ]

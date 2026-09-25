@@ -2,79 +2,9 @@
   "total_nets": 1,
   "units": [
     {
-      "unit": "501",
-      "licensee": "Ron Schinleber",
-      "callsign": "WQQJ241",
-      "nets_attended": 1,
-      "pct": 100
-    },
-    {
-      "unit": "511",
-      "licensee": "Chuck Saunders",
-      "callsign": "KAD7216",
-      "nets_attended": 1,
-      "pct": 100
-    },
-    {
-      "unit": "514",
-      "licensee": "Moe Taibleson",
-      "callsign": "WRDL342",
-      "nets_attended": 1,
-      "pct": 100
-    },
-    {
-      "unit": "521",
-      "licensee": "Brian Drake",
-      "callsign": "WQPL694",
-      "nets_attended": 1,
-      "pct": 100
-    },
-    {
-      "unit": "522",
-      "licensee": "Marc Drazin",
-      "callsign": "KAE2050",
-      "nets_attended": 1,
-      "pct": 100
-    },
-    {
-      "unit": "523",
-      "licensee": "Nick Koltse",
-      "callsign": "WQIN442",
-      "nets_attended": 1,
-      "pct": 100
-    },
-    {
-      "unit": "548",
-      "licensee": "Dave Graver",
-      "callsign": "WQOK523",
-      "nets_attended": 1,
-      "pct": 100
-    },
-    {
-      "unit": "551",
-      "licensee": "Bruce Underwood",
-      "callsign": "WRBN551",
-      "nets_attended": 1,
-      "pct": 100
-    },
-    {
-      "unit": "556",
-      "licensee": "Steve Warnimont",
-      "callsign": "WRTN391",
-      "nets_attended": 1,
-      "pct": 100
-    },
-    {
       "unit": "563",
       "licensee": "Joel Kogen",
       "callsign": "KAE6944",
-      "nets_attended": 1,
-      "pct": 100
-    },
-    {
-      "unit": "569",
-      "licensee": "Vincenzo Rajkovich",
-      "callsign": "WQQB254",
       "nets_attended": 1,
       "pct": 100
     },
@@ -86,109 +16,18 @@
       "pct": 100
     },
     {
-      "unit": "591",
-      "licensee": "Andy Bowe",
-      "callsign": "WRHW494",
+      "unit": "575",
+      "licensee": "Mohammad Khiyani",
+      "callsign": "WSBQ221",
       "nets_attended": 1,
       "pct": 100
     },
     {
-      "unit": "592",
-      "licensee": "Bill Zimmer",
-      "callsign": "WSFS918",
-      "nets_attended": 1,
-      "pct": 100
-    },
-    {
-      "unit": "593",
-      "licensee": "James Fliris",
-      "callsign": "WRHS944",
-      "nets_attended": 1,
-      "pct": 100
-    },
-    {
-      "unit": "598",
-      "licensee": "Tom Seputis",
-      "callsign": "WRYU819",
-      "nets_attended": 1,
-      "pct": 100
-    },
-    {
-      "unit": "599",
-      "licensee": "Dino Bouras",
-      "callsign": "WQXK995",
-      "nets_attended": 1,
-      "pct": 100
-    },
-    {
-      "unit": "701",
-      "licensee": "Mike Creatura",
-      "callsign": "WSCA683",
-      "nets_attended": 1,
-      "pct": 100
-    },
-    {
-      "unit": "703",
-      "licensee": "Peter Eldridge",
-      "callsign": "WQHH478",
-      "nets_attended": 1,
-      "pct": 100
-    },
-    {
-      "unit": "720",
-      "licensee": "Dave Cashmore",
-      "callsign": "WQZW575",
-      "nets_attended": 1,
-      "pct": 100
-    },
-    {
-      "unit": "734",
-      "licensee": "Mark Davidson",
-      "callsign": "WSMV734",
-      "nets_attended": 1,
-      "pct": 100
-    },
-    {
-      "unit": "736",
-      "licensee": "Tony Kelly",
-      "callsign": "WRFP779",
-      "nets_attended": 1,
-      "pct": 100
-    },
-    {
-      "unit": "744",
-      "licensee": "Dean Morris",
-      "callsign": "WRYD994",
-      "nets_attended": 1,
-      "pct": 100
-    },
-    {
-      "unit": "749",
-      "licensee": "Michael Krempler",
-      "callsign": "WQOQ718",
-      "nets_attended": 1,
-      "pct": 100
-    },
-    {
-      "unit": "825",
-      "licensee": "Chad Piatak",
-      "callsign": "WSMX825",
-      "nets_attended": 1,
-      "pct": 100
-    },
-    {
-      "unit": "831",
-      "licensee": "Craig Lundt",
-      "callsign": "WRQU794",
-      "nets_attended": 1,
-      "pct": 100
-    },
-    {
-      "unit": "890",
-      "licensee": "Rob Faurot",
-      "callsign": "WRCL970",
-      "nets_attended": 1,
-      "pct": 100
+      "unit": "501",
+      "licensee": "Ron Schinleber",
+      "callsign": "WQQJ241",
+      "nets_attended": 0,
+      "pct": 0
     },
     {
       "unit": "508",
@@ -201,6 +40,41 @@
       "unit": "509",
       "licensee": "Joe Hansen",
       "callsign": "WSBS507",
+      "nets_attended": 0,
+      "pct": 0
+    },
+    {
+      "unit": "511",
+      "licensee": "Chuck Saunders",
+      "callsign": "KAD7216",
+      "nets_attended": 0,
+      "pct": 0
+    },
+    {
+      "unit": "514",
+      "licensee": "Moe Taibleson",
+      "callsign": "WRDL342",
+      "nets_attended": 0,
+      "pct": 0
+    },
+    {
+      "unit": "521",
+      "licensee": "Brian Drake",
+      "callsign": "WQPL694",
+      "nets_attended": 0,
+      "pct": 0
+    },
+    {
+      "unit": "522",
+      "licensee": "Marc Drazin",
+      "callsign": "KAE2050",
+      "nets_attended": 0,
+      "pct": 0
+    },
+    {
+      "unit": "523",
+      "licensee": "Nick Koltse",
+      "callsign": "WQIN442",
       "nets_attended": 0,
       "pct": 0
     },
@@ -275,9 +149,23 @@
       "pct": 0
     },
     {
+      "unit": "548",
+      "licensee": "Dave Graver",
+      "callsign": "WQOK523",
+      "nets_attended": 0,
+      "pct": 0
+    },
+    {
       "unit": "550",
       "licensee": "T.J. Seputis",
       "callsign": "WSCZ570",
+      "nets_attended": 0,
+      "pct": 0
+    },
+    {
+      "unit": "551",
+      "licensee": "Bruce Underwood",
+      "callsign": "WRBN551",
       "nets_attended": 0,
       "pct": 0
     },
@@ -289,6 +177,20 @@
       "pct": 0
     },
     {
+      "unit": "556",
+      "licensee": "Steve Warnimont",
+      "callsign": "WRTN391",
+      "nets_attended": 0,
+      "pct": 0
+    },
+    {
+      "unit": "569",
+      "licensee": "Vincenzo Rajkovich",
+      "callsign": "WQQB254",
+      "nets_attended": 0,
+      "pct": 0
+    },
+    {
       "unit": "574",
       "licensee": "Pat Playfel",
       "callsign": "WSKV574",
@@ -296,9 +198,23 @@
       "pct": 0
     },
     {
-      "unit": "575",
-      "licensee": "Mohammad Khiyani",
-      "callsign": "WSBQ221",
+      "unit": "591",
+      "licensee": "Andy Bowe",
+      "callsign": "WRHW494",
+      "nets_attended": 0,
+      "pct": 0
+    },
+    {
+      "unit": "592",
+      "licensee": "Bill Zimmer",
+      "callsign": "WSFS918",
+      "nets_attended": 0,
+      "pct": 0
+    },
+    {
+      "unit": "593",
+      "licensee": "James Fliris",
+      "callsign": "WRHS944",
       "nets_attended": 0,
       "pct": 0
     },
@@ -313,6 +229,34 @@
       "unit": "597",
       "licensee": "Steve Horvat",
       "callsign": "WRWC373",
+      "nets_attended": 0,
+      "pct": 0
+    },
+    {
+      "unit": "598",
+      "licensee": "Tom Seputis",
+      "callsign": "WRYU819",
+      "nets_attended": 0,
+      "pct": 0
+    },
+    {
+      "unit": "599",
+      "licensee": "Dino Bouras",
+      "callsign": "WQXK995",
+      "nets_attended": 0,
+      "pct": 0
+    },
+    {
+      "unit": "701",
+      "licensee": "Mike Creatura",
+      "callsign": "WSCA683",
+      "nets_attended": 0,
+      "pct": 0
+    },
+    {
+      "unit": "703",
+      "licensee": "Peter Eldridge",
+      "callsign": "WQHH478",
       "nets_attended": 0,
       "pct": 0
     },
@@ -345,9 +289,44 @@
       "pct": 0
     },
     {
+      "unit": "720",
+      "licensee": "Dave Cashmore",
+      "callsign": "WQZW575",
+      "nets_attended": 0,
+      "pct": 0
+    },
+    {
+      "unit": "734",
+      "licensee": "Mark Davidson",
+      "callsign": "WSMV734",
+      "nets_attended": 0,
+      "pct": 0
+    },
+    {
       "unit": "735",
       "licensee": "John Marafatsos",
       "callsign": "WRUC204",
+      "nets_attended": 0,
+      "pct": 0
+    },
+    {
+      "unit": "736",
+      "licensee": "Tony Kelly",
+      "callsign": "WRFP779",
+      "nets_attended": 0,
+      "pct": 0
+    },
+    {
+      "unit": "744",
+      "licensee": "Dean Morris",
+      "callsign": "WRYD994",
+      "nets_attended": 0,
+      "pct": 0
+    },
+    {
+      "unit": "749",
+      "licensee": "Michael Krempler",
+      "callsign": "WQOQ718",
       "nets_attended": 0,
       "pct": 0
     },
@@ -387,9 +366,30 @@
       "pct": 0
     },
     {
+      "unit": "825",
+      "licensee": "Chad Piatak",
+      "callsign": "WSMX825",
+      "nets_attended": 0,
+      "pct": 0
+    },
+    {
+      "unit": "831",
+      "licensee": "Craig Lundt",
+      "callsign": "WRQU794",
+      "nets_attended": 0,
+      "pct": 0
+    },
+    {
       "unit": "869",
       "licensee": "Warren Pugh",
       "callsign": "WRKE869",
+      "nets_attended": 0,
+      "pct": 0
+    },
+    {
+      "unit": "890",
+      "licensee": "Rob Faurot",
+      "callsign": "WRCL970",
       "nets_attended": 0,
       "pct": 0
     },
