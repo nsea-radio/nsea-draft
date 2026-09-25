@@ -81,7 +81,7 @@
   html[data-theme="light"] .theme-toggle .icon-sun { display: block; }
   html[data-theme="light"] .theme-toggle .icon-moon { display: none; }
   .nav-brand .logo-word { fill: var(--text); }
-  .nav-inner {
+  .nav-inner { position: relative;
     display: flex; align-items: center; justify-content: space-between;
     padding: 14px 24px; max-width: 1100px; margin: 0 auto;
   }
@@ -97,7 +97,35 @@
     letter-spacing: 0.02em;
   }
   .nav-links a:hover { color: var(--text); text-decoration: none; }
-  @media (max-width: 720px) { .nav-links { display: none; } }
+  .nav-toggle {
+    display: none; background: none; border: 1px solid var(--border);
+    color: var(--text); border-radius: 8px; padding: 7px 9px; cursor: pointer;
+    align-items: center; justify-content: center;
+  }
+  .nav-toggle:hover { border-color: var(--border-strong, var(--amber)); }
+  .nav-toggle svg { width: 20px; height: 20px; display: block; }
+  .nav-toggle .icon-close { display: none; }
+  .nav-toggle[aria-expanded="true"] .icon-close { display: block; }
+  .nav-toggle[aria-expanded="true"] .icon-bars { display: none; }
+  @media (max-width: 720px) {
+    .nav-toggle { display: inline-flex; }
+    /* Panel drops below the bar; hidden via [hidden] so it stays keyboard- and
+       screen-reader-inert when closed instead of merely invisible. */
+    .nav-links {
+      position: absolute; left: 0; right: 0; top: 100%;
+      flex-direction: column; gap: 0;
+      background: var(--card); border-bottom: 1px solid var(--border);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+      padding: 6px 0 10px; z-index: 60;
+    }
+    .nav-links[hidden] { display: none; }
+    .nav-links a {
+      padding: 12px 22px; border-bottom: 1px solid var(--border);
+      font-size: 1rem;
+    }
+    .nav-links a:last-child { border-bottom: none; }
+    .nav-links a.active { background: rgba(245, 166, 35, 0.08); }
+  }
 
   .tribute-hero {
     padding: 70px 0 40px;
@@ -166,7 +194,7 @@
   <div class="nav-inner">
     <div class="nav-brand"><svg viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="102" fill="none" stroke="#f5a623" stroke-width="12"/><polyline points="6,95 38,95 52,95 62,52 75,126 88,38 102,142 116,48 130,132 144,62 158,116 172,84 186,95 234,95" fill="none" stroke="#f5a623" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/><text x="120" y="186" text-anchor="middle" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-size="68" font-weight="700" letter-spacing="4" class="logo-word">NSEA</text></svg>NSEA</div>
     <div class="nav-right">
-      <div class="nav-links">
+      <div class="nav-links" id="nav-links">
         <a href="index.html#memoriam">In Memoriam</a>
         <a href="index.html#repeaters">Repeaters</a>
         <a href="index.html#net">Weekly Net</a>
@@ -177,6 +205,10 @@
         <a href="index.html#membership">Membership</a>
         <a href="index.html#contact">Contact</a>
       </div>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open navigation menu" aria-controls="nav-links" aria-expanded="false">
+        <svg class="icon-bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
       <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch between light and dark mode" title="Switch between light and dark mode">
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>
@@ -232,6 +264,40 @@
       const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
       root.setAttribute('data-theme', next);
       try { localStorage.setItem('nsea-theme', next); } catch (e) {}
+    });
+  })();
+</script>
+
+
+<script>
+  /* Mobile nav. The panel is [hidden] when closed so it is inert for keyboard
+     and screen readers; above 720px CSS shows it regardless of the attribute. */
+  (function () {
+    const btn = document.getElementById('nav-toggle');
+    const panel = document.getElementById('nav-links');
+    if (!btn || !panel) return;
+    const mq = window.matchMedia('(max-width: 720px)');
+    const setOpen = (open) => {
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      panel.hidden = !open;
+    };
+    // Only manage [hidden] at mobile widths; leaving it set on desktop would
+    // expose a hidden-but-visible element to assistive tech.
+    const sync = () => {
+      if (mq.matches) setOpen(false);
+      else { btn.setAttribute('aria-expanded', 'false'); panel.hidden = false; }
+    };
+    sync();
+    mq.addEventListener('change', sync);
+    btn.addEventListener('click', () => setOpen(btn.getAttribute('aria-expanded') !== 'true'));
+    panel.addEventListener('click', (e) => { if (e.target.closest('a')) setOpen(false); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') { setOpen(false); btn.focus(); }
+    });
+    document.addEventListener('click', (e) => {
+      if (btn.getAttribute('aria-expanded') !== 'true') return;
+      if (!e.target.closest('nav')) setOpen(false);
     });
   })();
 </script>
