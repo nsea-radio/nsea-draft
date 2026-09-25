@@ -198,14 +198,18 @@
     font-size: 1.25rem; font-weight: 700; margin-bottom: 10px;
   }
   .net dl {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 8px 20px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px 24px;
   }
+  /* Each label/value pair is one grid cell so the label always sits directly
+     above its own value; bare dt/dd would flow independently and drift apart. */
+  .net .kv { min-width: 0; }
+  .net .kv--wide { grid-column: 1 / -1; }
   .net dt {
-    color: var(--muted); font-size: 0.74rem;
+    color: var(--muted); font-size: 0.74rem; margin-bottom: 3px;
     text-transform: uppercase; letter-spacing: 0.08em;
   }
-  .net dd { margin-bottom: 6px; font-size: 0.95rem; }
+  .net dd { margin: 0; font-size: 0.95rem; line-height: 1.45; }
 
   .note {
     background: var(--navy-2); border: 1px solid var(--border);
@@ -388,7 +392,8 @@ const RECENT_NETS = 4;
 
 function renderNets() {
   $('#nets').innerHTML = nets.slice(0, RECENT_NETS).map(n => {
-    const kv = (label, val) => val ? `<dt>${label}</dt><dd>${val}</dd>` : '';
+    const kv = (label, val, wide) => val
+      ? `<div class="kv${wide ? ' kv--wide' : ''}"><dt>${label}</dt><dd>${val}</dd></div>` : '';
     const person = (p) => p ? `${esc(p.licensee)} <span class="unit">${esc(p.unit)}</span>` : '';
     const types = Object.entries(n.radio_types || {}).map(([k, v]) => `${esc(k)} ${v}`).join(' · ');
     const vis = (n.visitors || []).map(v =>
@@ -403,7 +408,7 @@ function renderNets() {
         ${kv('Scribe', person(n.scribe))}
         ${kv('Traffic passed', n.traffic || '0')}
         ${kv('Equipment', types)}
-        ${kv('First-time &amp; visitors', vis)}
+        ${kv('First-time &amp; visitors', vis, true)}
       </dl>
     </div>`;
   }).join('') || '<p class="empty">No net logs published yet.</p>';
