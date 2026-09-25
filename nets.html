@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Roster &amp; Net Logs — North Shore Emergency Association</title>
-<meta name="description" content="NSEA member roster and Sunday night weekly radio net check-in logs. Unit numbers, call signs, and net participation for the GMRS .675 repeater system.">
+<title>Net Archive &mdash; North Shore Emergency Association</title>
+<meta name="description" content="Archive of NSEA Sunday Night Weekly Radio Net check-in logs: per-net records, net control and scribe history, visitor check-ins, and member attendance on the GMRS .675 repeater.">
 <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -213,7 +213,6 @@
     color: var(--muted); font-size: 0.9rem;
   }
   .empty { color: var(--muted); font-style: italic; padding: 18px 0; }
-  .more { text-align: center; margin: 22px 0 6px; }
 
   .back-link { text-align: center; padding: 40px 0 60px; }
   .btn {
@@ -234,6 +233,31 @@
   }
   footer p { margin-top: 4px; }
   @media (max-width: 560px) { th, td { padding: 8px 10px; } }
+
+  .chartwrap {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 18px 20px 12px; overflow-x: auto;
+  }
+  .chart { display: block; width: 100%; min-width: 520px; height: 190px; }
+  .chart .gridline { stroke: var(--border); stroke-width: 1; }
+  .chart .barfill { fill: var(--amber); opacity: 0.85; }
+  .chart .barfill:hover { opacity: 1; }
+  .chart .axis { fill: var(--muted); font-size: 9px; font-family: 'Barlow', sans-serif; }
+  .chart .gap { fill: var(--muted); opacity: 0.8; font-size: 11px; font-style: italic; }
+  .chart .gapband { fill: var(--muted); opacity: 0.07; }
+  .year-head {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted);
+    font-size: 0.85rem; margin: 26px 0 10px; padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  .year-head:first-child { margin-top: 0; }
+  .net dd .pill { vertical-align: 1px; }
+  .rank { color: var(--muted); font-variant-numeric: tabular-nums; width: 1%; }
+  .pctcell { display: flex; align-items: center; gap: 10px; }
+  .pctnum { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 0.85rem; min-width: 34px; }
+  .more { text-align: center; margin: 22px 0 6px; }
+  .legacy-note { border-left: 3px solid var(--amber); }
 </style>
 </head>
 <body>
@@ -245,8 +269,8 @@
       <div class="nav-links">
         <a href="index.html#repeaters">Repeaters</a>
         <a href="index.html#net">Weekly Net</a>
-        <a href="roster.html" class="active">Roster</a>
-        <a href="nets.html">Net Archive</a>
+        <a href="roster.html">Roster</a>
+        <a href="nets.html" class="active">Net Archive</a>
         <a href="events.html">Events</a>
         <a href="index.html#meetings">Meetings</a>
         <a href="index.html#membership">Membership</a>
@@ -262,9 +286,9 @@
 
 <div class="page-hero">
   <div class="container">
-    <div class="section-label">Membership</div>
-    <h1>Roster &amp; Net Logs</h1>
-    <p class="sub">NSEA Sunday Night Weekly Radio Net &middot; GMRS .675 repeater &middot; Sundays 7:00 PM Central</p>
+    <div class="section-label">Weekly Net</div>
+    <h1>Net Archive</h1>
+    <p class="sub">Every logged NSEA Sunday Night Radio Net &middot; GMRS .675 repeater &middot; Sundays 7:00 PM Central</p>
   </div>
 </div>
 
@@ -273,48 +297,47 @@
 
     <div class="stats" id="stats"></div>
 
-    <h2>Member Roster</h2>
-    <div class="controls">
-      <input type="search" id="q" placeholder="Search unit, name, call sign, or city&hellip;" aria-label="Search roster">
-      <select id="tier" aria-label="Filter by membership tier">
-        <option value="">All tiers</option>
-        <option value="regular">Regular Members</option>
-        <option value="authorized">Authorized Users</option>
-        <option value="affiliate">Affiliates</option>
-      </select>
+    <h2>Check-ins Over Time</h2>
+    <div class="chartwrap">
+      <svg class="chart" id="chart" role="img" aria-label="Check-in counts for each logged net over time"></svg>
     </div>
+    <p class="note" id="chartnote"></p>
+
+    <h2>Attendance Leaders</h2>
+    <p class="note" style="margin-top:0;margin-bottom:16px">
+      Nets attended out of <strong id="tot-nets">&mdash;</strong> logged nets. Includes former
+      members and stations that have since changed unit numbers.
+    </p>
     <div class="tablewrap">
-      <table id="roster">
+      <table id="att">
         <thead><tr>
+          <th data-k="rank" scope="col">#<span class="arrow"></span></th>
           <th data-k="unit" scope="col">Unit<span class="arrow"></span></th>
           <th data-k="licensee" scope="col">Licensee<span class="arrow"></span></th>
           <th data-k="callsign" scope="col">Call Sign<span class="arrow"></span></th>
-          <th data-k="location" scope="col">Location<span class="arrow"></span></th>
-          <th data-k="tier" scope="col">Tier<span class="arrow"></span></th>
-          <th data-k="nets_attended" scope="col">Net Activity<span class="arrow"></span></th>
+          <th data-k="nets_attended" scope="col">Nets<span class="arrow"></span></th>
+          <th data-k="pct" scope="col">Attendance<span class="arrow"></span></th>
         </tr></thead>
         <tbody></tbody>
       </table>
     </div>
-    <p class="empty" id="norows" hidden>No members match that search.</p>
 
-    <h2>Recent Nets</h2>
-    <div id="nets"></div>
-    <p class="more"><a class="btn" href="nets.html">View the full net archive &rarr;</a></p>
-
-    <div class="note">
-      Unit numbers are how NSEA identifies stations on the air &mdash; check in with your
-      unit number or call sign. Unit <strong>500</strong> calls for any NSEA unit to answer;
-      unit <strong>1000</strong> calls for any station on the system.
-      Call signs are public record in the FCC ULS database.
-      <span id="updated"></span>
+    <h2>Net Logs</h2>
+    <div class="controls">
+      <input type="search" id="q" placeholder="Search date, net control, scribe, or visitor&hellip;" aria-label="Search net logs">
+      <select id="year" aria-label="Filter by year"><option value="">All years</option></select>
     </div>
+    <div id="nets"></div>
+    <p class="empty" id="norows" hidden>No nets match that search.</p>
+    <div class="more"><button class="btn" type="button" id="more" hidden>Show more nets</button></div>
+
+    <div class="note legacy-note" id="updated"></div>
 
   </div>
 </main>
 
 <div class="back-link">
-  <a class="btn" href="index.html">&larr; Back to NSEA Home</a>
+  <a class="btn" href="roster.html">&larr; Back to Roster</a>
 </div>
 
 <footer>
@@ -342,61 +365,143 @@
 <script>
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const PAGE = 12;
 
-let members = [], nets = [], sortKey = 'unit', sortDir = 1;
+let nets = [], units = [], totalNets = 0, shown = PAGE;
+let sortKey = 'nets_attended', sortDir = -1;
 
-// Units are mostly numeric, but some are free text ("Michigan 2150"), so compare
-// numerically only when both sides are clean integers.
-function cmp(a, b, k) {
-  const x = a[k] ?? '', y = b[k] ?? '';
-  if (k === 'nets_attended') return (x || 0) - (y || 0);
-  const nx = parseInt(x, 10), ny = parseInt(y, 10);
-  if (!isNaN(nx) && !isNaN(ny) && String(nx) === String(x).trim() && String(ny) === String(y).trim()) {
-    return nx - ny;
+const fmtDate = (iso) => new Date(iso + 'T00:00:00')
+  .toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+/* ---------- stats ---------- */
+function renderStats() {
+  const total = nets.reduce((s, n) => s + n.check_ins, 0);
+  const avg = nets.length ? Math.round(total / nets.length) : 0;
+  const best = nets.reduce((a, n) => (n.check_ins > (a?.check_ins ?? -1) ? n : a), null);
+  const visitors = nets.reduce((s, n) => s + (n.visitors || []).length, 0);
+  $('#stats').innerHTML = [
+    [totalNets || nets.length, 'Nets logged'],
+    [total.toLocaleString(), 'Total check-ins'],
+    [avg || '\u2014', 'Average per net'],
+    [best ? best.check_ins : '\u2014', 'Busiest net'],
+    [visitors.toLocaleString(), 'Visitor check-ins'],
+  ].map(([v, l]) => `<div class="stat"><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join('');
+  $('#tot-nets').textContent = totalNets || nets.length;
+}
+
+/* ---------- trend chart ----------
+   Hand-rolled SVG: no chart library, no network deps. Bars are positioned by
+   real elapsed time, not index, so the 2022-2025 logging gap shows as a gap. */
+function renderChart() {
+  const svg = $('#chart');
+  const data = [...nets].reverse();
+  if (!data.length) return;
+  const W = 1000, H = 190, padL = 28, padR = 8, padT = 10, padB = 22;
+  const t = (iso) => new Date(iso + 'T00:00:00').getTime();
+  const t0 = t(data[0].date), t1 = t(data[data.length - 1].date);
+  const span = Math.max(1, t1 - t0);
+  const max = Math.max(...data.map(d => d.check_ins), 10);
+  const x = (iso) => padL + ((t(iso) - t0) / span) * (W - padL - padR);
+  const y = (v) => H - padB - (v / max) * (H - padT - padB);
+  const bw = Math.max(2, (W - padL - padR) / (data.length * 2.4));
+
+  let out = '';
+  for (let g = 0; g <= 4; g++) {
+    const v = Math.round(max * g / 4), yy = y(v);
+    out += `<line class="gridline" x1="${padL}" y1="${yy}" x2="${W - padR}" y2="${yy}"/>`
+         + `<text class="axis" x="0" y="${yy + 3}">${v}</text>`;
   }
+  // Year ticks sit on January 1 so they stay evenly spaced regardless of when
+  // nets were actually logged; the first year is pinned to the axis start.
+  const y0 = +data[0].date.slice(0, 4), y1 = +data[data.length - 1].date.slice(0, 4);
+  let lastX = -99;
+  for (let yr = y0; yr <= y1; yr++) {
+    const xx = Math.max(padL, x(`${yr}-01-01`));
+    if (xx > W - padR - 12 || xx - lastX < 30) continue;
+    lastX = xx;
+    out += `<text class="axis" x="${xx.toFixed(1)}" y="${H - 6}" text-anchor="middle">${yr}</text>`;
+  }
+  data.forEach(d => {
+    const xx = x(d.date) - bw / 2, yy = y(d.check_ins);
+    out += `<rect class="barfill" x="${xx.toFixed(1)}" y="${yy.toFixed(1)}" width="${bw.toFixed(1)}" `
+         + `height="${(H - padB - yy).toFixed(1)}" rx="1"><title>${d.date} \u2014 ${d.check_ins} check-ins</title></rect>`;
+  });
+  // annotate the largest gap between consecutive logged nets
+  let gi = -1, gap = 0;
+  for (let i = 1; i < data.length; i++) {
+    const g = t(data[i].date) - t(data[i - 1].date);
+    if (g > gap) { gap = g; gi = i; }
+  }
+  const gapDays = Math.round(gap / 86400000);
+  if (gi > 0 && gapDays > 120) {
+    const x1 = x(data[gi - 1].date), x2 = x(data[gi].date), mid = (x1 + x2) / 2;
+    out += `<rect class="gapband" x="${x1.toFixed(1)}" y="${padT}" width="${(x2 - x1).toFixed(1)}" height="${(H - padB - padT).toFixed(1)}"/>`
+         + `<text class="gap" x="${mid.toFixed(1)}" y="${(padT + 34)}" text-anchor="middle">no logs kept</text>`
+         + `<text class="gap" x="${mid.toFixed(1)}" y="${(padT + 48)}" text-anchor="middle">${Math.round(gapDays / 30)} months</text>`;
+    $('#chartnote').innerHTML = `Weekly nets ran throughout, but logs between `
+      + `<strong>${data[gi - 1].date}</strong> and <strong>${data[gi].date}</strong> were not recorded in the call sheet.`;
+  } else {
+    $('#chartnote').remove();
+  }
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  svg.innerHTML = out;
+}
+
+/* ---------- attendance ---------- */
+function cmp(a, b, k) {
+  if (k === 'nets_attended' || k === 'pct' || k === 'rank') return (a[k] || 0) - (b[k] || 0);
+  const x = a[k] ?? '', y = b[k] ?? '';
+  const nx = parseInt(x, 10), ny = parseInt(y, 10);
+  if (!isNaN(nx) && !isNaN(ny) && String(nx) === String(x).trim() && String(ny) === String(y).trim()) return nx - ny;
   return String(x).localeCompare(String(y), undefined, { numeric: true });
 }
 
-function renderRoster() {
-  const q = $('#q').value.trim().toLowerCase();
-  const tier = $('#tier').value;
-  const rows = members
-    .filter(m => !tier || m.tier === tier)
-    .filter(m => !q || [m.unit, m.licensee, m.callsign, m.location].join(' ').toLowerCase().includes(q))
-    .sort((a, b) => cmp(a, b, sortKey) * sortDir);
-
-  const maxNets = Math.max(1, ...members.map(m => m.nets_attended || 0));
-  $('#roster tbody').innerHTML = rows.map(m => `<tr>
-    <td class="unit">${esc(m.unit)}</td>
-    <td>${esc(m.licensee)}</td>
-    <td class="call">${esc(m.callsign)}</td>
-    <td>${esc(m.location)}</td>
-    <td><span class="pill ${m.tier === 'regular' ? 'regular' : ''}">${esc(m.tier)}</span></td>
-    <td><span class="bar" title="${m.nets_attended || 0} of ${maxNets} nets"><i style="width:${
-      Math.round(100 * (m.nets_attended || 0) / maxNets)}%"></i></span></td>
+function renderAtt() {
+  const rows = [...units].sort((a, b) => cmp(a, b, sortKey) * sortDir);
+  $('#att tbody').innerHTML = rows.map(u => `<tr>
+    <td class="rank">${u.rank}</td>
+    <td class="unit">${esc(u.unit)}</td>
+    <td>${esc(u.licensee)}</td>
+    <td class="call">${esc(u.callsign)}</td>
+    <td>${u.nets_attended}</td>
+    <td><span class="pctcell"><span class="bar" title="${u.pct}% of ${totalNets} nets"><i style="width:${u.pct}%"></i></span><span class="pctnum">${u.pct}%</span></span></td>
   </tr>`).join('');
-
-  $('#norows').hidden = rows.length > 0;
-  document.querySelectorAll('#roster th').forEach(th => {
+  document.querySelectorAll('#att th').forEach(th => {
     if (th.dataset.k === sortKey) th.setAttribute('aria-sort', sortDir === 1 ? 'ascending' : 'descending');
     else th.removeAttribute('aria-sort');
   });
 }
 
-// Roster shows only the latest few nets; nets.html carries the full archive.
-const RECENT_NETS = 4;
+/* ---------- net cards ---------- */
+function filtered() {
+  const q = $('#q').value.trim().toLowerCase();
+  const yr = $('#year').value;
+  return nets.filter(n => {
+    if (yr && n.date.slice(0, 4) !== yr) return false;
+    if (!q) return true;
+    const hay = [n.date, fmtDate(n.date), n.net_control?.licensee, n.net_control?.unit,
+      n.scribe?.licensee, n.scribe?.unit,
+      ...(n.visitors || []).flatMap(v => [v.name, v.callsign, v.location])]
+      .filter(Boolean).join(' ').toLowerCase();
+    return hay.includes(q);
+  });
+}
 
 function renderNets() {
-  $('#nets').innerHTML = nets.slice(0, RECENT_NETS).map(n => {
+  const rows = filtered();
+  const slice = rows.slice(0, shown);
+  let html = '', year = null;
+  slice.forEach(n => {
+    const y = n.date.slice(0, 4);
+    if (y !== year) { year = y; html += `<div class="year-head">${y}</div>`; }
     const kv = (label, val) => val ? `<dt>${label}</dt><dd>${val}</dd>` : '';
     const person = (p) => p ? `${esc(p.licensee)} <span class="unit">${esc(p.unit)}</span>` : '';
-    const types = Object.entries(n.radio_types || {}).map(([k, v]) => `${esc(k)} ${v}`).join(' · ');
+    const types = Object.entries(n.radio_types || {}).map(([k, v]) => `${esc(k)} ${v}`).join(' \u00b7 ');
     const vis = (n.visitors || []).map(v =>
-      `${esc(v.name)} <span class="call">${esc(v.callsign)}</span>${v.location ? ' — ' + esc(v.location) : ''}`
+      `${esc(v.name)} <span class="call">${esc(v.callsign)}</span>${v.location ? ' \u2014 ' + esc(v.location) : ''}`
     ).join('<br>');
-    const d = new Date(n.date + 'T00:00:00');
-    return `<div class="net">
-      <h3>${d.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</h3>
+    html += `<div class="net">
+      <h3>${fmtDate(n.date)}</h3>
       <dl>
         ${kv('Check-ins', `<strong>${n.check_ins}</strong>${n.late ? ` <span class="pill">${n.late} late</span>` : ''}`)}
         ${kv('Net Control', person(n.net_control))}
@@ -406,87 +511,52 @@ function renderNets() {
         ${kv('First-time &amp; visitors', vis)}
       </dl>
     </div>`;
-  }).join('') || '<p class="empty">No net logs published yet.</p>';
+  });
+  $('#nets').innerHTML = html;
+  $('#norows').hidden = rows.length > 0;
+  const more = $('#more');
+  more.hidden = rows.length <= shown;
+  more.textContent = `Show more nets (${rows.length - shown} older)`;
 }
 
-function renderStats(totalNets) {
-  const last = nets[0];
-  const avg = nets.length ? Math.round(nets.reduce((s, n) => s + n.check_ins, 0) / nets.length) : 0;
-  $('#stats').innerHTML = [
-    [members.length, 'Listed members'],
-    [last ? last.check_ins : '—', 'Last net check-ins'],
-    [avg || '—', 'Average check-ins'],
-    [totalNets || nets.length, 'Nets logged'],
-  ].map(([v, l]) => `<div class="stat"><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join('');
-}
-
-// The roster lives in data/roster.csv so members can edit it straight from
-// GitHub's web editor (see EDITING.md). Quote-aware CSV parser; a malformed
-// row is skipped rather than taking the whole page down.
-function parseRosterCsv(text) {
-  const rows = [];
-  let row = [], field = '', inQuotes = false;
-  for (let i = 0; i < text.length; i++) {
-    const c = text[i];
-    if (inQuotes) {
-      if (c === '"') {
-        if (text[i + 1] === '"') { field += '"'; i++; } else inQuotes = false;
-      } else field += c;
-    } else if (c === '"') inQuotes = true;
-    else if (c === ',') { row.push(field); field = ''; }
-    else if (c === '\n' || c === '\r') {
-      if (c === '\r' && text[i + 1] === '\n') i++;
-      row.push(field); field = '';
-      if (row.some(f => f.trim())) rows.push(row);
-      row = [];
-    } else field += c;
-  }
-  row.push(field);
-  if (row.some(f => f.trim())) rows.push(row);
-
-  const header = (rows.shift() || []).map(h => h.trim().toLowerCase());
-  const col = Object.fromEntries(header.map((h, i) => [h, i]));
-  // show: anything except an explicit "no"-ish value keeps the row visible,
-  // so a forgotten/blank cell never silently hides a member.
-  const hidden = new Set(['no', 'n', 'false', 'hidden', '0']);
-  return rows
-    .map(r => ({
-      unit: (r[col.unit] ?? '').trim(),
-      licensee: (r[col.licensee] ?? '').trim(),
-      callsign: (r[col.callsign] ?? '').trim().toUpperCase(),
-      location: (r[col.location] ?? '').trim(),
-      tier: (r[col.tier] ?? '').trim().toLowerCase(),
-      show: !hidden.has((r[col.show] ?? '').trim().toLowerCase()),
-    }))
-    .filter(m => m.unit && m.licensee && m.show);
-}
-
-Promise.all([
-  fetch('data/roster.csv').then(r => { if (!r.ok) throw new Error('roster.csv'); return r.text(); }),
-  ...['data/nets.json', 'data/attendance.json']
-    .map(u => fetch(u).then(r => { if (!r.ok) throw new Error(u); return r.json(); })),
-])
-  .then(([rosterCsv, netdata, att]) => {
-    const counts = new Map((att.units || []).map(u => [u.unit, u.nets_attended]));
-    members = parseRosterCsv(rosterCsv).map(m => ({ ...m, nets_attended: counts.get(m.unit) || 0 }));
+/* ---------- load ---------- */
+Promise.all(['data/nets.json', 'data/attendance.json']
+  .map(u => fetch(u).then(r => { if (!r.ok) throw new Error(u); return r.json(); })))
+  .then(([netdata, att]) => {
     nets = netdata.nets || [];
-    renderStats(att.total_nets);
-    renderRoster();
+    totalNets = att.total_nets || netdata.count || nets.length;
+    units = (att.units || [])
+      .slice()
+      .sort((a, b) => (b.nets_attended || 0) - (a.nets_attended || 0))
+      .map((u, i) => ({ ...u, rank: i + 1 }));
+
+    const years = [...new Set(nets.map(n => n.date.slice(0, 4)))];
+    $('#year').innerHTML += years.map(y => `<option value="${y}">${y}</option>`).join('');
+
+    renderStats();
+    renderChart();
+    renderAtt();
     renderNets();
-    if (nets.length) $('#updated').textContent = ` Last net logged ${nets[0].date}.`;
+    if (nets.length) {
+      $('#updated').innerHTML = `Logs are published from the net scribe\u2019s call sheet after each Sunday net. `
+        + `Most recent net logged <strong>${fmtDate(nets[0].date)}</strong>; archive covers `
+        + `<strong>${nets.length}</strong> nets back to <strong>${fmtDate(nets[nets.length - 1].date)}</strong>. `
+        + `Call signs are public record in the FCC ULS database.`;
+    }
   })
   .catch(err => {
-    $('#stats').innerHTML = '<p class="empty">Roster data could not be loaded.</p>';
+    $('#stats').innerHTML = '<p class="empty">Net log data could not be loaded.</p>';
     console.error(err);
   });
 
-$('#q').addEventListener('input', renderRoster);
-$('#tier').addEventListener('change', renderRoster);
-document.querySelectorAll('#roster th').forEach(th => th.addEventListener('click', () => {
+$('#q').addEventListener('input', () => { shown = PAGE; renderNets(); });
+$('#year').addEventListener('change', () => { shown = PAGE; renderNets(); });
+$('#more').addEventListener('click', () => { shown += 24; renderNets(); });
+document.querySelectorAll('#att th').forEach(th => th.addEventListener('click', () => {
   const k = th.dataset.k;
-  sortDir = (k === sortKey) ? -sortDir : 1;
+  sortDir = (k === sortKey) ? -sortDir : (k === 'unit' || k === 'licensee' || k === 'callsign' || k === 'rank' ? 1 : -1);
   sortKey = k;
-  renderRoster();
+  renderAtt();
 }));
 </script>
 
