@@ -533,58 +533,61 @@
     <div class="section-label">Access</div>
     <h2>Use NSEA &amp; Affiliated Repeaters</h2>
     <p class="lead">NSEA welcomes licensed GMRS operators on our repeater network. Tone (PL) and access details are not published &mdash; send the request below and an NSEA representative will follow up with the information you need.</p>
-    <p class="lead">For the cooperating <strong>Evanston .725</strong> system, NSEA does not administer access directly. Submit the form, select &ldquo;Evanston .725&rdquo;, and we will pass your request to the system owner.</p>
+    <p class="lead">Access to the cooperating <strong>Evanston .725</strong> system is managed by its system owner and is not covered by this form.</p>
 
-    <form class="app-form" action="https://formsubmit.co/membership@nsea.com" method="POST">
-      <input type="hidden" name="_subject" value="NSEA Affiliated Repeater Access Request">
-      <input type="hidden" name="_cc" value="chuck511@nsea.com">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_next" value="https://nsea-radio.github.io/nsea-draft/thanks.html">
+    <form class="app-form" id="access-form" action="https://docs.google.com/forms/d/e/1FAIpQLSeIpKJ9Qo7ig9jgi-GFbvPN9PEFNJq0Wmdf1kXade5zleYNqg/formResponse" method="POST">
       <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off">
 
       <div class="form-row">
         <div class="field">
           <label for="r-name">Name <span class="req">*</span></label>
-          <input id="r-name" type="text" name="Name" required>
+          <input id="r-name" type="text" name="entry.1020324644" required>
         </div>
         <div class="field">
           <label for="r-callsign">GMRS Call Sign <span class="req">*</span></label>
-          <input id="r-callsign" type="text" name="Call Sign" required>
+          <input id="r-callsign" type="text" name="entry.1049908203" required>
         </div>
       </div>
       <div class="form-row">
         <div class="field">
           <label for="r-email">Email <span class="req">*</span></label>
-          <input id="r-email" type="email" name="Email" required>
+          <input id="r-email" type="email" name="entry.1094729697" required>
         </div>
         <div class="field">
           <label for="r-phone">Phone</label>
-          <input id="r-phone" type="tel" name="Phone">
+          <input id="r-phone" type="tel" name="entry.1775436204">
         </div>
       </div>
       <div class="form-row">
         <div class="field full">
-          <label for="r-repeater">Which repeater(s)? <span class="req">*</span></label>
-          <select id="r-repeater" name="Repeater Requested" required>
-            <option value="">Select a repeater&hellip;</option>
-            <option>NSEA Park Ridge 675 (462.675)</option>
-            <option>NSEA Northbrook 650 (462.650)</option>
-            <option>NSEA Evanston 700 (462.700)</option>
-            <option>Evanston .725 (cooperating system)</option>
-            <option>All NSEA repeaters</option>
+          <label>Which repeater(s)? <span class="req">*</span></label>
+          <label><input type="checkbox" name="entry.1489460208" value="NSEA Park Ridge 675 (462.675)"> NSEA Park Ridge 675 (462.675)</label>
+          <label><input type="checkbox" name="entry.1489460208" value="NSEA Northbrook 650 (462.650)"> NSEA Northbrook 650 (462.650)</label>
+          <label><input type="checkbox" name="entry.1489460208" value="NSEA Evanston 700 (462.700)"> NSEA Evanston 700 (462.700)</label>
+          <label><input type="checkbox" name="entry.1489460208" value="All NSEA repeaters"> All NSEA repeaters</label>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field full">
+          <label for="r-member">Are you an NSEA member? <span class="req">*</span></label>
+          <select id="r-member" name="entry.1807114507" required>
+            <option value="">Select one&hellip;</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Membership application submitted</option>
           </select>
         </div>
       </div>
       <div class="form-row">
         <div class="field full">
           <label for="r-location">Where will you be operating from?</label>
-          <input id="r-location" type="text" name="Operating Location" placeholder="Community or general area">
+          <input id="r-location" type="text" name="entry.1531707484" placeholder="Community or general area">
         </div>
       </div>
       <div class="form-row">
         <div class="field full">
           <label for="r-notes">Anything else we should know?</label>
-          <textarea id="r-notes" name="Notes" placeholder="Intended use, emergency-service affiliation, equipment, etc."></textarea>
+          <textarea id="r-notes" name="entry.769569918" placeholder="Intended use, emergency-service affiliation, equipment, etc."></textarea>
         </div>
       </div>
       <button class="btn btn-primary" type="submit">Submit Access Request</button>
@@ -656,65 +659,57 @@
   <div class="container">
     <div class="section-label">Get Involved</div>
     <h2>Membership &amp; Repeater Access</h2>
-    <p class="lead">GMRS licensees: request permission to use the NSEA and cooperating repeaters, or apply for NSEA membership, using the form below.</p>
+    <p class="lead">GMRS licensees: apply for NSEA membership using the form below. To request repeater access, use the <a href="#affiliated">access request form</a>.</p>
 
-    <form class="app-form" action="https://formsubmit.co/membership@nsea.com" method="POST">
-      <input type="hidden" name="_subject" value="NSEA Membership / Repeater Access Request">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_next" value="https://nsea-radio.github.io/nsea-draft/thanks.html">
+    <form class="app-form" id="membership-form" action="https://docs.google.com/forms/d/e/1FAIpQLSc6y8z493i60g0-k36COZ5Mwt5yUxQV8dyQV5JRRqbnB6jeUQ/formResponse" method="POST">
       <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off">
 
       <div class="form-row">
         <div class="field full">
           <label for="m-name">Full Name <span class="req">*</span></label>
-          <input id="m-name" type="text" name="Name" required>
+          <input id="m-name" type="text" name="entry.90828086" required>
         </div>
       </div>
       <div class="form-row">
         <div class="field">
-          <label for="m-callsign">GMRS Callsign</label>
-          <input id="m-callsign" type="text" name="GMRS Callsign">
+          <label for="m-callsign">GMRS Callsign <span class="req">*</span></label>
+          <input id="m-callsign" type="text" name="entry.485774281" required>
         </div>
         <div class="field">
           <label for="m-amateur-callsign">Amateur Radio Callsign</label>
-          <input id="m-amateur-callsign" type="text" name="Amateur Callsign">
+          <input id="m-amateur-callsign" type="text" name="entry.164313019">
         </div>
       </div>
       <div class="form-row">
         <div class="field">
           <label for="m-email">Email <span class="req">*</span></label>
-          <input id="m-email" type="email" name="Email" required>
+          <input id="m-email" type="email" name="entry.1099205440" required>
         </div>
         <div class="field">
           <label for="m-phone">Phone</label>
-          <input id="m-phone" type="tel" name="Phone">
+          <input id="m-phone" type="tel" name="entry.1177589801">
         </div>
       </div>
       <div class="form-row">
         <div class="field full">
           <label for="m-location">Location (City, State)</label>
-          <input id="m-location" type="text" name="Location" placeholder="e.g. Evanston, IL">
+          <input id="m-location" type="text" name="entry.1474552151" placeholder="e.g. Evanston, IL">
         </div>
       </div>
       <div class="form-row">
         <div class="field full">
-          <label for="m-interest">Requesting <span class="req">*</span></label>
-          <select id="m-interest" name="Requesting" required>
-            <option value="">Select one…</option>
-            <option>NSEA Membership</option>
-            <option>Repeater access permission (.675 / .650 / .700)</option>
-            <option>Repeater access permission (.725 Evanston)</option>
-            <option>Membership + repeater access</option>
-          </select>
+          <label for="m-heard">How did you hear about NSEA?</label>
+          <input id="m-heard" type="text" name="entry.125245953">
         </div>
       </div>
       <div class="form-row">
         <div class="field full">
-          <label for="m-message">Message</label>
-          <textarea id="m-message" name="Message" placeholder="Tell us about your GMRS license, equipment, and how you'd like to participate."></textarea>
+          <label for="m-message">Anything else we should know?</label>
+          <textarea id="m-message" name="entry.13814045" placeholder="Tell us about your GMRS license, equipment, and how you'd like to participate."></textarea>
         </div>
       </div>
       <button class="btn btn-primary" type="submit">Submit Application</button>
+      <p class="form-note">A current FCC GMRS license is required for NSEA membership. Looking for repeater access only? Use the <a href="#affiliated">access request form</a>.</p>
     </form>
 
     <div class="form-divider">or</div>
@@ -883,5 +878,27 @@
   })();
 </script>
 
+<script>
+  (function () {
+    function wire(id) {
+      var f = document.getElementById(id);
+      if (!f) return;
+      f.addEventListener('submit', function (ev) {
+        ev.preventDefault();
+        var hp = f.querySelector('.hp-field');
+        if (hp && hp.value) return;
+        var btn = f.querySelector('button[type="submit"]');
+        if (btn) { btn.disabled = true; btn.textContent = 'Submitting…'; }
+        var data = new URLSearchParams();
+        new FormData(f).forEach(function (v, k) { if (k.indexOf('entry.') === 0) data.append(k, v); });
+        fetch(f.action, { method: 'POST', mode: 'no-cors', body: data })
+          .then(function () { window.location.href = 'thanks.html'; })
+          .catch(function () { if (btn) { btn.disabled = false; btn.textContent = 'Try Again'; } });
+      });
+    }
+    wire('membership-form');
+    wire('access-form');
+  })();
+  </script>
 </body>
 </html>
