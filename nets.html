@@ -285,9 +285,6 @@
   }
   .year-head:first-child { margin-top: 0; }
   .net dd .pill { vertical-align: 1px; }
-  .rank { color: var(--muted); font-variant-numeric: tabular-nums; width: 1%; }
-  .pctcell { display: flex; align-items: center; gap: 10px; }
-  .pctnum { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 0.85rem; min-width: 34px; }
   .more { text-align: center; margin: 22px 0 6px; }
   .legacy-note { border-left: 3px solid var(--amber); }
 </style>
@@ -339,25 +336,6 @@
     </div>
     <p class="note" id="chartnote"></p>
 
-    <h2>Attendance Leaders</h2>
-    <p class="note" style="margin-top:0;margin-bottom:16px">
-      Nets attended out of <strong id="tot-nets">&mdash;</strong> logged nets. Includes former
-      members and stations that have since changed unit numbers.
-    </p>
-    <div class="tablewrap">
-      <table id="att">
-        <thead><tr>
-          <th data-k="rank" scope="col">#<span class="arrow"></span></th>
-          <th data-k="unit" scope="col">Unit<span class="arrow"></span></th>
-          <th data-k="licensee" scope="col">Licensee<span class="arrow"></span></th>
-          <th data-k="callsign" scope="col">Call Sign<span class="arrow"></span></th>
-          <th data-k="nets_attended" scope="col">Nets<span class="arrow"></span></th>
-          <th data-k="pct" scope="col">Attendance<span class="arrow"></span></th>
-        </tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-
     <h2>Net Logs</h2>
     <div class="controls">
       <input type="search" id="q" placeholder="Search date, net control, scribe, or visitor&hellip;" aria-label="Search net logs">
@@ -403,8 +381,7 @@ const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const PAGE = 12;
 
-let nets = [], units = [], totalNets = 0, shown = PAGE;
-let sortKey = 'nets_attended', sortDir = -1;
+let nets = [], totalNets = 0, shown = PAGE;
 
 const fmtDate = (iso) => new Date(iso + 'T00:00:00')
   .toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
@@ -422,7 +399,6 @@ function renderStats() {
     [best ? best.check_ins : '\u2014', 'Busiest net'],
     [visitors.toLocaleString(), 'Visitor check-ins'],
   ].map(([v, l]) => `<div class="stat"><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join('');
-  $('#tot-nets').textContent = totalNets || nets.length;
 }
 
 /* ---------- trend chart ----------
@@ -484,30 +460,6 @@ function renderChart() {
 }
 
 /* ---------- attendance ---------- */
-function cmp(a, b, k) {
-  if (k === 'nets_attended' || k === 'pct' || k === 'rank') return (a[k] || 0) - (b[k] || 0);
-  const x = a[k] ?? '', y = b[k] ?? '';
-  const nx = parseInt(x, 10), ny = parseInt(y, 10);
-  if (!isNaN(nx) && !isNaN(ny) && String(nx) === String(x).trim() && String(ny) === String(y).trim()) return nx - ny;
-  return String(x).localeCompare(String(y), undefined, { numeric: true });
-}
-
-function renderAtt() {
-  const rows = [...units].sort((a, b) => cmp(a, b, sortKey) * sortDir);
-  $('#att tbody').innerHTML = rows.map(u => `<tr>
-    <td class="rank">${u.rank}</td>
-    <td class="unit">${esc(u.unit)}</td>
-    <td>${esc(u.licensee)}</td>
-    <td class="call">${esc(u.callsign)}</td>
-    <td>${u.nets_attended}</td>
-    <td><span class="pctcell"><span class="bar" title="${u.pct}% of ${totalNets} nets"><i style="width:${u.pct}%"></i></span><span class="pctnum">${u.pct}%</span></span></td>
-  </tr>`).join('');
-  document.querySelectorAll('#att th').forEach(th => {
-    if (th.dataset.k === sortKey) th.setAttribute('aria-sort', sortDir === 1 ? 'ascending' : 'descending');
-    else th.removeAttribute('aria-sort');
-  });
-}
-
 /* ---------- net cards ---------- */
 function filtered() {
   const q = $('#q').value.trim().toLowerCase();
@@ -562,17 +514,12 @@ Promise.all(['data/nets.json', 'data/attendance.json']
   .then(([netdata, att]) => {
     nets = netdata.nets || [];
     totalNets = att.total_nets || netdata.count || nets.length;
-    units = (att.units || [])
-      .slice()
-      .sort((a, b) => (b.nets_attended || 0) - (a.nets_attended || 0))
-      .map((u, i) => ({ ...u, rank: i + 1 }));
 
     const years = [...new Set(nets.map(n => n.date.slice(0, 4)))];
     $('#year').innerHTML += years.map(y => `<option value="${y}">${y}</option>`).join('');
 
     renderStats();
     renderChart();
-    renderAtt();
     renderNets();
     if (nets.length) {
       $('#updated').innerHTML = `Logs are published from the net scribe\u2019s call sheet after each Sunday net. `
@@ -589,12 +536,6 @@ Promise.all(['data/nets.json', 'data/attendance.json']
 $('#q').addEventListener('input', () => { shown = PAGE; renderNets(); });
 $('#year').addEventListener('change', () => { shown = PAGE; renderNets(); });
 $('#more').addEventListener('click', () => { shown += 24; renderNets(); });
-document.querySelectorAll('#att th').forEach(th => th.addEventListener('click', () => {
-  const k = th.dataset.k;
-  sortDir = (k === sortKey) ? -sortDir : (k === 'unit' || k === 'licensee' || k === 'callsign' || k === 'rank' ? 1 : -1);
-  sortKey = k;
-  renderAtt();
-}));
 </script>
 
 

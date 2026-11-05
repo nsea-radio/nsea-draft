@@ -156,35 +156,25 @@ def build_nets(rows, roster_index):
     return out
 
 
-def build_attendance(rows, roster_index, published):
-    """Per-unit attendance rollup -- the query the old format made impossible."""
+def build_attendance(rows):
+    """Aggregate net count only. Per-member rollup is members-only (see below)."""
     total_nets = len({r["net_date"] for r in rows})
-    counts = Counter(
-        r["unit"] for r in rows if r["unit"] and r["checkin"] in CHECKED_IN
-    )
-    public_units = {r["unit"] for r in published}
 
-    records = [
-        {
-            "unit": unit,
-            "licensee": roster_index[unit]["licensee"],
-            "callsign": roster_index[unit]["callsign"].upper(),
-            "nets_attended": counts.get(unit, 0),
-            "pct": round(100 * counts.get(unit, 0) / total_nets) if total_nets else 0,
-        }
-        for unit in public_units
-    ]
-    records.sort(key=lambda r: (-r["nets_attended"], r["unit"]))
-    return {"total_nets": total_nets, "units": records}
+    # Per-member attendance (name, callsign, nets_attended, pct) is MEMBERS-ONLY as of
+    # 2026-11-05 and is deliberately NOT emitted here: data/attendance.json is served
+    # publicly by GitHub Pages, so anything in it is public regardless of page markup.
+    # The members-only view of this data lives in the Google Sheet, behind Workspace auth.
+    # Only the aggregate net count is published.
+    return {"total_nets": total_nets}
 
 
 def main():
     roster_rows = read_csv(OUT / "roster.csv")
     log_rows = read_csv(SRC / "net_log.csv")
 
-    published, index = load_roster(roster_rows)
+    _, index = load_roster(roster_rows)
     nets = build_nets(log_rows, index)
-    attendance = build_attendance(log_rows, index, published)
+    attendance = build_attendance(log_rows)
 
     OUT.mkdir(parents=True, exist_ok=True)
     artifacts = {

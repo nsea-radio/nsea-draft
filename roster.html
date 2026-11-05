@@ -327,7 +327,6 @@
           <th data-k="callsign" scope="col">Call Sign<span class="arrow"></span></th>
           <th data-k="location" scope="col">Location<span class="arrow"></span></th>
           <th data-k="tier" scope="col">Tier<span class="arrow"></span></th>
-          <th data-k="nets_attended" scope="col">Net Activity<span class="arrow"></span></th>
         </tr></thead>
         <tbody></tbody>
       </table>
@@ -385,7 +384,6 @@ let members = [], nets = [], sortKey = 'unit', sortDir = 1;
 // numerically only when both sides are clean integers.
 function cmp(a, b, k) {
   const x = a[k] ?? '', y = b[k] ?? '';
-  if (k === 'nets_attended') return (x || 0) - (y || 0);
   const nx = parseInt(x, 10), ny = parseInt(y, 10);
   if (!isNaN(nx) && !isNaN(ny) && String(nx) === String(x).trim() && String(ny) === String(y).trim()) {
     return nx - ny;
@@ -401,15 +399,12 @@ function renderRoster() {
     .filter(m => !q || [m.unit, m.licensee, m.callsign, m.location].join(' ').toLowerCase().includes(q))
     .sort((a, b) => cmp(a, b, sortKey) * sortDir);
 
-  const maxNets = Math.max(1, ...members.map(m => m.nets_attended || 0));
   $('#roster tbody').innerHTML = rows.map(m => `<tr>
     <td class="unit">${esc(m.unit)}</td>
     <td>${esc(m.licensee)}</td>
     <td class="call">${esc(m.callsign)}</td>
     <td>${esc(m.location)}</td>
     <td><span class="pill ${m.tier === 'regular' ? 'regular' : ''}">${esc(m.tier)}</span></td>
-    <td><span class="bar" title="${m.nets_attended || 0} of ${maxNets} nets"><i style="width:${
-      Math.round(100 * (m.nets_attended || 0) / maxNets)}%"></i></span></td>
   </tr>`).join('');
 
   $('#norows').hidden = rows.length > 0;
@@ -504,8 +499,7 @@ Promise.all([
     .map(u => fetch(u).then(r => { if (!r.ok) throw new Error(u); return r.json(); })),
 ])
   .then(([rosterCsv, netdata, att]) => {
-    const counts = new Map((att.units || []).map(u => [u.unit, u.nets_attended]));
-    members = parseRosterCsv(rosterCsv).map(m => ({ ...m, nets_attended: counts.get(m.unit) || 0 }));
+    members = parseRosterCsv(rosterCsv);
     nets = netdata.nets || [];
     renderStats(att.total_nets);
     renderRoster();
