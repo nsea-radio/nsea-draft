@@ -363,6 +363,17 @@
   .form-divider { display: flex; align-items: center; gap: 14px; margin: 30px 0; color: var(--muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; max-width: 640px; }
   .form-divider::before, .form-divider::after { content: ""; flex: 1; height: 1px; background: var(--border); }
   .hp-field { position: absolute; left: -9999px; top: -9999px; opacity: 0; height: 0; width: 0; }
+  .announce-list { list-style: none; margin: 26px 0 0; padding: 0; display: flex; flex-direction: column; gap: 0; }
+  .announce-item { display: grid; grid-template-columns: 150px 1fr; gap: 20px; padding: 20px 0; border-top: 1px solid var(--border); }
+  .announce-item:first-child { border-top: none; padding-top: 4px; }
+  .announce-date { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); padding-top: 3px; }
+  .announce-body h3 { margin: 0 0 6px; font-size: 1.12rem; }
+  .announce-body p { margin: 0; color: var(--muted); }
+  .announce-body p a { color: var(--text); }
+  @media (max-width: 640px) {
+    .announce-item { grid-template-columns: 1fr; gap: 6px; }
+    .announce-date { padding-top: 0; }
+  }
 </style>
 </head>
 <body>
@@ -372,7 +383,7 @@
     <div class="nav-brand"><svg viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="102" fill="none" stroke="#f5a623" stroke-width="12"/><polyline points="6,95 38,95 52,95 62,52 75,126 88,38 102,142 116,48 130,132 144,62 158,116 172,84 186,95 234,95" fill="none" stroke="#f5a623" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/><text x="120" y="186" text-anchor="middle" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-size="68" font-weight="700" letter-spacing="4" class="logo-word">NSEA</text></svg>NSEA</div>
     <div class="nav-right">
       <div class="nav-links" id="nav-links">
-        <a href="#memoriam">In Memoriam</a>
+        <a href="#announcements">Announcements</a>
         <a href="#repeaters">Repeaters</a>
         <a href="#net">Weekly Net</a>
         <a href="roster.html">Roster</a>
@@ -403,16 +414,42 @@
     <div class="hero-ctas">
       <a class="btn btn-primary" href="#membership">Become a Member</a>
       <a class="btn btn-ghost" href="#net">Join the Weekly Net</a>
+      <a class="btn btn-ghost" href="#affiliated">Use NSEA Affiliated Repeaters</a>
     </div>
   </div>
 </header>
 
-<section id="memoriam" style="background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+<section id="announcements" style="background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
   <div class="container" style="padding-top: 32px; padding-bottom: 32px;">
-    <div class="section-label">In Memoriam</div>
-    <h2 style="margin-bottom: 8px;">P. Randell &ldquo;Randy&rdquo; Knowles &mdash; KAA8142</h2>
-    <p class="lead" style="color: var(--muted); font-style: italic; margin-bottom: 10px;">Founding Member, North Shore Emergency Association &middot; 1966&ndash;2026</p>
-    <p class="lead">NSEA founding member and &ldquo;father of GMRS&rdquo; Randy Knowles passed away on August 21st, 2026. <a href="in-memoriam-randy-knowles.html">Read his full tribute &raquo;</a></p>
+    <div class="section-label">Announcements</div>
+    <h2 style="margin-bottom: 4px;">News &amp; Notices</h2>
+
+    <!-- ===================================================================
+         HOW TO ADD AN ANNOUNCEMENT
+         Copy one <li class="announce-item"> block and put it at the TOP of
+         the list. Newest first. Keep datetime="YYYY-MM-DD" accurate - it is
+         what screen readers and search engines read. Remove old entries
+         once they are no longer timely.
+         =================================================================== -->
+    <ul class="announce-list">
+
+      <li class="announce-item">
+        <div class="announce-date"><time datetime="2026-11-02">Ongoing</time></div>
+        <div class="announce-body">
+          <h3>Weekly net &mdash; on the Park Ridge 675 repeater</h3>
+          <p>All licensed GMRS operators are welcome to check in. <a href="#net">Net details and how to participate &raquo;</a></p>
+        </div>
+      </li>
+
+      <li class="announce-item">
+        <div class="announce-date"><time datetime="2026-08-21">Aug 21, 2026</time></div>
+        <div class="announce-body">
+          <h3>In memoriam: P. Randell &ldquo;Randy&rdquo; Knowles &mdash; KAA8142</h3>
+          <p>NSEA founding member and &ldquo;father of GMRS&rdquo; Randy Knowles passed away on August&nbsp;21st,&nbsp;2026. <a href="in-memoriam-randy-knowles.html">Read his full tribute &raquo;</a></p>
+        </div>
+      </li>
+
+    </ul>
   </div>
 </section>
 
@@ -438,7 +475,7 @@
         <div class="specs">
           <div class="row"><span class="k">RX (repeater output)</span><span class="v">462.675 MHz</span></div>
           <div class="row"><span class="k">TX (your input)</span><span class="v">467.675 MHz</span></div>
-          <div class="row"><span class="k">Tone (PL)</span><span class="v soft">contact NSEA for access</span></div>
+          <div class="row"><span class="k">Tone (PL)</span><span class="v soft"><a href="#affiliated">contact NSEA for access</a></span></div>
           <div class="row"><span class="k">Location</span><span class="v">Park Ridge</span></div>
         </div>
         <p>Home of the weekly net — serving the North Shore and surrounding communities.</p>
@@ -449,7 +486,7 @@
         <div class="specs">
           <div class="row"><span class="k">RX (repeater output)</span><span class="v">462.650 MHz</span></div>
           <div class="row"><span class="k">TX (your input)</span><span class="v">467.650 MHz</span></div>
-          <div class="row"><span class="k">Tone (PL)</span><span class="v soft">contact NSEA for access</span></div>
+          <div class="row"><span class="k">Tone (PL)</span><span class="v soft"><a href="#affiliated">contact NSEA for access</a></span></div>
           <div class="row"><span class="k">Location</span><span class="v">Northbrook</span></div>
         </div>
         <p>Serving the North Shore and surrounding communities.</p>
@@ -460,7 +497,7 @@
         <div class="specs">
           <div class="row"><span class="k">RX (repeater output)</span><span class="v">462.700 MHz</span></div>
           <div class="row"><span class="k">TX (your input)</span><span class="v">467.700 MHz</span></div>
-          <div class="row"><span class="k">Tone (PL)</span><span class="v soft">contact NSEA for access</span></div>
+          <div class="row"><span class="k">Tone (PL)</span><span class="v soft"><a href="#affiliated">contact NSEA for access</a></span></div>
           <div class="row"><span class="k">Location</span><span class="v">Evanston</span></div>
         </div>
         <p>Special-event repeater supporting the Evanston Fourth of July Parade and similar local operations.</p>
@@ -471,7 +508,7 @@
         <div class="specs">
           <div class="row"><span class="k">RX (repeater output)</span><span class="v">462.725 MHz</span></div>
           <div class="row"><span class="k">TX (your input)</span><span class="v">467.725 MHz</span></div>
-          <div class="row"><span class="k">Tone (PL)</span><span class="v soft">contact system owner</span></div>
+          <div class="row"><span class="k">Tone (PL)</span><span class="v soft"><a href="#affiliated">request owner contact</a></span></div>
           <div class="row"><span class="k">Location</span><span class="v">Evanston, IL</span></div>
         </div>
         <p>Cooperating Evanston system, operated in coordination with NSEA.</p>
@@ -488,6 +525,71 @@
     </div>
     <p class="legend-hint">Solid dot = approximate repeater site &middot; dashed ring = approximate coverage area &middot; square = meeting location. Click any marker for details.</p>
     <p class="map-note">Repeater positions shown are approximate service areas — exact site locations are not published. Contact <a href="mailto:membership@nsea.com">membership@nsea.com</a> for access and coverage details.</p>
+  </div>
+</section>
+
+<section id="affiliated">
+  <div class="container">
+    <div class="section-label">Access</div>
+    <h2>Use NSEA &amp; Affiliated Repeaters</h2>
+    <p class="lead">NSEA welcomes licensed GMRS operators on our repeater network. Tone (PL) and access details are not published &mdash; send the request below and an NSEA representative will follow up with the information you need.</p>
+    <p class="lead">For the cooperating <strong>Evanston .725</strong> system, NSEA does not administer access directly. Submit the form, select &ldquo;Evanston .725&rdquo;, and we will pass your request to the system owner.</p>
+
+    <form class="app-form" action="https://formsubmit.co/membership@nsea.com" method="POST">
+      <input type="hidden" name="_subject" value="NSEA Affiliated Repeater Access Request">
+      <input type="hidden" name="_cc" value="chuck511@nsea.com">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://nsea-radio.github.io/nsea-draft/thanks.html">
+      <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off">
+
+      <div class="form-row">
+        <div class="field">
+          <label for="r-name">Name <span class="req">*</span></label>
+          <input id="r-name" type="text" name="Name" required>
+        </div>
+        <div class="field">
+          <label for="r-callsign">GMRS Call Sign <span class="req">*</span></label>
+          <input id="r-callsign" type="text" name="Call Sign" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="r-email">Email <span class="req">*</span></label>
+          <input id="r-email" type="email" name="Email" required>
+        </div>
+        <div class="field">
+          <label for="r-phone">Phone</label>
+          <input id="r-phone" type="tel" name="Phone">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field full">
+          <label for="r-repeater">Which repeater(s)? <span class="req">*</span></label>
+          <select id="r-repeater" name="Repeater Requested" required>
+            <option value="">Select a repeater&hellip;</option>
+            <option>NSEA Park Ridge 675 (462.675)</option>
+            <option>NSEA Northbrook 650 (462.650)</option>
+            <option>NSEA Evanston 700 (462.700)</option>
+            <option>Evanston .725 (cooperating system)</option>
+            <option>All NSEA repeaters</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field full">
+          <label for="r-location">Where will you be operating from?</label>
+          <input id="r-location" type="text" name="Operating Location" placeholder="Community or general area">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field full">
+          <label for="r-notes">Anything else we should know?</label>
+          <textarea id="r-notes" name="Notes" placeholder="Intended use, emergency-service affiliation, equipment, etc."></textarea>
+        </div>
+      </div>
+      <button class="btn btn-primary" type="submit">Submit Access Request</button>
+      <p class="form-note">A valid FCC GMRS license is required to transmit on these systems. Requests are reviewed by NSEA leadership; access details are sent by email.</p>
+    </form>
   </div>
 </section>
 
