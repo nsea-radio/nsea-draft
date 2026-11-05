@@ -667,7 +667,7 @@
       <div class="form-row">
         <div class="field full">
           <label for="m-name">Full Name <span class="req">*</span></label>
-          <input id="m-name" type="text" name="entry.90828086" required>
+          <input id="m-name" type="text" name="entry.1314742324" required>
         </div>
       </div>
       <div class="form-row">
@@ -683,7 +683,7 @@
       <div class="form-row">
         <div class="field">
           <label for="m-email">Email <span class="req">*</span></label>
-          <input id="m-email" type="email" name="entry.1099205440" required>
+          <input id="m-email" type="email" name="emailAddress" required>
         </div>
         <div class="field">
           <label for="m-phone">Phone</label>
@@ -890,7 +890,7 @@
         var btn = f.querySelector('button[type="submit"]');
         if (btn) { btn.disabled = true; btn.textContent = 'Submitting…'; }
         var data = new URLSearchParams();
-        new FormData(f).forEach(function (v, k) { if (k.indexOf('entry.') === 0) data.append(k, v); });
+        new FormData(f).forEach(function (v, k) { if (k.indexOf('entry.') === 0 || k === 'emailAddress') data.append(k, v); });
         fetch(f.action, { method: 'POST', mode: 'no-cors', body: data })
           .then(function () { window.location.href = 'thanks.html'; })
           .catch(function () { if (btn) { btn.disabled = false; btn.textContent = 'Try Again'; } });
