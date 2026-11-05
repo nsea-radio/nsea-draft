@@ -264,7 +264,7 @@
 
   /* Repeater spec cards */
   .rptr-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
-  .rptr-head h3 { letter-spacing: 0.01em; }
+  .rptr-head h3 { letter-spacing: 0.01em; white-space: nowrap; }
   .specs { margin-top: 16px; }
   .specs .row {
     display: flex; justify-content: space-between; align-items: baseline;
@@ -374,6 +374,9 @@
   @media (max-width: 640px) {
     .announce-item { grid-template-columns: 1fr; gap: 6px; }
     .announce-date { padding-top: 0; }
+    /* nowrap keeps repeater names on one line on desktop, but would overflow
+       a narrow phone — let them wrap again below 640px */
+    .rptr-head h3 { white-space: normal; }
   }
 </style>
 </head>
@@ -677,8 +680,16 @@
           <input id="m-callsign" type="text" name="entry.485774281" required>
         </div>
         <div class="field">
+          <label for="m-callsign-exp">GMRS License Expires <span class="req">*</span></label>
+          <input id="m-callsign-exp" type="date" data-date-entry="1598323698" required>
+        </div>
+        <div class="field">
           <label for="m-amateur-callsign">Amateur Radio Callsign</label>
           <input id="m-amateur-callsign" type="text" name="entry.164313019">
+        </div>
+        <div class="field">
+          <label for="m-amateur-exp">Amateur License Expires</label>
+          <input id="m-amateur-exp" type="date" data-date-entry="1862480108">
         </div>
       </div>
       <div class="form-row">
@@ -706,7 +717,7 @@
       <div class="form-row">
         <div class="field full">
           <label for="m-message">Anything else we should know?</label>
-          <textarea id="m-message" name="entry.13814045" placeholder="Tell us about your GMRS license, equipment, and how you'd like to participate."></textarea>
+          <textarea id="m-message" name="entry.13814045"></textarea>
         </div>
       </div>
       <button class="btn btn-primary" type="submit">Submit Application</button>
@@ -892,6 +903,18 @@
         if (btn) { btn.disabled = true; btn.textContent = 'Submitting…'; }
         var data = new URLSearchParams();
         new FormData(f).forEach(function (v, k) { if (k.indexOf('entry.') === 0 || k === 'emailAddress') data.append(k, v); });
+        /* Google Forms date questions expect entry.N_year / _month / _day as three
+           separate params — posting an ISO string to entry.N is rejected with a 400,
+           which no-cors hides from us. Split them here. */
+        Array.prototype.forEach.call(f.querySelectorAll('[data-date-entry]'), function (el) {
+          if (!el.value) return;
+          var part = el.value.split('-');
+          if (part.length !== 3) return;
+          var id = 'entry.' + el.getAttribute('data-date-entry');
+          data.append(id + '_year', part[0]);
+          data.append(id + '_month', String(parseInt(part[1], 10)));
+          data.append(id + '_day', String(parseInt(part[2], 10)));
+        });
         fetch(f.action, { method: 'POST', mode: 'no-cors', body: data })
           .then(function () { window.location.href = 'thanks.html'; })
           .catch(function () { if (btn) { btn.disabled = false; btn.textContent = 'Try Again'; } });
