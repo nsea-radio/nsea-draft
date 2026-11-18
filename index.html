@@ -676,24 +676,24 @@
       </div>
       <div class="form-row">
         <div class="field">
-          <label for="m-city">City</label>
-          <input id="m-city" type="text" data-pending-entry="city" autocomplete="address-level2">
+          <label for="m-city">City <span class="req">*</span></label>
+          <input id="m-city" type="text" data-pending-entry="city" autocomplete="address-level2" required>
         </div>
         <div class="field">
-          <label for="m-state">State</label>
-          <input id="m-state" type="text" data-pending-entry="state" autocomplete="address-level1" maxlength="2" placeholder="IL">
+          <label for="m-state">State <span class="req">*</span></label>
+          <input id="m-state" type="text" data-pending-entry="state" autocomplete="address-level1" maxlength="2" placeholder="IL" required>
         </div>
         <div class="field">
           <label for="m-zip">ZIP Code</label>
           <input id="m-zip" type="text" data-pending-entry="zip" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{5}(-[0-9]{4})?" placeholder="60062">
         </div>
       </div>
-      <div class="form-row">
-        <div class="field full">
-          <label for="m-location">Location (City, State)</label>
-          <input id="m-location" type="text" name="entry.1474552151" placeholder="e.g. Evanston, IL">
-        </div>
-      </div>
+      <!-- The Google Form question "City / town" (entry.1474552151) is REQUIRED.
+           Its visible duplicate field was removed per Eric 2026-11-18; the value is
+           now mirrored here from the City and State inputs above. Do not delete this
+           hidden input until that question is made optional or removed on the Form,
+           or every submission will 400 and the visitor will still see the thanks page. -->
+      <input id="m-location" type="hidden" name="entry.1474552151">
       <div class="form-row">
         <div class="field full">
           <label for="m-heard">How did you hear about NSEA?</label>
@@ -929,6 +929,27 @@
         }
       });
     });
+  })();
+</script>
+<script>
+  /* Mirror City + State into the hidden entry.1474552151 field. That Google Form
+     question ("City / town") is still REQUIRED, so something has to post it or the
+     submission is rejected with a 400 that the no-cors POST hides from the visitor.
+     Kept as a live input listener rather than a submit hook so it cannot lose a
+     race with the form handler registered earlier in the page. */
+  (function () {
+    const city = document.getElementById('m-city');
+    const state = document.getElementById('m-state');
+    const out = document.getElementById('m-location');
+    if (!city || !state || !out) return;
+    const sync = function () {
+      const c = city.value.trim();
+      const st = state.value.trim().toUpperCase();
+      out.value = c && st ? c + ', ' + st : (c || st);
+    };
+    city.addEventListener('input', sync);
+    state.addEventListener('input', sync);
+    sync();
   })();
 </script>
 </body>
