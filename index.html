@@ -378,13 +378,14 @@
        a narrow phone — let them wrap again below 640px */
     .rptr-head h3 { white-space: normal; }
   }
+  .nav-brand { color: inherit; text-decoration: none; cursor: pointer; }
 </style>
 </head>
-<body>
+<body id="top">
 
 <nav>
   <div class="nav-inner">
-    <div class="nav-brand"><svg viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="102" fill="none" stroke="#f5a623" stroke-width="12"/><polyline points="6,95 38,95 52,95 62,52 75,126 88,38 102,142 116,48 130,132 144,62 158,116 172,84 186,95 234,95" fill="none" stroke="#f5a623" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/><text x="120" y="186" text-anchor="middle" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-size="68" font-weight="700" letter-spacing="4" class="logo-word">NSEA</text></svg>NSEA</div>
+    <a class="nav-brand" href="#top" aria-label="NSEA home"><svg viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="102" fill="none" stroke="#f5a623" stroke-width="12"/><polyline points="6,95 38,95 52,95 62,52 75,126 88,38 102,142 116,48 130,132 144,62 158,116 172,84 186,95 234,95" fill="none" stroke="#f5a623" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/><text x="120" y="186" text-anchor="middle" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-size="68" font-weight="700" letter-spacing="4" class="logo-word">NSEA</text></svg>NSEA</a>
     <div class="nav-right">
       <div class="nav-links" id="nav-links">
         <a href="#announcements">Announcements</a>
@@ -436,6 +437,14 @@
          once they are no longer timely.
          =================================================================== -->
     <ul class="announce-list">
+
+      <li class="announce-item">
+        <div class="announce-date"><time datetime="2026-12-07">Dec 7, 2026</time></div>
+        <div class="announce-body">
+          <h3>Next membership meeting &mdash; Monday, December 7th</h3>
+          <p>Socializing begins at 6:15&nbsp;PM, remote participants join at 6:45&nbsp;PM, and the meeting starts at 7:00&nbsp;PM at the Northbrook Fire Department Station&nbsp;#11, 740 Dundee Road, Northbrook. <a href="#meetings">Meeting details &raquo;</a></p>
+        </div>
+      </li>
 
       <li class="announce-item">
         <div class="announce-date"><time datetime="2026-11-02">Ongoing</time></div>
@@ -562,24 +571,36 @@
           <input id="r-phone" type="tel" name="entry.1775436204">
         </div>
       </div>
+      <!-- ADDRESS BLOCK - NOT YET WIRED TO THE GOOGLE FORM.
+           These inputs deliberately have NO name= attribute. The submit handler
+           only posts keys beginning "entry.", so these are ignored and no data is
+           silently dropped. TO ACTIVATE: create the matching questions on the
+           Google Form, then swap each data-pending-entry="x" for name="entry.<id>".
+           Until then this block is display-only. -->
       <div class="form-row">
         <div class="field full">
-          <label>Which repeater(s)? <span class="req">*</span></label>
-          <label><input type="checkbox" name="entry.1489460208" value="NSEA Park Ridge 675 (462.675)"> NSEA Park Ridge 675 (462.675)</label>
-          <label><input type="checkbox" name="entry.1489460208" value="NSEA Northbrook 650 (462.650)"> NSEA Northbrook 650 (462.650)</label>
-          <label><input type="checkbox" name="entry.1489460208" value="NSEA Evanston 700 (462.700)"> NSEA Evanston 700 (462.700)</label>
-          <label><input type="checkbox" name="entry.1489460208" value="All NSEA repeaters"> All NSEA repeaters</label>
+          <label for="r-street">Street Address</label>
+          <input id="r-street" type="text" data-pending-entry="street" autocomplete="address-line1">
         </div>
       </div>
       <div class="form-row">
         <div class="field full">
-          <label for="r-member">Are you an NSEA member? <span class="req">*</span></label>
-          <select id="r-member" name="entry.1807114507" required>
-            <option value="">Select one&hellip;</option>
-            <option>Yes</option>
-            <option>No</option>
-            <option>Membership application submitted</option>
-          </select>
+          <label for="r-street2">Apt / Suite / Unit</label>
+          <input id="r-street2" type="text" data-pending-entry="street2" autocomplete="address-line2">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="r-city">City</label>
+          <input id="r-city" type="text" data-pending-entry="city" autocomplete="address-level2">
+        </div>
+        <div class="field">
+          <label for="r-state">State</label>
+          <input id="r-state" type="text" data-pending-entry="state" autocomplete="address-level1" maxlength="2" placeholder="IL">
+        </div>
+        <div class="field">
+          <label for="r-zip">ZIP Code</label>
+          <input id="r-zip" type="text" data-pending-entry="zip" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{5}(-[0-9]{4})?" placeholder="60062">
         </div>
       </div>
       <div class="form-row">
@@ -683,6 +704,8 @@
           <label for="m-callsign-exp">GMRS License Expires <span class="req">*</span></label>
           <input id="m-callsign-exp" type="date" data-date-entry="1598323698" required>
         </div>
+      </div>
+      <div class="form-row">
         <div class="field">
           <label for="m-amateur-callsign">Amateur Radio Callsign</label>
           <input id="m-amateur-callsign" type="text" name="entry.164313019">
@@ -700,6 +723,38 @@
         <div class="field">
           <label for="m-phone">Phone</label>
           <input id="m-phone" type="tel" name="entry.1177589801">
+        </div>
+      </div>
+      <!-- ADDRESS BLOCK - NOT YET WIRED TO THE GOOGLE FORM.
+           These inputs deliberately have NO name= attribute. The submit handler
+           only posts keys beginning "entry.", so these are ignored and no data is
+           silently dropped. TO ACTIVATE: create the matching questions on the
+           Google Form, then swap each data-pending-entry="x" for name="entry.<id>".
+           Until then this block is display-only. -->
+      <div class="form-row">
+        <div class="field full">
+          <label for="m-street">Street Address</label>
+          <input id="m-street" type="text" data-pending-entry="street" autocomplete="address-line1">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field full">
+          <label for="m-street2">Apt / Suite / Unit</label>
+          <input id="m-street2" type="text" data-pending-entry="street2" autocomplete="address-line2">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="m-city">City</label>
+          <input id="m-city" type="text" data-pending-entry="city" autocomplete="address-level2">
+        </div>
+        <div class="field">
+          <label for="m-state">State</label>
+          <input id="m-state" type="text" data-pending-entry="state" autocomplete="address-level1" maxlength="2" placeholder="IL">
+        </div>
+        <div class="field">
+          <label for="m-zip">ZIP Code</label>
+          <input id="m-zip" type="text" data-pending-entry="zip" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{5}(-[0-9]{4})?" placeholder="60062">
         </div>
       </div>
       <div class="form-row">
@@ -726,7 +781,7 @@
 
     <div class="form-divider">or</div>
     <div class="hero-ctas" style="justify-content: flex-start;">
-      <a class="btn btn-ghost" href="http://www.nsea.com/260530%20NSEA%20Application.pdf">Download Paper Application (PDF)</a>
+      <a class="btn btn-ghost" href="https://www.nsea.com/261118%20NSEA%20Application%20Fillable.pdf">Download Fillable Application (PDF)</a>
       <a class="btn btn-ghost" href="mailto:membership@nsea.com">Email membership@nsea.com</a>
     </div>
   </div>
