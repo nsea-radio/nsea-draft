@@ -361,8 +361,6 @@
   .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--amber); }
   .field textarea { resize: vertical; min-height: 110px; }
   .form-note { color: var(--muted); font-size: 0.85rem; margin-top: 14px; }
-  .form-divider { display: flex; align-items: center; gap: 14px; margin: 30px 0; color: var(--muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; max-width: 640px; }
-  .form-divider::before, .form-divider::after { content: ""; flex: 1; height: 1px; background: var(--border); }
   .hp-field { position: absolute; left: -9999px; top: -9999px; opacity: 0; height: 0; width: 0; }
   .announce-list { list-style: none; margin: 26px 0 0; padding: 0; display: flex; flex-direction: column; gap: 0; }
   .announce-item { display: grid; grid-template-columns: 150px 1fr; gap: 20px; padding: 20px 0; border-top: 1px solid var(--border); }
@@ -417,7 +415,7 @@
     <p class="founded">Founded 1966</p>
     <p class="tagline">Public service through <strong>GMRS two-way radio</strong> — serving Northern Illinois and the greater metro Chicago area for nearly 60 years.</p>
     <div class="hero-ctas">
-      <a class="btn btn-primary" href="#membership">Membership & Repeater Access</a>
+      <a class="btn btn-primary" href="#membership">Membership &amp; Access</a>
       <a class="btn btn-ghost" href="#net">Join the Weekly Net</a>
       <a class="btn btn-ghost" href="#affiliated">Use NSEA Affiliated Repeaters</a>
     </div>
@@ -545,79 +543,12 @@
   <div class="container">
     <div class="section-label">Access</div>
     <h2>Use NSEA &amp; Affiliated Repeaters</h2>
-    <p class="lead">NSEA welcomes licensed GMRS operators on our repeater network. Tone (PL) and access details are not published &mdash; send the request below and an NSEA representative will follow up with the information you need.</p>
-    <p class="lead">Access to the cooperating <strong>Evanston .725</strong> system is managed by its system owner and is not covered by this form.</p>
-
-    <form class="app-form" id="access-form" action="https://docs.google.com/forms/d/e/1FAIpQLSeIpKJ9Qo7ig9jgi-GFbvPN9PEFNJq0Wmdf1kXade5zleYNqg/formResponse" method="POST">
-      <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off">
-
-      <div class="form-row">
-        <div class="field">
-          <label for="r-name">Name <span class="req">*</span></label>
-          <input id="r-name" type="text" name="entry.1020324644" required>
-        </div>
-        <div class="field">
-          <label for="r-callsign">GMRS Call Sign <span class="req">*</span></label>
-          <input id="r-callsign" type="text" name="entry.1049908203" required>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="field">
-          <label for="r-email">Email <span class="req">*</span></label>
-          <input id="r-email" type="email" name="entry.1094729697" required>
-        </div>
-        <div class="field">
-          <label for="r-phone">Phone</label>
-          <input id="r-phone" type="tel" name="entry.1775436204">
-        </div>
-      </div>
-      <!-- ADDRESS BLOCK - NOT YET WIRED TO THE GOOGLE FORM.
-           These inputs deliberately have NO name= attribute. The submit handler
-           only posts keys beginning "entry.", so these are ignored and no data is
-           silently dropped. TO ACTIVATE: create the matching questions on the
-           Google Form, then swap each data-pending-entry="x" for name="entry.<id>".
-           Until then this block is display-only. -->
-      <div class="form-row">
-        <div class="field full">
-          <label for="r-street">Street Address</label>
-          <input id="r-street" type="text" data-pending-entry="street" autocomplete="address-line1">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="field full">
-          <label for="r-street2">Apt / Suite / Unit</label>
-          <input id="r-street2" type="text" data-pending-entry="street2" autocomplete="address-line2">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="field">
-          <label for="r-city">City</label>
-          <input id="r-city" type="text" data-pending-entry="city" autocomplete="address-level2">
-        </div>
-        <div class="field">
-          <label for="r-state">State</label>
-          <input id="r-state" type="text" data-pending-entry="state" autocomplete="address-level1" maxlength="2" placeholder="IL">
-        </div>
-        <div class="field">
-          <label for="r-zip">ZIP Code</label>
-          <input id="r-zip" type="text" data-pending-entry="zip" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{5}(-[0-9]{4})?" placeholder="60062">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="field full">
-          <label for="r-location">Where will you be operating from?</label>
-          <input id="r-location" type="text" name="entry.1531707484" placeholder="Community or general area">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="field full">
-          <label for="r-notes">Anything else we should know?</label>
-          <textarea id="r-notes" name="entry.769569918" placeholder="Intended use, emergency-service affiliation, equipment, etc."></textarea>
-        </div>
-      </div>
-      <button class="btn btn-primary" type="submit">Submit Access Request</button>
-      <p class="form-note">A valid FCC GMRS license is required to transmit on these systems. Requests are reviewed by NSEA leadership; access details are sent by email.</p>
-    </form>
+    <p class="lead">NSEA welcomes licensed GMRS operators on our repeater network. Tone (PL) and access details are not published &mdash; request them on the <a href="#membership">Membership &amp; Access form</a> below and an NSEA representative will follow up with the information you need.</p>
+    <p class="lead">Access to the cooperating <strong>Evanston .725</strong> system is managed by its system owner and is not covered by that form.</p>
+    <div class="hero-ctas" style="justify-content: flex-start;">
+      <a class="btn btn-primary" href="#membership">Membership &amp; Access Form</a>
+    </div>
+    <p class="form-note">A valid FCC GMRS license is required to transmit on these systems. Requests are reviewed by NSEA leadership; access details are sent by email.</p>
   </div>
 </section>
 
@@ -683,8 +614,8 @@
 <section id="membership">
   <div class="container">
     <div class="section-label">Get Involved</div>
-    <h2>Membership &amp; Repeater Access</h2>
-    <p class="lead">GMRS licensees: apply for NSEA membership using the form below. To request repeater access, use the <a href="#affiliated">access request form</a>.</p>
+    <h2>Membership &amp; Access</h2>
+    <p class="lead">GMRS licensees: one form covers both. Use it to apply for NSEA membership, to request access to the NSEA repeaters, or both at once.</p>
 
     <form class="app-form" id="membership-form" action="https://docs.google.com/forms/d/e/1FAIpQLSc6y8z493i60g0-k36COZ5Mwt5yUxQV8dyQV5JRRqbnB6jeUQ/formResponse" method="POST">
       <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off">
@@ -722,7 +653,7 @@
         </div>
         <div class="field">
           <label for="m-phone">Phone</label>
-          <input id="m-phone" type="tel" name="entry.1177589801">
+          <input id="m-phone" type="tel" name="entry.1177589801" inputmode="tel" autocomplete="tel" placeholder="(847) 555-0123" maxlength="14">
         </div>
       </div>
       <!-- ADDRESS BLOCK - NOT YET WIRED TO THE GOOGLE FORM.
@@ -775,15 +706,9 @@
           <textarea id="m-message" name="entry.13814045"></textarea>
         </div>
       </div>
-      <button class="btn btn-primary" type="submit">Submit Application</button>
-      <p class="form-note">A current FCC GMRS license is required for NSEA membership. Looking for repeater access only? Use the <a href="#affiliated">access request form</a>.</p>
+      <button class="btn btn-primary" type="submit">Submit</button>
+      <p class="form-note">A current FCC GMRS license is required for NSEA membership and to transmit on NSEA repeaters. Submissions are reviewed by NSEA leadership and answered by email.</p>
     </form>
-
-    <div class="form-divider">or</div>
-    <div class="hero-ctas" style="justify-content: flex-start;">
-      <a class="btn btn-ghost" href="https://www.nsea.com/261118%20NSEA%20Application%20Fillable.pdf">Download Fillable Application (PDF)</a>
-      <a class="btn btn-ghost" href="mailto:membership@nsea.com">Email membership@nsea.com</a>
-    </div>
   </div>
 </section>
 
@@ -976,5 +901,35 @@
     wire('contact-form');
   })();
   </script>
+<script>
+  /* Phone number formatting. US 10-digit numbers are displayed as
+     (847) 555-0123 so the tracker column stays consistent. Anything that
+     is not a plain 10-digit number (a leading +, an extension, letters) is
+     left exactly as typed rather than mangled. Formatting is skipped while
+     the caret is mid-string so editing in place does not jump the cursor. */
+  (function () {
+    const fmt = function (d) {
+      if (!d.length) return '';
+      if (d.length <= 3) return '(' + d;
+      if (d.length <= 6) return '(' + d.slice(0, 3) + ') ' + d.slice(3);
+      return '(' + d.slice(0, 3) + ') ' + d.slice(3, 6) + '-' + d.slice(6, 10);
+    };
+    document.querySelectorAll('input[type="tel"]').forEach(function (el) {
+      el.addEventListener('input', function (e) {
+        const v = el.value;
+        if (/[^0-9()\-. ]/.test(v)) return;
+        if (el.selectionStart !== v.length) return;
+        let d = v.replace(/[^0-9]/g, '');
+        if (d.length > 10) return;
+        if (e.inputType === 'deleteContentBackward' && /[^0-9]$/.test(v)) d = d.slice(0, -1);
+        const out = fmt(d);
+        if (out !== v) {
+          el.value = out;
+          try { el.setSelectionRange(out.length, out.length); } catch (err) {}
+        }
+      });
+    });
+  })();
+</script>
 </body>
 </html>
