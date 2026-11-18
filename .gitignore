@@ -4,3 +4,4 @@ tools/*.csv
 
 # Python build cache
 __pycache__/
+.DS_Store
